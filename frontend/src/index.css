@@ -1,0 +1,160 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
+@import "tailwindcss";
+
+
+:root {
+  --primary: #14B86D; /* Logo Green */
+  --primary-light: #18d37d;
+  --primary-dark: #0f8f54;
+  --secondary: #4D4D4D; /* Logo Charcoal */
+  --accent: #808080; /* Logo Grey */
+  --bg: #F9FAFB;
+  --text-dark: #333333;
+  --text-light: #FDFBF7;
+  --white: #FFFFFF;
+  --shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Outfit', sans-serif;
+  background-color: var(--bg);
+  color: var(--text-dark);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Outfit', sans-serif; /* Switched to Outfit for a cleaner modern look matching logo */
+  font-weight: 700;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: var(--transition);
+}
+
+ul {
+  list-style: none;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  font-family: inherit;
+  transition: var(--transition);
+}
+
+.btn {
+  padding: 12px 28px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-primary {
+  background-color: var(--primary);
+  color: var(--white);
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-light);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(20, 184, 109, 0.3);
+}
+
+.btn-secondary {
+  background-color: var(--secondary);
+  color: var(--white);
+}
+
+.btn-secondary:hover {
+  background-color: #333;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 15px;
+  }
+  .section-padding {
+    padding: 50px 0;
+  }
+}
+
+.highlight {
+  color: var(--primary) !important;
+}
+
+/* Scrollbar Customization */
+::-webkit-scrollbar {
+  width: 8px;
+}
+.whatsapp-float {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background-color: #25d366;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  font-weight: 700;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  z-index: 1000;
+  transition: var(--transition);
+}
+
+.whatsapp-float img {
+  width: 24px;
+  height: 24px;
+}
+
+.whatsapp-float:hover {
+  transform: translateY(-5px) scale(1.05);
+  background-color: #20ba5a;
+}
+
+@media (max-width: 768px) {
+  .whatsapp-float span {
+    display: none;
+  }
+  .whatsapp-float {
+    padding: 12px;
+    border-radius: 50%;
+  }
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-dark);
+}

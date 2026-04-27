@@ -1,0 +1,133 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 12px 0;
+  z-index: 1000;
+  background: var(--white);
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo-link {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-logo {
+  height: 50px; /* Adjust based on logo proportions */
+  width: auto;
+  transition: var(--transition);
+}
+
+.navbar.scrolled .navbar-logo {
+  height: 40px;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.nav-links a {
+  font-weight: 500;
+  font-size: 0.95rem;
+  position: relative;
+  color: var(--text-dark);
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--secondary);
+  transition: var(--transition);
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+  width: 100%;
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.user-profile {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.user-name {
+  font-weight: 600;
+  color: var(--primary);
+  font-size: 0.95rem;
+}
+
+.btn-outline {
+  border: 1px solid var(--secondary);
+  color: var(--secondary);
+  background: transparent;
+}
+
+.btn-outline:hover {
+  background: var(--secondary);
+  color: var(--white);
+}
+
+.mobile-menu-btn {
+  display: none;
+  background: transparent;
+  color: var(--primary);
+}
+
+@media (max-width: 992px) {
+  .mobile-menu-btn {
+    display: block;
+    cursor: pointer;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: var(--white);
+    flex-direction: column;
+    padding: 30px;
+    gap: 25px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    transform: translateY(-150%);
+    transition: var(--transition);
+    z-index: -1;
+  }
+
+  .nav-links.active {
+    transform: translateY(0);
+  }
+
+  .nav-actions {
+    flex-direction: column;
+    width: 100%;
+    gap: 15px;
+  }
+
+  .nav-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
