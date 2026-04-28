@@ -32,4 +32,9 @@ export const bookingAPI = {
   getMyBookings: () => api.get('/bookings/my-bookings'),
 };
 
+export const paymentAPI = {
+  createOrder: (paymentData) => api.post('/payment/create-order', paymentData),
+  verifyPayment: (paymentData) => api.post('/payment/verify-payment', paymentData),
+};
+
 export default api;

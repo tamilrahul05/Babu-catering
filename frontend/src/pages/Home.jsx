@@ -9,7 +9,7 @@ import Gallery from '../components/Gallery';
 
 const Home = () => {
   return (
-    <main className="bg-white">
+    <main className="bg-zinc-950">
       <Hero />
       <Stats />
       <PackageList />

@@ -13,28 +13,44 @@ const WhyChooseUs = () => {
   ];
 
   return (
-    <section className="py-32 bg-white px-6">
-      <div className="max-w-7xl mx-auto">
+    <section className="py-32 bg-zinc-950 px-6 relative overflow-hidden">
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-amber-500 rounded-full -[150px] opacity-10 pointer-events-none"></div>
+
+      <div className="max-w-7xl mx-auto relative z-10">
         <div className="text-center mb-20">
-          <span className="text-emerald-600 font-bold tracking-widest uppercase text-sm block mb-4">The Babu Advantage</span>
-          <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-6">Why We Are <span className="text-emerald-600">Preferred</span></h2>
+          <motion.span 
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            className="inline-block py-2 px-6 rounded-full bg-amber-500/10 text-amber-500 font-bold tracking-[0.2em] uppercase text-xs mb-6  border border-amber-500/20"
+          >
+            The Babu Advantage
+          </motion.span>
+          <motion.h2 
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1 }}
+            className="text-4xl md:text-5xl font-black text-white mb-6"
+          >
+            Why We Are <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 to-amber-600">Preferred</span>
+          </motion.h2>
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {features.map((item, i) => (
             <motion.div 
               key={i}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.1 }}
-              whileHover={{ y: -10 }}
-              className="p-10 rounded-[2.5rem] bg-slate-50 border border-slate-100 hover:bg-white hover:shadow-2xl hover:shadow-slate-200 transition-all group"
+              transition={{ delay: i * 0.1, duration: 0.5 }}
+            className="p-10 rounded-sm bg-zinc-900/80 border border-zinc-800  transition-all duration-300 group relative overflow-hidden"
             >
-              <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center text-emerald-600 mb-8 shadow-sm group-hover:bg-emerald-500 group-hover:text-white transition-all duration-500">
-                {item.icon}
+              <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-amber-500/5 to-transparent rounded-bl-[3rem] opacity-0 transition-opacity duration-500 pointer-events-none"></div>
+              
+              <div className="w-16 h-16 bg-zinc-800 border border-zinc-700/50 rounded-sm flex items-center justify-center text-amber-500 mb-8  transition-all duration-500 transform relative z-10">
+                {React.cloneElement(item.icon, { className: 'inherit' })}
               </div>
-              <h3 className="text-2xl font-bold text-slate-900 mb-4">{item.title}</h3>
-              <p className="text-slate-500 leading-relaxed text-lg">{item.desc}</p>
+              <h3 className="text-2xl font-extrabold text-white mb-4 transition-colors relative z-10">{item.title}</h3>
+              <p className="text-zinc-400 font-medium leading-relaxed relative z-10">{item.desc}</p>
             </motion.div>
           ))}
         </div>

@@ -20,14 +20,36 @@ const Menu = () => {
   // Individual dishes for "Build Your Own Plate"
   const dishDatabase = {
     Veg: [
-      { id: 101, name: 'Traditional Ponni Rice', img: 'https://images.unsplash.com/photo-1516684732162-798a0062be99?w=400' },
-      { id: 102, name: 'Spicy Sambar', img: 'https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=400' },
-      { id: 103, name: 'Garlic Rasam', img: 'https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=400' },
-      { id: 104, name: 'Carrot Poriyal', img: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400' },
-      { id: 105, name: 'Gobi Manchurian', img: 'https://images.unsplash.com/photo-1626074353765-517a681e40be?w=400' },
-      { id: 106, name: 'Elaneer Payasam', img: 'https://images.unsplash.com/photo-1589119908995-c6837fa14848?w=400' },
-      { id: 107, name: 'Curd / Buttermilk', img: 'https://images.unsplash.com/photo-1552689486-f6773047d19f?w=400' },
-      { id: 108, name: 'Assorted Pickle', img: 'https://images.unsplash.com/photo-1589119908995-c6837fa14848?w=400' }
+      { id: 101, name: 'Malai raj bhog', img: 'https://images.unsplash.com/photo-1605197136069-b50a30b80907?w=400' },
+      { id: 102, name: 'Badam halwa', img: 'https://images.unsplash.com/photo-1579618197723-cd8e7884ff26?w=400' },
+      { id: 103, name: 'Suzhiyan', img: 'https://images.unsplash.com/photo-1628243431610-85f094eb7ee7?w=400' },
+      { id: 104, name: 'Adai pradhaman', img: 'https://images.unsplash.com/photo-1596568359542-a89c3140b284?w=400' },
+      { id: 105, name: 'Aval payasam', img: 'https://images.unsplash.com/photo-1605197136364-44bfa28dd534?w=400' },
+      { id: 106, name: 'Gobi 65', img: 'https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?w=400' },
+      { id: 107, name: 'Parvan paneer', img: 'https://images.unsplash.com/photo-1631452180519-c014fe946bc0?w=400' },
+      { id: 108, name: 'Vendakai cashew fry', img: 'https://images.unsplash.com/photo-1601050690597-df0568f70950?w=400' },
+      { id: 109, name: 'Pineapple pachadi', img: 'https://images.unsplash.com/photo-1582570977234-7a36f8da75c7?w=400' },
+      { id: 110, name: 'Coconut tomato pachadi', img: 'https://images.unsplash.com/photo-1546833998-877b37c2e5c6?w=400' },
+      { id: 111, name: 'Gongura pachadi', img: 'https://images.unsplash.com/photo-1606491956689-2ea866880c84?w=400' },
+      { id: 112, name: 'Raitha', img: 'https://images.unsplash.com/photo-1552689486-f6773047d19f?w=400' },
+      { id: 113, name: 'Potato double beans poriyal', img: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400' },
+      { id: 114, name: 'Stuffed brinjal curry', img: 'https://images.unsplash.com/photo-1626777552726-4a6b54c97e46?w=400' },
+      { id: 115, name: 'Aviyal', img: 'https://images.unsplash.com/photo-1589119908995-c6837fa14848?w=400' },
+      { id: 116, name: 'Potato chips', img: 'https://images.unsplash.com/photo-1566478989037-e924e50cb7d1?w=400' },
+      { id: 117, name: 'Vadaam', img: 'https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=400' },
+      { id: 118, name: 'More milagai', img: 'https://images.unsplash.com/photo-1600289031464-74d374b64991?w=400' },
+      { id: 119, name: 'Mango pickle', img: 'https://images.unsplash.com/photo-1586511925558-a4ba62bb0d7b?w=400' },
+      { id: 120, name: 'Thick curd', img: 'https://images.unsplash.com/photo-1605295982823-38038f8dbca5?w=400' },
+      { id: 121, name: 'Delhi spl curd vadai bhoondi', img: 'https://images.unsplash.com/photo-1589201582260-ebfa332617f6?w=400' },
+      { id: 122, name: 'Methi chamman stuffed parotta', img: 'https://images.unsplash.com/photo-1604908177453-7462950a6a3b?w=400' },
+      { id: 123, name: 'Coconut pulav', img: 'https://images.unsplash.com/photo-1516684732162-798a0062be99?w=400' },
+      { id: 124, name: 'Puliyodharai', img: 'https://images.unsplash.com/photo-1596797038530-2c107229654b?w=400' },
+      { id: 125, name: 'White rice', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/White_rice_in_bowl.jpg/400px-White_rice_in_bowl.jpg' },
+      { id: 126, name: 'Kadhamba sambhar', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Sambar_in_a_copper_kadai.jpg/400px-Sambar_in_a_copper_kadai.jpg' },
+      { id: 127, name: 'Vathakuzhambu', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Vathal_Kuzhambu.jpg/400px-Vathal_Kuzhambu.jpg' },
+      { id: 128, name: 'Rasam', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Rasam_South_Indian_Soup.jpg/400px-Rasam_South_Indian_Soup.jpg' },
+      { id: 129, name: 'More kulambu', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Morkuzhambu.jpg/400px-Morkuzhambu.jpg' },
+      { id: 130, name: 'Appalam', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Papads.jpg/400px-Papads.jpg' }
     ],
     'Non-Veg': [
       { id: 201, name: 'Seeraga Samba Mutton Biryani', img: 'https://images.unsplash.com/photo-1563379091339-03b21bc4a4f8?w=400' },
@@ -70,7 +92,7 @@ const Menu = () => {
   };
 
   return (
-    <div className="bg-white min-h-screen">
+    <div className="bg-zinc-950 min-h-screen">
       <AnimatePresence mode="wait">
         {!categoryId ? (
           <div key="selection-view" className="flex flex-col">

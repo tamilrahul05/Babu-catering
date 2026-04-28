@@ -1,55 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Camera, Play, Maximize2 } from 'lucide-react';
-import './Gallery.css';
-import meal1 from '../assets/images/featured_meal.jpg';
-import hero from '../assets/images/hero.png';
+import { Camera } from 'lucide-react';
 import promoVideo from '../assets/video1.mp4';
 import promoVideo2 from '../assets/video2.mp4';
-
-const Gallery = () => {
-  return (
-    <section className="gallery-section section-padding">
-      <div className="container">
-        <div className="video-highlight section-padding">
-          <div className="section-header">
-            <h2>Our <span className="highlight">Event Highlights</span></h2>
-            <p>Watch our premium catering service in action across different venues.</p>
-          </div>
-          
-          <div className="video-grid">
-            <div className="video-card">
-              <div className="video-wrapper">
-                <video src={promoVideo} autoPlay muted loop playsInline className="main-promo-video"></video>
-                <div className="video-tag">Wedding Gala</div>
-              </div>
-              <div className="video-details">
-                <h3>Grand Wedding Service</h3>
-                <p>Experience the luxury of our full-service wedding catering.</p>
-              </div>
-            </div>
-
-            <div className="video-card">
-              <div className="video-wrapper">
-                <video src={promoVideo2} autoPlay muted loop playsInline className="main-promo-video"></video>
-                <div className="video-tag">Corporate Event</div>
-              </div>
-              <div className="video-details">
-                <h3>Premium Corporate Buffet</h3>
-                <p>Professional catering solutions for corporate gatherings and seminars.</p>
-              </div>
-            </div>
-          </div>
-
-          <div className="insta-footer-cta">
-            <a href="https://www.instagram.com/babucatering/" target="_blank" rel="noopener noreferrer" className="btn btn-secondary">
-              <Camera size={20} /> View More Reels on Instagram
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-};
-
-export default Gallery;
+import promoVideo3 from '../assets/video3.mp4'; const Gallery = () => { return ( <section className="py-32 bg-zinc-950 px-6 relative overflow-hidden"> <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-[600px] bg-gradient-to-r from-amber-500/10 to-yellow-500/10 -[150px] pointer-events-none skew-y-12"></div> <div className="max-w-7xl mx-auto relative z-10"> <div className="text-center mb-24"> <motion.span initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} className="inline-block py-1.5 px-6 rounded-full bg-amber-500/10 text-amber-500 font-bold tracking-[0.3em] uppercase text-xs mb-6 border border-amber-500/20" > Our Gallery </motion.span> <motion.h2 initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="text-4xl md:text-6xl font-black text-white mb-6" > Event <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-yellow-500 to-amber-600 italic">Highlights</span> </motion.h2> <motion.p initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="text-lg text-zinc-400 max-w-2xl mx-auto font-medium" > Watch our premium catering service in action across different stunning venues. </motion.p> </div> <div className="grid grid-cols-1 lg:grid-cols-3 gap-8"> {/* Video 1 */} <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} className="group bg-zinc-900 rounded-sm p-4 border border-zinc-800 transition-all duration-500 flex flex-col" > <div className="relative w-full h-[300px] xl:h-[350px] rounded-[2rem] overflow-hidden bg-zinc-800 mb-6"> <video src={promoVideo} autoPlay muted loop playsInline className="w-full h-full object-cover transition-opacity duration-500 transform"></video> <div className="absolute top-6 left-6 bg-zinc-900/90 px-4 py-1.5 rounded-full text-xs font-bold text-amber-500 tracking-widest uppercase border border-zinc-700"> Wedding Gala </div> </div> <div className="px-6 pb-6 flex-1 flex flex-col"> <h3 className="text-2xl font-extrabold text-white mb-3 transition-colors">Grand Wedding Service</h3> <p className="text-zinc-400 font-medium leading-relaxed">Experience the luxury of our full-service wedding catering, where every detail is perfected for your special day.</p> </div> </motion.div> {/* Video 2 */} <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="group bg-zinc-900 rounded-sm p-4 border border-zinc-800 transition-all duration-500 flex flex-col" > <div className="relative w-full h-[300px] xl:h-[350px] rounded-[2rem] overflow-hidden bg-zinc-800 mb-6"> <video src={promoVideo2} autoPlay muted loop playsInline className="w-full h-full object-cover transition-opacity duration-500 transform"></video> <div className="absolute top-6 left-6 bg-zinc-900/90 px-4 py-1.5 rounded-full text-xs font-bold text-amber-500 tracking-widest uppercase border border-zinc-700"> Corporate Event </div> </div> <div className="px-6 pb-6 flex-1 flex flex-col"> <h3 className="text-2xl font-extrabold text-white mb-3 transition-colors">Premium Corporate Buffet</h3> <p className="text-zinc-400 font-medium leading-relaxed">Professional catering solutions designed for high-end corporate gatherings and exclusive seminars.</p> </div> </motion.div> {/* Video 3 */} <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="group bg-zinc-900 rounded-sm p-4 border border-zinc-800 transition-all duration-500 flex flex-col" > <div className="relative w-full h-[300px] xl:h-[350px] rounded-[2rem] overflow-hidden bg-zinc-800 mb-6"> <video src={promoVideo3} autoPlay muted loop playsInline className="w-full h-full object-cover transition-opacity duration-500 transform"></video> <div className="absolute top-6 left-6 bg-zinc-900/90 px-4 py-1.5 rounded-full text-xs font-bold text-amber-500 tracking-widest uppercase border border-zinc-700"> Festive Celebration </div> </div> <div className="px-6 pb-6 flex-1 flex flex-col"> <h3 className="text-2xl font-extrabold text-white mb-3 transition-colors">Grand Festive Feast</h3> <p className="text-zinc-400 font-medium leading-relaxed">Authentic traditional delicacies prepared specially for monumental family celebrations and festivals.</p> </div> </motion.div> </div> <div className="mt-20 text-center"> <a href="https://www.instagram.com/babucatering/" target="_blank" rel="noopener noreferrer"> <button className="inline-flex items-center gap-3 bg-gradient-to-r from-zinc-800 to-zinc-900 text-white px-8 py-4 rounded-full font-bold text-lg border border-zinc-700/50 transition-all duration-300"> <Camera size={20} /> View More Reels on Instagram </button> </a> </div> </div> </section> );
+}; export default Gallery;
