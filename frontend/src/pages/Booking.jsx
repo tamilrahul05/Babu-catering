@@ -130,11 +130,11 @@ const Booking = () => {
 
   return (
     <div className="min-h-[calc(100vh-80px)] bg-zinc-950 text-white font-inter pb-20">
-      <header className="text-center pt-32 pb-16 mb-8 relative">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-96 bg-amber-500/10 rounded-full -[100px] pointer-events-none"></div>
+      <header className="text-center pt-24 md:pt-32 pb-12 md:pb-16 mb-4 md:mb-8 relative">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-72 h-72 md:w-96 md:h-96 bg-amber-500/10 rounded-full -[100px] pointer-events-none"></div>
         <div className="max-w-7xl mx-auto px-6 relative z-10">
-          <h1 className="text-4xl md:text-5xl font-black mb-4">Finalize your <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 to-amber-600 italic">Booking</span></h1>
-          <p className="text-zinc-400 text-lg">Complete the details below to reserve your date.</p>
+          <h1 className="text-3xl md:text-5xl font-black mb-4">Finalize your <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 to-amber-600 italic">Booking</span></h1>
+          <p className="text-zinc-400 text-base md:text-lg">Complete the details below to reserve your date.</p>
         </div>
       </header>
 

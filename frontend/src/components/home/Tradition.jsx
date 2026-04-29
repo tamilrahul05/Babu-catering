@@ -66,7 +66,7 @@ const Tradition = () => {
             <img 
               src={featuredMeal} 
               alt="Traditional South Indian Feast" 
-              className="rounded-sm w-full h-[600px] object-cover border border-zinc-700/50 " 
+              className="rounded-sm w-full h-[350px] md:h-[500px] lg:h-[600px] object-cover border border-zinc-700/50 " 
             />
           </div>
         </motion.div>

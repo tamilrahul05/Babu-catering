@@ -38,85 +38,96 @@ const LeafShowcase = ({ showLeafPreview, setShowLeafPreview, categoryId, selecte
             </div>
             
             {/* The Banana Leaf Serving Area */}
-            <div className="relative w-full max-w-[1200px] flex-1 min-h-0 flex items-center justify-center overflow-hidden my-2 md:my-4 rounded-[3rem] shadow-[0_20px_50px_rgba(0,0,0,0.8)] border border-zinc-800">
+            <div className="relative w-full max-w-[1200px] flex-1 min-h-0 flex items-center justify-center overflow-hidden my-4 md:my-6 rounded-[2.5rem] md:rounded-[3rem] shadow-[0_30px_60px_rgba(0,0,0,0.9)] border border-white/5 bg-zinc-900/50">
               
-              {/* Ultra-Realistic Banana Leaf Background from Image */}
+              {/* Ultra-Realistic Banana Leaf Background */}
               <div className="absolute inset-0 z-0">
                 <img 
                   src={valaiIlaiBg} 
                   alt="Valai Ilai Setup" 
-                  className="w-full h-full object-cover" 
+                  className="w-full h-full object-cover scale-105 md:scale-100" 
                 />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/20"></div>
               </div>
               
-              {/* Food Items Container - Flowing horizontally across the leaf */}
-              <div className="relative z-10 flex flex-wrap justify-center items-center content-center gap-6 md:gap-10 w-full max-w-5xl h-full mx-auto px-10 py-12">
-                {selectedItems.map((item, idx) => {
-                  // Stagger the items up and down to create a natural, organic arrangement
-                  const isEven = idx % 2 === 0;
-                  return (
-                    <motion.div 
-                      key={item.id} 
-                      initial={{ opacity: 0, scale: 0, y: isEven ? -20 : 20 }}
-                      animate={{ opacity: 1, scale: 1, y: isEven ? -10 : 10 }}
-                      transition={{ delay: 0.3 + (idx * 0.1), type: "spring", stiffness: 200, damping: 20 }}
-                      className="flex flex-col items-center gap-2 group"
-                    >
-                      {/* Organic Food Scoop / Dollop Style directly on leaf */}
-                      <div 
-                        className="w-20 h-20 md:w-28 md:h-28 overflow-hidden shadow-[8px_12px_20px_rgba(0,30,0,0.7)] transition-all duration-300 relative"
-                        style={{
-                          borderRadius: isEven ? '60% 40% 30% 70% / 60% 30% 70% 40%' : '40% 60% 70% 30% / 50% 60% 30% 60%'
-                        }}
+              {/* Food Items Container */}
+              <div className="relative z-10 w-full h-full overflow-y-auto md:overflow-hidden py-10 px-6 md:px-12 scrollbar-hide">
+                <div className="flex flex-wrap justify-center items-center content-center gap-4 md:gap-10 min-h-full">
+                  {selectedItems.map((item, idx) => {
+                    const isEven = idx % 2 === 0;
+                    return (
+                      <motion.div 
+                        key={item.id} 
+                        initial={{ opacity: 0, scale: 0, y: isEven ? -20 : 20 }}
+                        animate={{ opacity: 1, scale: 1, y: isEven ? -8 : 8 }}
+                        transition={{ delay: 0.1 + (idx * 0.05), type: "spring", stiffness: 260, damping: 20 }}
+                        className="flex flex-col items-center gap-2 md:gap-3 group"
                       >
-                        <img src={item.img} alt={item.name} className="w-full h-full object-cover relative z-0 transform scale-[1.15]" />
-                        <div className="absolute inset-0 shadow-[inset_0_0_20px_rgba(0,0,0,0.4)] pointer-events-none rounded-full"></div>
-                      </div>
-                      
-                      {/* Premium Label - Subtle */}
-                      <span className="text-white text-[10px] md:text-xs font-bold tracking-wide text-center px-3 py-1 bg-black/50 rounded-sm backdrop-blur-md max-w-[100px] md:max-w-[120px] truncate shadow-[0_4px_10px_rgba(0,0,0,0.5)]">
-                        {item.name}
-                      </span>
-                    </motion.div>
-                  );
-                })}
+                        {/* Organic Food Scoop */}
+                        <div 
+                          className="w-16 h-16 sm:w-20 sm:h-20 md:w-28 md:h-28 overflow-hidden shadow-[4px_8px_15px_rgba(0,20,0,0.6)] transition-all duration-300 relative border border-white/10 group-hover:scale-110 group-hover:shadow-amber-500/10"
+                          style={{
+                            borderRadius: isEven ? '60% 40% 30% 70% / 60% 30% 70% 40%' : '40% 60% 70% 30% / 50% 60% 30% 60%'
+                          }}
+                        >
+                          <img src={item.img} alt={item.name} className="w-full h-full object-cover relative z-0 transform scale-[1.2]" />
+                          <div className="absolute inset-0 shadow-[inset_0_0_15px_rgba(0,0,0,0.5)] pointer-events-none rounded-full"></div>
+                        </div>
+                        
+                        {/* Item Label */}
+                        <span className="text-white text-[9px] md:text-xs font-bold tracking-wider text-center px-2.5 py-1 bg-black/60 rounded-full backdrop-blur-md max-w-[80px] md:max-w-[120px] truncate shadow-lg border border-white/5">
+                          {item.name}
+                        </span>
+                      </motion.div>
+                    );
+                  })}
+                </div>
               </div>
             </div>
 
-            {/* Floating Glassmorphic Action Bar at Bottom */}
-            <div className="mt-auto bg-black/80 backdrop-blur-xl border border-white/10 rounded-full px-6 py-3 flex items-center justify-between gap-4 md:gap-6 shadow-[0_20px_50px_rgba(0,0,0,0.8)] relative z-20 w-full max-w-5xl flex-shrink-0">
+            {/* Bottom Action Bar */}
+            <div className="mt-4 md:mt-8 bg-zinc-900/90 backdrop-blur-2xl border border-white/10 rounded-3xl md:rounded-full px-5 py-4 md:px-8 md:py-4 flex flex-col sm:flex-row items-center justify-between gap-5 shadow-2xl relative z-20 w-full max-w-5xl flex-shrink-0 mb-4">
               
-              <div className="text-left flex items-center gap-4 border-r border-zinc-800 pr-4 md:pr-6 hidden sm:block">
+              <div className="flex items-center justify-between w-full sm:w-auto sm:gap-8 sm:border-r sm:border-zinc-800 sm:pr-8">
                 <div>
-                  <span className="text-[10px] font-bold text-zinc-400 uppercase tracking-[0.2em] block">Plate Value</span>
-                  <div className="text-xl md:text-2xl font-black text-amber-500 tracking-tighter">
+                  <span className="text-[9px] md:text-[10px] font-bold text-zinc-500 uppercase tracking-[0.2em] block">Curated Plate Value</span>
+                  <div className="text-xl md:text-3xl font-black text-amber-500 tracking-tighter">
                     ₹{selectedItems.length * 50} <span className="text-[10px] md:text-xs text-zinc-500 font-bold uppercase ml-1">/ plate</span>
                   </div>
                 </div>
+                
+                <div className="flex items-center gap-2 sm:hidden">
+                  <button className="p-2.5 bg-zinc-800 text-amber-500 rounded-xl border border-zinc-700" aria-label="Share">
+                    <Share2 size={18} />
+                  </button>
+                  <button className="p-2.5 bg-zinc-800 text-amber-500 rounded-xl border border-zinc-700" aria-label="Download">
+                    <Download size={18} />
+                  </button>
+                </div>
               </div>
 
-              {/* Utility Actions */}
-              <div className="flex items-center gap-2">
+              {/* Utility Actions (Desktop Only or merged on mobile) */}
+              <div className="hidden sm:flex items-center gap-3">
                 <button 
                   onClick={() => setShowLeafPreview(false)}
-                  className="flex items-center gap-2 px-4 py-2 bg-zinc-900 hover:bg-zinc-800 text-white rounded-full text-sm font-bold transition-colors border border-zinc-800"
+                  className="flex items-center gap-2 px-5 py-2.5 bg-zinc-800 hover:bg-zinc-700 text-white rounded-full text-sm font-bold transition-all border border-zinc-700"
                 >
-                  <Edit2 size={14} className="text-amber-500" /> Edit Plating
+                  <Edit2 size={14} className="text-amber-500" /> Adjust Items
                 </button>
-                <button className="flex items-center justify-center w-10 h-10 bg-zinc-900 hover:bg-zinc-800 text-amber-500 rounded-full transition-colors border border-zinc-800">
-                  <Share2 size={16} />
+                <button className="flex items-center justify-center w-11 h-11 bg-zinc-800 hover:bg-zinc-700 text-amber-500 rounded-full transition-all border border-zinc-700">
+                  <Share2 size={18} />
                 </button>
-                <button className="flex items-center justify-center w-10 h-10 bg-zinc-900 hover:bg-zinc-800 text-amber-500 rounded-full transition-colors border border-zinc-800">
-                  <Download size={16} />
+                <button className="flex items-center justify-center w-11 h-11 bg-zinc-800 hover:bg-zinc-700 text-amber-500 rounded-full transition-all border border-zinc-700">
+                  <Download size={18} />
                 </button>
               </div>
 
               {/* Main CTA */}
               <button 
                 onClick={handleBooking}
-                className="bg-amber-500 text-black px-6 md:px-8 py-2 md:py-3 rounded-full font-black text-base md:text-lg flex items-center justify-center gap-2 md:gap-3 transition-all duration-300 shadow-[0_10px_20px_rgba(212,175,55,0.3)] whitespace-nowrap ml-auto"
+                className="w-full sm:w-auto bg-gradient-to-r from-amber-400 to-amber-600 hover:from-amber-500 hover:to-amber-700 text-black px-8 md:px-10 py-4 md:py-4 rounded-2xl md:rounded-full font-black text-base md:text-lg flex items-center justify-center gap-3 transition-all duration-300 shadow-xl shadow-amber-500/20 active:scale-95"
               >
-                Book Now <ChevronRight size={18} />
+                Book Your Feast <ChevronRight size={20} />
               </button>
             </div>
           </motion.div>
