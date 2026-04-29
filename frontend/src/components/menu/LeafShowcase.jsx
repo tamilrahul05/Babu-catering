@@ -70,7 +70,15 @@ const LeafShowcase = ({ showLeafPreview, setShowLeafPreview, categoryId, selecte
                             borderRadius: isEven ? '60% 40% 30% 70% / 60% 30% 70% 40%' : '40% 60% 70% 30% / 50% 60% 30% 60%'
                           }}
                         >
-                          <img src={item.img} alt={item.name} className="w-full h-full object-cover relative z-0 transform scale-[1.2]" />
+                          <img 
+                            src={item.img} 
+                            alt={item.name} 
+                            onError={(e) => {
+                              e.target.onerror = null; 
+                              e.target.src = 'https://images.unsplash.com/photo-1589119908995-c6837fa14848?w=500&q=80';
+                            }}
+                            className="w-full h-full object-cover relative z-0 transform scale-[1.2]" 
+                          />
                           <div className="absolute inset-0 shadow-[inset_0_0_15px_rgba(0,0,0,0.5)] pointer-events-none rounded-full"></div>
                         </div>
                         
