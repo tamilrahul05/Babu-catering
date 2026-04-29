@@ -23,32 +23,32 @@ const Menu = () => {
       { id: 101, name: 'Malai raj bhog', img: 'https://images.unsplash.com/photo-1589119908995-c6837fa14848?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60' },
       { id: 102, name: 'Badam halwa', img: 'https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60' },
       { id: 103, name: 'Suzhiyan', img: 'https://images.unsplash.com/photo-1596797038530-2c107229654b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60' },
-      { id: 104, name: 'Adai pradhaman', img: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60' },
-      { id: 105, name: 'Aval payasam', img: 'https://images.unsplash.com/photo-1605197136364-44bfa28dd534?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60' },
+      { id: 104, name: 'Adai pradhaman', img: 'https://images.unsplash.com/photo-1605197136364-44bfa28dd534?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60' },
+      { id: 105, name: 'Aval payasam', img: 'https://images.unsplash.com/photo-1517244465804-747da2008aa9?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60' },
       { id: 106, name: 'Gobi 65', img: 'https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60' },
       { id: 107, name: 'Parvan paneer', img: 'https://images.unsplash.com/photo-1631452180519-c014fe946bc0?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60' },
-      { id: 108, name: 'Vendakai cashew fry', img: 'https://images.unsplash.com/photo-1601050690597-df0568f70950?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60' },
-      { id: 109, name: 'Pineapple pachadi', img: 'https://images.unsplash.com/photo-1555244162-833832eb1c18?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60' },
-      { id: 110, name: 'Coconut tomato pachadi', img: 'https://images.unsplash.com/photo-1589119908995-c6837fa14848?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60' },
+      { id: 108, name: 'Vendakai cashew fry', img: 'https://images.unsplash.com/photo-1515516969-d4008cc6241a?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60' },
+      { id: 109, name: 'Pineapple pachadi', img: 'https://images.unsplash.com/photo-1588615419843-0808a3d3c7d6?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60' },
+      { id: 110, name: 'Coconut tomato pachadi', img: 'https://images.unsplash.com/photo-1626074353765-517a681e40be?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60' },
       { id: 111, name: 'Gongura pachadi', img: 'https://images.unsplash.com/photo-1606491956689-2ea866880c84?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60' },
-      { id: 112, name: 'Raitha', img: 'https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60' },
-      { id: 113, name: 'Potato double beans poriyal', img: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60' },
+      { id: 112, name: 'Raitha', img: 'https://images.unsplash.com/photo-1601050690597-df0568f70950?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60' },
+      { id: 113, name: 'Potato double beans poriyal', img: 'https://images.unsplash.com/photo-1610192244261-3f33de3f55e4?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60' },
       { id: 114, name: 'Stuffed brinjal curry', img: 'https://images.unsplash.com/photo-1626777552726-4a6b54c97e46?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60' },
-      { id: 115, name: 'Aviyal', img: 'https://images.unsplash.com/photo-1589119908995-c6837fa14848?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60' },
+      { id: 115, name: 'Aviyal', img: 'https://images.unsplash.com/photo-1596797038530-2c107229654b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60' },
       { id: 116, name: 'Potato chips', img: 'https://images.unsplash.com/photo-1566478989037-e924e50cb7d1?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60' },
       { id: 117, name: 'Vadaam', img: 'https://images.unsplash.com/photo-1565557623262-b51c2513a641?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60' },
       { id: 118, name: 'More milagai', img: 'https://images.unsplash.com/photo-1600289031464-74d374b64991?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60' },
-      { id: 119, name: 'Mango pickle', img: 'https://images.unsplash.com/photo-1586511925558-a4ba62bb0d7b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60' },
-      { id: 120, name: 'Thick curd', img: 'https://images.unsplash.com/photo-1605295982823-38038f8dbca5?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60' },
-      { id: 121, name: 'Delhi spl curd vadai bhoondi', img: 'https://images.unsplash.com/photo-1601050690597-df0568f70950?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60' },
+      { id: 119, name: 'Mango pickle', img: 'https://images.unsplash.com/photo-1594432247240-5f2127f8a9e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60' },
+      { id: 120, name: 'Thick curd', img: 'https://images.unsplash.com/photo-1555244162-833832eb1c18?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60' },
+      { id: 121, name: 'Delhi spl curd vadai bhoondi', img: 'https://images.unsplash.com/photo-1625398407796-82650a8c135f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60' },
       { id: 122, name: 'Methi chamman stuffed parotta', img: 'https://images.unsplash.com/photo-1604908177453-7462950a6a3b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60' },
       { id: 123, name: 'Coconut pulav', img: 'https://images.unsplash.com/photo-1516684732162-798a0062be99?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60' },
       { id: 124, name: 'Puliyodharai', img: 'https://images.unsplash.com/photo-1596797038530-2c107229654b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60' },
       { id: 125, name: 'White rice', img: 'https://images.unsplash.com/photo-1591814448473-7052737150a5?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60' },
       { id: 126, name: 'Kadhamba sambhar', img: 'https://images.unsplash.com/photo-1546833998-877b37c2e5c6?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60' },
       { id: 127, name: 'Vathakuzhambu', img: 'https://images.unsplash.com/photo-1606491956689-2ea866880c84?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60' },
-      { id: 128, name: 'Rasam', img: 'https://images.unsplash.com/photo-1546833998-877b37c2e5c6?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60' },
-      { id: 129, name: 'More kulambu', img: 'https://images.unsplash.com/photo-1589119908995-c6837fa14848?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60' },
+      { id: 128, name: 'Rasam', img: 'https://images.unsplash.com/photo-1614398751058-eb2e0bf63e53?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60' },
+      { id: 129, name: 'More kulambu', img: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60' },
       { id: 130, name: 'Appalam', img: 'https://images.unsplash.com/photo-1565557623262-b51c2513a641?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60' }
     ],
     'Non-Veg': [
@@ -61,16 +61,16 @@ const Menu = () => {
     ],
     'Special Event': [
       { id: 301, name: 'Welcome Drink (Rose Milk)', img: 'https://images.unsplash.com/photo-1556679343-c7306c1976bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60' },
-      { id: 302, name: 'Premium Veg Buffet', img: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60' },
+      { id: 302, name: 'Premium Veg Buffet', img: 'https://images.unsplash.com/photo-1610192244261-3f33de3f55e4?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60' },
       { id: 303, name: 'Assorted Sweets (5 types)', img: 'https://images.unsplash.com/photo-1589119908995-c6837fa14848?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60' },
       { id: 304, name: 'Ice Cream Stall', img: 'https://images.unsplash.com/photo-1501443762994-82bd5dabb892?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60' }
     ]
   };
 
   const categoriesConfig = [
-    { id: 'Veg', title: 'Vegetarian Feast', img: 'https://images.unsplash.com/photo-1610192244261-3f33de3f55e4?w=800' },
-    { id: 'Non-Veg', title: 'Non-Veg Delights', img: 'https://images.unsplash.com/photo-1631515243349-e0cb75fb8d3a?w=800' },
-    { id: 'Special Event', title: 'Grand Celebrations', img: 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=800' }
+    { id: 'Veg', title: 'Vegetarian Feast', img: 'https://images.unsplash.com/photo-1610192244261-3f33de3f55e4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=60' },
+    { id: 'Non-Veg', title: 'Non-Veg Delights', img: 'https://images.unsplash.com/photo-1631515243349-e0cb75fb8d3a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=60' },
+    { id: 'Special Event', title: 'Grand Celebrations', img: 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=60' }
   ];
 
   const toggleItem = (item) => {
