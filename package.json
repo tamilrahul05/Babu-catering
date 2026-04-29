@@ -1,0 +1,27 @@
+{
+  "name": "catering",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "frontend": "npm run dev --prefix frontend",
+    "backend": "npm run dev --prefix backend",
+    "dev": "concurrently -n \"FRONTEND,BACKEND\" -c \"cyan,magenta\" \"npm run frontend\" \"npm run backend\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tamilrahul05/Babu-catering.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/tamilrahul05/Babu-catering/issues"
+  },
+  "homepage": "https://github.com/tamilrahul05/Babu-catering#readme",
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  }
+}
