@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 
 const MenuHero = () => {
   return (
-    <section className="relative w-full py-24 md:py-32 bg-zinc-950 flex items-center justify-center overflow-hidden">
+    <section className="relative w-full pt-32 pb-16 md:pt-40 md:pb-24 bg-zinc-950 flex items-center justify-center overflow-hidden">
       {/* Background Image/Pattern */}
       <div className="absolute inset-0 z-0">
         <div 

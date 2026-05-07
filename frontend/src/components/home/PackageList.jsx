@@ -7,15 +7,17 @@ const PackageCard = ({ item, idx }) => {
   const [isLoaded, setIsLoaded] = React.useState(false);
 
   return (
-    <motion.div 
-      initial={{ opacity: 0, y: 30 }} 
-      whileInView={{ opacity: 1, y: 0 }} 
-      transition={{ delay: idx * 0.1, duration: 0.6 }} 
-      viewport={{ once: true }}
-      className={`relative flex flex-col p-8 bg-zinc-900 rounded-[3rem] border transition-all duration-500 group ${
-        item.popular ? 'border-amber-500/40 ring-1 ring-amber-500/10 z-10' : 'border-zinc-800 z-0'
-      } hover:shadow-[0_30px_60px_rgba(0,0,0,0.4)] hover:-translate-y-2`}
-    >
+    <div className="relative group/card">
+      <motion.div 
+        initial={{ opacity: 0, y: 30 }} 
+        whileInView={{ opacity: 1, y: 0 }} 
+        transition={{ delay: idx * 0.1, duration: 0.6 }} 
+        viewport={{ once: true }}
+        whileHover={{ y: -10 }}
+        className={`relative flex flex-col p-6 md:p-8 bg-zinc-900 rounded-[3rem] border transition-all duration-500 ${
+          item.popular ? 'border-amber-500/40 ring-1 ring-amber-500/10 z-10' : 'border-zinc-800 z-0'
+        } hover:shadow-[0_30px_60px_rgba(0,0,0,0.4)] h-full`}
+      >
       {item.popular && (
         <div className="absolute -top-6 left-1/2 -translate-x-1/2 bg-gradient-to-r from-amber-400 to-amber-600 text-black px-6 py-2.5 rounded-full text-xs sm:text-sm font-black tracking-widest flex items-center gap-2 z-30 border border-amber-300 shadow-2xl shadow-amber-500/20">
           <Star size={16} className="fill-black" /> MOST POPULAR
@@ -64,7 +66,8 @@ const PackageCard = ({ item, idx }) => {
           </Link>
         </div>
       </div>
-    </motion.div>
+      </motion.div>
+    </div>
   );
 };
 
@@ -95,15 +98,15 @@ const PackageList = () => {
   ];
 
   return (
-    <section className="py-40 relative overflow-hidden bg-zinc-950">
+    <section className="py-24 md:py-40 relative overflow-hidden bg-zinc-950">
       <div className="absolute top-1/4 -right-40 w-96 h-96 bg-amber-500 rounded-full -[150px] opacity-10 pointer-events-none"></div>
       <div className="max-w-7xl mx-auto px-6 relative z-10">
-        <div className="text-center mb-32">
+        <div className="text-center mb-20 md:mb-32">
           <motion.span 
             initial={{ opacity: 0, y: 10 }} 
             whileInView={{ opacity: 1, y: 0 }} 
             viewport={{ once: true }}
-            className="inline-block py-2.5 px-10 rounded-full bg-amber-500/10 text-amber-500 font-bold tracking-[0.5em] uppercase text-xs mb-10 border border-amber-500/20 shadow-2xl shadow-amber-500/5"
+            className="inline-block py-2 px-8 md:px-10 rounded-full bg-amber-500/10 text-amber-500 font-bold tracking-[0.5em] uppercase text-[10px] md:text-xs mb-8 md:mb-10 border border-amber-500/20 shadow-2xl shadow-amber-500/5"
           >
             Curated Culinary Excellence
           </motion.span>
@@ -112,7 +115,7 @@ const PackageList = () => {
             whileInView={{ opacity: 1, y: 0 }} 
             transition={{ delay: 0.1 }} 
             viewport={{ once: true }}
-            className="text-6xl md:text-8xl font-black text-white mb-10 tracking-tighter"
+            className="text-4xl md:text-6xl lg:text-8xl font-black text-white mb-8 md:mb-10 tracking-tighter"
           >
             Professional <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-yellow-500 to-amber-600 italic font-medium">Packages</span>
           </motion.h2>
@@ -121,7 +124,7 @@ const PackageList = () => {
             whileInView={{ opacity: 1, y: 0 }} 
             transition={{ delay: 0.2 }} 
             viewport={{ once: true }}
-            className="text-xl md:text-2xl text-zinc-500 max-w-4xl mx-auto font-medium leading-relaxed"
+            className="text-lg md:text-xl md:text-2xl text-zinc-500 max-w-4xl mx-auto font-medium leading-relaxed"
           >
             Choose from our signature collections or head to the custom menu for a bespoke culinary experience tailored to your unique event.
           </motion.p>

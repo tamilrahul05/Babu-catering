@@ -21,18 +21,18 @@ const Hero = () => {
       {/* Hero Content */}
       <div className="relative z-10 text-center px-6 max-w-5xl mx-auto w-full">
         <motion.div 
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-            className="-mt-16 sm:-mt-24"
+          initial={{ opacity: 0, y: 30 }} 
+          animate={{ opacity: 1, y: 0 }} 
+          transition={{ duration: 0.8 }} 
+          className="-mt-12 sm:-mt-24"
         >
-          <span className="inline-block py-1.5 px-6 rounded-full bg-amber-500/10 text-amber-500 border border-amber-500/30 text-xs font-bold tracking-[0.3em] uppercase mb-8 ">
+          <span className="inline-block py-1.5 px-6 rounded-full bg-amber-500/10 text-amber-500 border border-amber-500/30 text-[10px] sm:text-xs font-bold tracking-[0.3em] uppercase mb-6 md:mb-8">
             Exclusive Culinary Excellence
           </span>
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-white mb-6 leading-tight">
+          <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-white mb-6 leading-[1.1]">
             Crafting <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-yellow-500 to-amber-600 italic font-medium">Perfect</span> Moments
           </h1>
-          <p className="text-lg md:text-xl text-zinc-400 max-w-3xl mx-auto mb-12 font-light tracking-wide leading-relaxed">
+          <p className="text-base sm:text-lg md:text-xl text-zinc-400 max-w-3xl mx-auto mb-10 md:mb-12 font-light tracking-wide leading-relaxed">
             Bringing high-class culinary excellence and authentic traditional tastes to your most cherished celebrations.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6">

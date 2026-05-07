@@ -55,7 +55,7 @@ const AppContent = () => {
       <Footer />
       <a 
         href="https://wa.me/9025237677" 
-        className="fixed bottom-6 right-6 z-50 bg-[#25D366] text-white p-4 rounded-full shadow-[0_10px_30px_rgba(37,211,102,0.4)] hover:shadow-[0_15px_40px_rgba(37,211,102,0.6)] hover:scale-110 hover:-translate-y-1 transition-all duration-300 animate-pulse group"
+        className="fixed bottom-6 right-6 z-50 bg-[#25D366] text-white p-3.5 md:p-4 rounded-full shadow-[0_10px_30px_rgba(37,211,102,0.4)] hover:shadow-[0_15px_40px_rgba(37,211,102,0.6)] hover:scale-110 hover:-translate-y-1 transition-all duration-300 animate-soft-pulse group"
         target="_blank" 
         rel="noopener noreferrer"
       >

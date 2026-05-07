@@ -31,10 +31,10 @@ const Navbar = () => {
   const toggleMenu = () => setIsOpen(!isOpen);
 
   return (
-    <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-400 ease-in-out border-b border-amber-500/20 shadow-[0_4px_30px_rgba(0,0,0,0.5)] ${scrolled ? 'py-2.5 bg-zinc-950/95 shadow-[0_10px_30px_rgba(0,0,0,0.8)]' : 'py-4 bg-zinc-950/85 '}`}>
-      <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
+    <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-400 ease-in-out border-b border-amber-500/20 shadow-[0_4px_30px_rgba(0,0,0,0.5)] ${scrolled ? 'py-2 bg-zinc-950/95 shadow-[0_10px_30px_rgba(0,0,0,0.8)]' : 'py-3 md:py-4 bg-zinc-950/85 '}`}>
+      <div className="max-w-7xl mx-auto px-4 md:px-6 flex justify-between items-center">
         <Link to="/" className="flex items-center">
-          <img src={logo} alt="BABU Catering Logo" className={`rounded-full object-cover transition-all duration-400 ease-in-out drop-shadow-[0_4px_15px_rgba(212,175,55,0.3)] ${scrolled ? 'w-12 h-12' : 'w-16 h-16'}`} />
+          <img src={logo} alt="BABU Catering Logo" className={`rounded-full object-cover transition-all duration-400 ease-in-out drop-shadow-[0_4px_15px_rgba(212,175,55,0.3)] ${scrolled ? 'w-10 h-10 md:w-12 md:h-12' : 'w-12 h-12 md:w-16 md:h-16'}`} />
         </Link>
 
         <div className={`

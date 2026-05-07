@@ -10,12 +10,12 @@ const Stats = () => {
   ];
 
   return (
-    <section className="relative z-20 -mt-24 px-6 max-w-7xl mx-auto">
+    <section className="relative z-20 -mt-12 md:-mt-24 px-4 md:px-6 max-w-7xl mx-auto">
       <motion.div 
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.5, duration: 0.8 }}
-            className="bg-zinc-900 rounded-sm  p-8 md:p-12 border border-zinc-800 flex flex-col md:flex-row items-center justify-between gap-10 relative overflow-hidden"
+        className="bg-zinc-900 rounded-sm p-6 md:p-12 border border-zinc-800 flex flex-col md:flex-row items-center justify-between gap-8 md:gap-10 relative overflow-hidden"
       >
         <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-amber-600 via-amber-300 to-amber-600 opacity-80"></div>
         <div className="absolute -top-32 -right-32 w-64 h-64 bg-amber-500 rounded-full -[100px] opacity-10 pointer-events-none"></div>
