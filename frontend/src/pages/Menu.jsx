@@ -110,8 +110,8 @@ const Menu = () => {
               setShowLeafPreview={setShowLeafPreview}
             />
             <LeafShowcase 
-              showLeafPreview={showLeafPreview}
-              setShowLeafPreview={setShowLeafPreview}
+              showPreview={showLeafPreview}
+              setShowPreview={setShowLeafPreview}
               categoryId={categoryId}
               selectedItems={selectedItems}
               handleBooking={handleBooking}
