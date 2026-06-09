@@ -1,116 +1,228 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, User, LogOut } from 'lucide-react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Menu, X, User, LogOut, PhoneCall } from 'lucide-react';
+import { FaWhatsapp } from 'react-icons/fa';
 import logo from '../assets/logo.png';
 
 const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-  const [user, setUser] = useState(null);
-  const location = useLocation();
+ const [isOpen, setIsOpen] = useState(false);
+ const [scrolled, setScrolled] = useState(false);
+ const [user, setUser] = useState(null);
+ 
+ const location = useLocation();
+ const navigate = useNavigate();
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
-    const storedUser = localStorage.getItem('user');
-    if (storedUser) {
-      setUser(JSON.parse(storedUser));
-    }
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+ useEffect(() => {
+ const handleScroll = () => {
+ const scrollPos = window.scrollY || window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+ setScrolled(scrollPos > 30 || location.pathname !== '/');
+ };
+ const storedUser = localStorage.getItem('user');
+ if (storedUser) {
+ setUser(JSON.parse(storedUser));
+ }
+ 
+ handleScroll();
+ window.addEventListener('scroll', handleScroll, { passive: true });
+ return () => window.removeEventListener('scroll', handleScroll);
+ }, [location.pathname]);
 
-  const handleLogout = () => {
-    localStorage.removeItem('token');
-    localStorage.removeItem('user');
-    setUser(null);
-    window.location.reload();
-  };
+ const handleLogout = () => {
+ localStorage.removeItem('token');
+ localStorage.removeItem('user');
+ setUser(null);
+ window.location.reload();
+ };
 
-  const toggleMenu = () => setIsOpen(!isOpen);
+ const navLinks = [
+ { name: 'Home', path: '/' },
+ { name: 'Our Menu', path: '/menu' },
+ { name: 'Gallery', path: '/#gallery' },
+ { name: 'Pre-Booking', path: '/booking' },
+ { name: 'Contact', path: '/#contact' }
+ ];
 
-  return (
-    <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-400 ease-in-out border-b border-amber-500/20 shadow-[0_4px_30px_rgba(0,0,0,0.5)] ${scrolled ? 'py-2 bg-zinc-950/95 shadow-[0_10px_30px_rgba(0,0,0,0.8)]' : 'py-3 md:py-4 bg-zinc-950/85 '}`}>
-      <div className="max-w-7xl mx-auto px-4 md:px-6 flex justify-between items-center">
-        <Link to="/" className="flex items-center">
-          <img src={logo} alt="BABU Catering Logo" className={`rounded-full object-cover transition-all duration-400 ease-in-out drop-shadow-[0_4px_15px_rgba(212,175,55,0.3)] ${scrolled ? 'w-10 h-10 md:w-12 md:h-12' : 'w-12 h-12 md:w-16 md:h-16'}`} />
-        </Link>
+ // Helper to determine if link is active
+ const isActive = (path) => {
+ if (path.startsWith('/#')) {
+ const hash = path.substring(1);
+ return location.pathname === '/' && location.hash === hash;
+ }
+ return location.pathname === path && !location.hash;
+ };
 
-        <div className={`
-          flex flex-col lg:flex-row items-center gap-8 
-          lg:static absolute top-full left-0 w-full lg:w-auto 
-          bg-zinc-950/98 lg:bg-transparent 
-          py-10 lg:py-0 px-6 lg:px-0
-          transition-all duration-400 ease-in-out
-          ${isOpen 
-            ? 'opacity-100 translate-y-0 visible shadow-2xl' 
-            : 'opacity-0 -translate-y-10 invisible lg:opacity-100 lg:translate-y-0 lg:visible lg:shadow-none'}
-          border-b border-amber-500/10 lg:border-none
-          z-40
-        `}>
-          <div className="flex flex-col lg:flex-row items-center gap-8 w-full lg:w-auto">
-            {['Home', 'Menu', 'Pre-Booking'].map((item) => {
-              let path = '/';
-              if (item === 'Menu') path = '/menu';
-              if (item === 'Pre-Booking') path = '/booking';
-              
-              return (
-                <Link 
-                  key={item} 
-                  to={path} 
-                  className={`font-bold relative uppercase tracking-[0.2em] font-outfit text-[0.85rem] transition-colors duration-300 ${location.pathname === path ? 'text-amber-500' : 'text-zinc-50 hover:text-amber-400'}`}
-                  onClick={() => setIsOpen(false)}
-                >
-                  {item}
-                  <span className={`absolute -bottom-2 left-1/2 -translate-x-1/2 h-1 bg-amber-500 rounded-full transition-all duration-300 ${location.pathname === path ? 'w-1.5' : 'w-0'}`}></span>
-                </Link>
-              );
-            })}
-          </div>
-          
-          <div className="flex flex-col lg:flex-row items-center gap-6 w-full lg:w-auto pt-8 lg:pt-0 border-t border-zinc-800 lg:border-none">
-            {user ? (
-              <div className="flex flex-col lg:flex-row items-center gap-6 w-full lg:w-auto">
-                <span className="font-bold text-amber-500 text-[0.95rem] tracking-wide">Hi, {user.name.split(' ')[0]}</span>
-                <button 
-                  className="flex items-center justify-center gap-2 border border-amber-500/30 text-amber-500 bg-amber-500/5 hover:bg-amber-500 hover:text-black px-8 py-3.5 rounded-full font-bold transition-all duration-300 w-full lg:w-auto text-sm uppercase tracking-widest"
-                  onClick={handleLogout}
-                >
-                  <LogOut size={16} /> Logout
-                </button>
-              </div>
-            ) : (
-              <div className="flex flex-col lg:flex-row items-center gap-4 w-full lg:w-auto">
-                <Link 
-                  to="/login" 
-                  className="flex items-center justify-center gap-2 border border-amber-500/30 text-amber-500 bg-transparent hover:bg-amber-500/10 px-8 py-3.5 rounded-full font-bold transition-all duration-300 w-full lg:w-auto text-sm uppercase tracking-widest"
-                  onClick={() => setIsOpen(false)}
-                >
-                  <User size={16} /> Login
-                </Link>
-                <Link 
-                  to="/booking" 
-                  className="flex items-center justify-center gap-2 bg-amber-500 hover:bg-amber-400 text-black px-8 py-3.5 rounded-full font-bold shadow-lg shadow-amber-500/20 transition-all duration-300 w-full lg:w-auto text-sm uppercase tracking-widest"
-                  onClick={() => setIsOpen(false)}
-                >
-                  Book Now
-                </Link>
-              </div>
-            )}
-          </div>
-        </div>
+ return (
+ <>
+ <nav 
+ className={`fixed left-1/2 -translate-x-1/2 z-[999] w-[95%] max-w-7xl h-[80px] md:h-[90px] rounded-[20px] flex items-center navbar-floating transition-all duration-500 ease-in-out ${
+ scrolled ? 'top-2 md:top-4 navbar-scrolled' : 'top-4 md:top-6'
+ }`}
+ >
+ <div className="w-full h-full flex items-center justify-between px-6 md:px-8 relative">
+ 
+ {/* Logo & Brand */}
+ <Link to="/" className="flex items-center gap-3 group h-full relative z-20">
+ <div className="relative flex items-center justify-center">
+ <div className="absolute inset-0 bg-[#0DCD6A] group-hover: transition-opacity rounded-full"></div>
+ <img src={logo} alt="BABU Catering" className="relative w-12 h-12 md:w-14 md:h-14 object-contain rounded-full shadow-lg border-2 border-[rgba(0,177,79,0.25)] group-hover:border-[#0DCD6A] transition-colors bg-transparent p-0.5" />
+ </div>
+ <div className="hidden sm:flex flex-col justify-center">
+ <span className="font-playfair font-black text-xl md:text-2xl tracking-wide text-[#0DCD6A] leading-none drop-shadow-md">
+ BABU <span className="text-[#FFFFFF] italic">Catering</span>
+ </span>
+ <span className="font-outfit text-[9px] md:text-[10px] uppercase tracking-[0.3em] text-[#E5E7EB] font-bold mt-1">
+ Luxury Events
+ </span>
+ </div>
+ </Link>
 
-        <button 
-          className="lg:hidden text-amber-500 bg-zinc-900/50 p-2.5 rounded-xl border border-amber-500/20 hover:bg-amber-500/10 transition-colors"
-          onClick={toggleMenu}
-          aria-label="Toggle Menu"
-        >
-          {isOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
-      </div>
-    </nav>
-  );
+ {/* Desktop Center Links */}
+ <div className="hidden lg:flex items-center justify-center gap-10 h-full relative z-20">
+ {navLinks.map((item) => {
+ const active = isActive(item.path);
+ return (
+ <Link 
+ key={item.name} 
+ to={item.path} 
+ className={`relative flex items-center h-full group font-outfit text-[13px] font-bold uppercase tracking-[0.15em] transition-colors duration-300 ${
+ active ? 'text-[#0DCD6A]' : 'text-[#FFFFFF] hover:text-[#0DCD6A]'
+ }`}
+ >
+ {item.name}
+ {/* Active/Hover Underline */}
+ <span className={`absolute bottom-[20%] left-1/2 -translate-x-1/2 h-[3px] bg-[#0DCD6A] rounded-full transition-all duration-300 ${
+ active ? 'w-[120%]' : 'w-0 group-hover:w-[120%]'
+ }`}></span>
+ </Link>
+ );
+ })}
+ </div>
+ 
+ {/* Right Actions */}
+ <div className="hidden lg:flex items-center gap-6 h-full relative z-20">
+ {/* WhatsApp Icon */}
+ <a href="https://wa.me/919944769090" target="_blank" rel="noreferrer" className="flex items-center justify-center text-[#FFFFFF] hover:text-[#0DCD6A] transition-colors duration-300" title="WhatsApp Us">
+ <FaWhatsapp size={20} />
+ </a>
+
+ {user ? (
+ <div className="flex items-center gap-4 h-full border-l border-[rgba(0,177,79,0.25)] pl-6">
+ <span className="font-bold text-[#0DCD6A] text-sm tracking-wide">Hi, {user.name.split(' ')[0]}</span>
+ <button 
+ className="flex items-center justify-center text-[#FFFFFF] hover:text-[#EF4444] transition-colors duration-300"
+ onClick={handleLogout}
+ title="Logout"
+ >
+ <LogOut size={18} strokeWidth={2} />
+ </button>
+ </div>
+ ) : (
+ <Link to="/login" className="font-bold text-[#FFFFFF] hover:text-[#0DCD6A] text-[13px] uppercase tracking-widest px-2 transition-colors duration-300">
+ Login
+ </Link>
+ )}
+
+ {/* Premium CTA Button */}
+ <Link 
+ to="/booking" 
+ className="btn-luxury-cta group flex items-center justify-center gap-2 px-7 py-3 rounded-[14px] font-black text-[13px] uppercase tracking-widest text-[#676767]"
+ >
+ <PhoneCall size={15} className="relative z-10" /> 
+ <span className="relative z-10">Book Catering</span>
+ </Link>
+ </div>
+
+ {/* Mobile Menu Toggle */}
+ <button 
+ className="lg:hidden relative z-50 text-[#0DCD6A] bg-[rgba(255,255,255,0.1)] p-2.5 rounded-[12px] border border-[rgba(0,177,79,0.25)] hover:bg-[rgba(255,255,255,0.2)] transition-colors"
+ onClick={() => setIsOpen(!isOpen)}
+ aria-label="Toggle Menu"
+ >
+ {isOpen ? <X size={24} /> : <Menu size={24} />}
+ </button>
+ </div>
+ </nav>
+
+ {/* Mobile Fullscreen Menu */}
+ <AnimatePresence>
+ {isOpen && (
+ <motion.div 
+ initial={{ opacity: 0 }}
+ animate={{ opacity: 1 }}
+ exit={{ opacity: 0 }}
+ className="fixed inset-0 z-40 bg-[#676767]/98 flex flex-col justify-center px-8 pt-20 border border-[rgba(0,177,79,0.15)]"
+ >
+ <div className="flex flex-col gap-6 w-full max-w-sm mx-auto">
+ 
+ {/* Mobile Regular Menu Links */}
+ <div className="flex flex-col gap-5 border-b border-zinc-800 pb-6">
+ {navLinks.map((item, i) => {
+ const active = isActive(item.path);
+ return (
+ <motion.div
+ key={item.name}
+ initial={{ opacity: 0, x: -20 }}
+ animate={{ opacity: 1, x: 0 }}
+ transition={{ delay: i * 0.08 }}
+ >
+ <Link 
+ to={item.path} 
+ className={`text-xl font-bold uppercase tracking-widest transition-colors duration-300 block ${
+ active ? 'text-[#0DCD6A]' : 'text-[#FFFFFF] hover:text-[#0DCD6A]'
+ }`}
+ onClick={() => setIsOpen(false)}
+ >
+ {item.name}
+ </Link>
+ </motion.div>
+ );
+ })}
+ </div>
+ 
+ <div className="flex flex-col gap-3.5">
+ {user ? (
+ <button 
+ onClick={handleLogout} 
+ className="flex items-center justify-center gap-3 text-red-400 font-bold uppercase tracking-widest text-xs p-3.5 bg-red-500/10 rounded-xl border border-red-500/20"
+ >
+ <LogOut size={16} /> Logout ({user.name.split(' ')[0]})
+ </button>
+ ) : (
+ <Link 
+ to="/login" 
+ onClick={() => setIsOpen(false)} 
+ className="flex items-center justify-center gap-2 border border-zinc-700 text-[#FFFFFF] hover:text-[#0DCD6A] bg-zinc-900 p-3.5 rounded-xl font-bold uppercase tracking-widest text-xs transition-colors"
+ >
+ <User size={16} /> Login / Register
+ </Link>
+ )}
+ 
+ <a 
+ href="https://wa.me/919944769090" 
+ target="_blank" 
+ rel="noreferrer" 
+ className="flex items-center justify-center gap-2 border border-green-500/30 text-green-400 bg-green-500/10 p-3.5 rounded-xl font-bold uppercase tracking-widest text-xs"
+ >
+ <FaWhatsapp size={16} /> WhatsApp Us
+ </a>
+
+ <Link 
+ to="/booking" 
+ onClick={() => setIsOpen(false)} 
+ className="btn-luxury-cta flex items-center justify-center gap-2 p-3.5 rounded-xl font-black uppercase tracking-widest text-xs text-[#676767]"
+ >
+ <PhoneCall size={16} /> Book Catering
+ </Link>
+ </div>
+ </div>
+ </motion.div>
+ )}
+ </AnimatePresence>
+ </>
+ );
 };
 
 export default Navbar;
+
+

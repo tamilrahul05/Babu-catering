@@ -1,82 +1,94 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { MessageSquare, ClipboardList, ChefHat, GlassWater } from 'lucide-react';
+import { PhoneCall, CalendarDays, ClipboardList, ChefHat, Sparkles, Heart } from 'lucide-react';
+
+const steps = [
+ { number: '01', title: 'Contact Us', desc: 'Reach out via our quick consultation form or call us live to lock in your initial query.', icon: <PhoneCall size={28} /> },
+ { number: '02', title: 'Discuss Requirements', desc: 'Meet our luxury hospitality managers to discuss guest profiles, locations, and styling visions.', icon: <CalendarDays size={28} /> },
+ { number: '03', title: 'Menu Planning', desc: 'Settle on a spectacular bespoke platter using our customized digital menu builders.', icon: <ClipboardList size={28} /> },
+ { number: '04', title: 'Event Preparation', desc: 'Procure organic ingredients, set up cooking audits, and prepare logistics schedules.', icon: <ChefHat size={28} /> },
+ { number: '05', title: 'Event Execution', desc: 'Complete high-end plating, live food station custom cooking, and luxury waiter service.', icon: <Sparkles size={28} /> },
+ { number: '06', title: 'Customer Satisfaction', desc: 'Collect review feedback and ensure every single wedding guest departs with culinary memories.', icon: <Heart size={28} /> }
+];
 
 const Process = () => {
-  const steps = [
-    { number: '01', title: 'Connect', desc: 'Reach out via our booking form or WhatsApp to discuss your event vision.', icon: <MessageSquare size={32} /> },
-    { number: '02', title: 'Consult', desc: 'Our experts help you curate the perfect menu tailored to your guests.', icon: <ClipboardList size={32} /> },
-    { number: '03', title: 'Curate', desc: 'Our master chefs prepare authentic delicacies with high-quality ingredients.', icon: <ChefHat size={32} /> },
-    { number: '04', title: 'Celebrate', desc: 'We handle everything from plating to serving while you enjoy your event.', icon: <GlassWater size={32} /> }
-  ];
+ return (
+ <section className="py-32 bg-zinc-950 px-6 relative overflow-hidden">
+ {/* Background Ornaments */}
+ <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-green-500/5 rounded-full ] pointer-events-none"></div>
 
-  return (
-    <section className="py-32 bg-zinc-950 px-6 overflow-hidden relative">
-      {/* Decorative Background Elements */}
-      <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0 pointer-events-none">
-        <div className="absolute -top-40 -left-40 w-96 h-96 bg-amber-500 rounded-full -[150px] opacity-10"></div>
-        <div className="absolute top-40 -right-40 w-96 h-96 bg-yellow-500 rounded-full -[150px] opacity-10"></div>
-      </div>
+ <div className="max-w-7xl mx-auto relative z-10">
+ 
+ {/* Header */}
+ <div className="text-center mb-24">
+ <motion.span 
+ initial={{ opacity: 0, y: 10 }}
+ whileInView={{ opacity: 1, y: 0 }}
+ viewport={{ once: true }}
+ className="inline-block py-2 px-8 rounded-full bg-green-500/10 text-green-500 font-bold tracking-[0.4em] uppercase text-[10px] md:text-xs mb-6 border border-green-500/20"
+ >
+ How It Works
+ </motion.span>
+ <motion.h2 
+ initial={{ opacity: 0, y: 10 }}
+ whileInView={{ opacity: 1, y: 0 }}
+ transition={{ delay: 0.1 }}
+ viewport={{ once: true }}
+ className="text-4xl md:text-6xl font-black text-white tracking-tighter"
+ >
+ Our Seamless <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-300 via-green-500 to-green-600 italic">Timeline</span>
+ </motion.h2>
+ <motion.p
+ initial={{ opacity: 0, y: 10 }}
+ whileInView={{ opacity: 1, y: 0 }}
+ transition={{ delay: 0.2 }}
+ viewport={{ once: true }}
+ className="text-zinc-500 text-base md:text-lg max-w-2xl mx-auto mt-4"
+ >
+ Experience a pristine five-star coordination journey from your first inquiry call to the final dessert plate.
+ </motion.p>
+ </div>
 
-      <div className="max-w-7xl mx-auto relative z-10">
-        <div className="text-center mb-24">
-          <motion.span 
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            className="inline-block py-1.5 px-6 rounded-full bg-amber-500/10 text-amber-500 font-bold tracking-[0.3em] uppercase text-xs mb-6 border border-amber-500/20"
-          >
-            How It Works
-          </motion.span>
-          <motion.h2 
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
-            className="text-4xl md:text-6xl font-black text-white mb-6"
-          >
-            Our Seamless <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-yellow-500 to-amber-600 italic">Process</span>
-          </motion.h2>
-          <motion.p 
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="text-lg text-zinc-400 max-w-2xl mx-auto font-light"
-          >
-            Experience a stress-free journey from your first inquiry to the final bite.
-          </motion.p>
-        </div>
+ {/* Timeline Grid (6 Steps) */}
+ <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10 relative">
+ 
+ {steps.map((step, i) => (
+ <motion.div 
+ key={i}
+ initial={{ opacity: 0, y: 30 }}
+ whileInView={{ opacity: 1, y: 0 }}
+ transition={{ delay: i * 0.08, duration: 0.6 }}
+ viewport={{ once: true }}
+ whileHover={{ y: -6 }}
+ className="relative z-10 flex flex-col items-start bg-zinc-900/60 p-8 md:p-10 rounded-[2.5rem] border border-zinc-800 transition-all duration-500 group hover:border-[#0DCD6A]/50 hover:shadow-[0_20px_40px_rgba(0,177,79,0.15)] ring-1 ring-white/5"
+ >
+ {/* Timeline step indicator */}
+ <div className="absolute top-6 right-8 text-6xl font-black text-zinc-800/30 group-hover:text-[#0DCD6A]/10 transition-colors duration-500 z-0 select-none">
+ {step.number}
+ </div>
+ 
+ {/* Icon panel */}
+ <div className="relative z-10 w-16 h-16 mb-8 rounded-2xl flex items-center justify-center bg-white/5 border border-white/5 text-green-500 transition-all duration-500 group-hover:bg-[#0DCD6A]/10 group-hover:border-[#0DCD6A]/20 group-hover:scale-105 shrink-0 shadow-lg">
+ {step.icon}
+ </div>
+ 
+ {/* Details */}
+ <h3 className="relative z-10 text-2xl font-bold text-white mb-4 transition-colors group-hover:text-[#0DCD6A] tracking-tight">
+ {step.title}
+ </h3>
+ <p className="relative z-10 text-zinc-500 text-sm leading-relaxed font-medium">
+ {step.desc}
+ </p>
+ </motion.div>
+ ))}
+ 
+ </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 relative">
-          {/* Connecting Line (Desktop) */}
-          <div className="hidden lg:block absolute top-[5.5rem] left-[10%] w-[80%] h-[1px] bg-gradient-to-r from-amber-500/10 via-amber-500/50 to-amber-500/10 -z-0"></div>
-          
-          {steps.map((step, i) => (
-            <motion.div 
-              key={i}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.15, duration: 0.6 }}
-            className="relative z-10 flex flex-col items-center text-center group bg-zinc-900 p-8 rounded-sm  border border-zinc-800 transition-all duration-300"
-            >
-              <div className="absolute -top-4 -right-4 text-7xl font-black text-zinc-800/50 transition-colors duration-300 z-0">
-                {step.number}
-              </div>
-              
-              <div className="relative z-10 w-24 h-24 mb-8 rounded-full flex items-center justify-center bg-gradient-to-br from-zinc-800 to-zinc-900 text-amber-500 border border-zinc-700/50 transition-all duration-500 transform ">
-                {step.icon}
-              </div>
-              
-              <h3 className="relative z-10 text-2xl font-extrabold text-white mb-4 transition-colors">
-                {step.title}
-              </h3>
-              <p className="relative z-10 text-zinc-400 leading-relaxed font-medium">
-                {step.desc}
-              </p>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
+ </div>
+ </section>
+ );
 };
 
 export default Process;
+
+

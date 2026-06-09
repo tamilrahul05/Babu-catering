@@ -1,46 +1,159 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { Calendar, Users, MapPin } from 'lucide-react';
+import React, { useState, useEffect, useRef } from 'react';
+import { motion, useInView } from 'framer-motion';
+
+const AnimatedCounter = ({ endValue, duration = 1.6 }) => {
+ const [count, setCount] = useState(0);
+ const ref = useRef(null);
+ const isInView = useInView(ref, { once: true, margin: "-50px" });
+
+ useEffect(() => {
+ if (!isInView) return;
+ 
+ const cleanNumber = parseFloat(endValue.replace(/[^0-9.]/g, ''));
+ if (isNaN(cleanNumber)) return;
+ 
+ let startTimestamp = null;
+ const step = (timestamp) => {
+ if (!startTimestamp) startTimestamp = timestamp;
+ const progress = Math.min((timestamp - startTimestamp) / (duration * 1000), 1);
+ setCount(progress * cleanNumber);
+ if (progress < 1) {
+ window.requestAnimationFrame(step);
+ }
+ };
+ window.requestAnimationFrame(step);
+ }, [isInView, endValue, duration]);
+
+ const formatValue = (val) => {
+ let formatted;
+ if (endValue.includes('.')) {
+ formatted = val.toFixed(1);
+ } else {
+ formatted = Math.floor(val).toLocaleString();
+ }
+ 
+ if (endValue.includes('LPA')) return `${formatted} LPA`;
+ if (endValue.includes('+')) return `${formatted}+`;
+ return formatted;
+ };
+
+ return <span ref={ref}>{formatValue(count)}</span>;
+};
 
 const Stats = () => {
-  const stats = [
-    { icon: <Calendar size={40} className="text-amber-500" />, count: '1000+', label: 'Events Managed' },
-    { icon: <Users size={40} className="text-amber-500" />, count: '50,000+', label: 'Happy Guests' },
-    { icon: <MapPin size={40} className="text-amber-500" />, count: '3 Locations', label: 'Serving Across Chennai' }
-  ];
+ const stats = [
+ { count: '1,000+', label: 'EVENTS' },
+ { count: '50,000+', label: 'GUESTS' },
+ { count: '10+', label: 'YEARS EXP' },
+ { count: '4.9', label: 'RATING IN' }
+ ];
 
-  return (
-    <section className="relative z-20 -mt-12 md:-mt-24 px-4 md:px-6 max-w-7xl mx-auto">
-      <motion.div 
-        initial={{ opacity: 0, y: 40 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.5, duration: 0.8 }}
-        className="bg-zinc-900 rounded-sm p-6 md:p-12 border border-zinc-800 flex flex-col md:flex-row items-center justify-between gap-8 md:gap-10 relative overflow-hidden"
-      >
-        <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-amber-600 via-amber-300 to-amber-600 opacity-80"></div>
-        <div className="absolute -top-32 -right-32 w-64 h-64 bg-amber-500 rounded-full -[100px] opacity-10 pointer-events-none"></div>
+ return (
+ <section className="relative z-20 px-4 md:px-6 max-w-6xl mx-auto my-12">
+ <style>
+ {`
+ .ticket-container {
+ display: flex;
+ flex-direction: column;
+ gap: 4px;
+ width: 100%;
+ }
+ 
+ .ticket-block {
+ background-color: #17345b;
+ position: relative;
+ padding: 1.75rem 1rem;
+ display: flex;
+ flex: 1;
+ flex-direction: column;
+ align-items: center;
+ justify-content: center;
+ min-height: 110px;
+ }
+ 
+ @media (min-width: 768px) {
+ .ticket-container {
+ flex-direction: row;
+ }
+ .ticket-first {
+ border-top-left-radius: 12px;
+ border-bottom-left-radius: 12px;
+ mask-image: radial-gradient(circle at 100% 50%, transparent 14px, black 14.5px);
+ -webkit-mask-image: radial-gradient(circle at 100% 50%, transparent 14px, black 14.5px);
+ }
+ .ticket-middle {
+ mask-image: radial-gradient(circle at 0% 50%, transparent 14px, black 14.5px), radial-gradient(circle at 100% 50%, transparent 14px, black 14.5px);
+ -webkit-mask-image: radial-gradient(circle at 0% 50%, transparent 14px, black 14.5px), radial-gradient(circle at 100% 50%, transparent 14px, black 14.5px);
+ mask-size: 51% 100%;
+ -webkit-mask-size: 51% 100%;
+ mask-repeat: no-repeat;
+ -webkit-mask-repeat: no-repeat;
+ mask-position: left, right;
+ -webkit-mask-position: left, right;
+ }
+ .ticket-last {
+ border-top-right-radius: 12px;
+ border-bottom-right-radius: 12px;
+ mask-image: radial-gradient(circle at 0% 50%, transparent 14px, black 14.5px);
+ -webkit-mask-image: radial-gradient(circle at 0% 50%, transparent 14px, black 14.5px);
+ }
+ }
+ 
+ @media (max-width: 767px) {
+ .ticket-first {
+ border-top-left-radius: 12px;
+ border-top-right-radius: 12px;
+ mask-image: radial-gradient(circle at 50% 100%, transparent 14px, black 14.5px);
+ -webkit-mask-image: radial-gradient(circle at 50% 100%, transparent 14px, black 14.5px);
+ }
+ .ticket-middle {
+ mask-image: radial-gradient(circle at 50% 0%, transparent 14px, black 14.5px), radial-gradient(circle at 50% 100%, transparent 14px, black 14.5px);
+ -webkit-mask-image: radial-gradient(circle at 50% 0%, transparent 14px, black 14.5px), radial-gradient(circle at 50% 100%, transparent 14px, black 14.5px);
+ mask-size: 100% 51%;
+ -webkit-mask-size: 100% 51%;
+ mask-repeat: no-repeat;
+ -webkit-mask-repeat: no-repeat;
+ mask-position: top, bottom;
+ -webkit-mask-position: top, bottom;
+ }
+ .ticket-last {
+ border-bottom-left-radius: 12px;
+ border-bottom-right-radius: 12px;
+ mask-image: radial-gradient(circle at 50% 0%, transparent 14px, black 14.5px);
+ -webkit-mask-image: radial-gradient(circle at 50% 0%, transparent 14px, black 14.5px);
+ }
+ }
+ `}
+ </style>
 
-        {stats.map((stat, i) => (
-          <motion.div 
-            key={i}
-            className="flex items-center gap-6 text-left w-full md:w-auto group cursor-default relative z-10"
-          >
-            <div className="p-5 bg-gradient-to-br from-zinc-800 to-zinc-900 border border-zinc-700/50 rounded-sm  transition-all duration-500">
-              <div className="group-hover:text-black transition-colors duration-500 text-amber-500">
-                {React.cloneElement(stat.icon, { className: 'inherit' })}
-              </div>
-            </div>
-            <div>
-              <h3 className="text-4xl font-black text-white tracking-tight transition-all duration-300">
-                {stat.count}
-              </h3>
-              <p className="text-zinc-400 font-bold uppercase tracking-wider text-sm mt-1">{stat.label}</p>
-            </div>
-          </motion.div>
-        ))}
-      </motion.div>
-    </section>
-  );
+ <motion.div 
+ initial={{ opacity: 0, y: 30 }}
+ whileInView={{ opacity: 1, y: 0 }}
+ transition={{ duration: 0.8 }}
+ viewport={{ once: true }}
+ className="ticket-container drop-shadow-xl"
+ >
+ {stats.map((stat, i) => {
+ const isFirst = i === 0;
+ const isLast = i === stats.length - 1;
+ const positionClass = isFirst ? 'ticket-first' : isLast ? 'ticket-last' : 'ticket-middle';
+ 
+ return (
+ <div key={i} className={`ticket-block ${positionClass}`}>
+ <h3 className="font-sans font-bold text-[32px] md:text-4xl text-white tracking-tight leading-none mb-1 text-center">
+ <AnimatedCounter endValue={stat.count} />
+ </h3>
+ <p className="font-sans text-[11px] md:text-xs text-white font-medium uppercase tracking-wider text-center mt-1">
+ {stat.label}
+ </p>
+ </div>
+ );
+ })}
+ </motion.div>
+ </section>
+ );
 };
 
 export default Stats;
+
+
