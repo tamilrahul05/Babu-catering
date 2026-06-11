@@ -309,8 +309,8 @@ const ContactForm = () => {
  </div>
  </div>
 
- {/* Calculator Widget Grid */}
- <div className="bg-zinc-950 p-6 rounded-2xl border border-zinc-800 space-y-6">
+ {/* Calculator Widget Grid (Hidden on Mobile) */}
+ <div className="hidden md:block bg-zinc-950 p-6 rounded-2xl border border-zinc-800 space-y-6">
  <div className="flex justify-between items-center border-b border-zinc-900 pb-4">
  <span className="text-xs font-bold uppercase tracking-wider text-zinc-500">Event Cost Estimation</span>
  <span className={`font-black text-sm uppercase tracking-widest ${getTierTextColor(formData.plateCategory)}`}>Real-time calculator</span>
