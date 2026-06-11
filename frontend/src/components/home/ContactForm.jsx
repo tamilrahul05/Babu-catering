@@ -70,23 +70,43 @@ const ContactForm = () => {
  setFormData(prev => ({ ...prev, guests: parseInt(e.target.value) }));
  };
 
- const handleSubmit = (e) => {
- e.preventDefault();
- // Simulate booking query submission
- setSubmitted(true);
- setTimeout(() => {
- // Navigate to booking page with inquiry prefilled
- navigate('/booking', { 
- state: { 
- selectedPlan: {
- name: `${formData.plateCategory} ${formData.eventType} Package`,
- price: platePrices[formData.plateCategory],
- category: formData.eventType === 'Wedding' ? 'Special Event' : formData.eventType
- }
- } 
- });
- }, 2000);
- };
+  const handleSubmit = (e) => {
+  e.preventDefault();
+  // Simulate booking query submission
+  setSubmitted(true);
+  setTimeout(() => {
+  // Navigate to booking page with inquiry prefilled
+  navigate('/booking', { 
+  state: { 
+  selectedPlan: {
+  name: `${formData.plateCategory} ${formData.eventType} Package`,
+  price: platePrices[formData.plateCategory],
+  category: formData.eventType === 'Wedding' ? 'Special Event' : formData.eventType
+  }
+  } 
+  });
+  }, 2000);
+  };
+
+  const getTierTextColor = (tier) => {
+    switch(tier) {
+      case 'Silver': return 'text-slate-300';
+      case 'Gold': return 'text-amber-400';
+      case 'Premium': return 'text-orange-400';
+      case 'Luxury': return 'text-fuchsia-400';
+      default: return 'text-[#0DCD6A]';
+    }
+  };
+
+  const getTierAccentClass = (tier) => {
+    switch(tier) {
+      case 'Silver': return 'accent-slate-400';
+      case 'Gold': return 'accent-amber-500';
+      case 'Premium': return 'accent-orange-500';
+      case 'Luxury': return 'accent-fuchsia-500';
+      default: return 'accent-green-500';
+    }
+  };
 
  return (
  <section id="contact" className="py-32 bg-zinc-950 px-6 relative overflow-hidden">
@@ -132,7 +152,7 @@ const ContactForm = () => {
  {/* Left panel: Info & Map */}
  <div className="lg:col-span-5 flex flex-col justify-between gap-8">
  
- <div className="bg-zinc-900/60 border border-zinc-800 rounded-[2.5rem] p-8 md:p-10 shadow-2xl flex flex-col gap-8 flex-1">
+ <div className="bg-zinc-900 border border-zinc-800 rounded-[2.5rem] p-8 md:p-10 shadow-2xl flex flex-col gap-8 flex-1">
  <h3 className="text-white text-2xl font-black font-playfair border-b border-zinc-800 pb-4 tracking-wide">
  Babu Catering HQ
  </h3>
@@ -175,27 +195,45 @@ const ContactForm = () => {
  </div>
  <div>
  <span className="text-[10px] text-zinc-500 font-bold uppercase tracking-widest block">Branch Outlets</span>
- <span className="text-white font-bold text-sm block mt-1 leading-relaxed">Kolathur, Tambaram, Valasarawakkam, Chennai, Tamil Nadu</span>
+ <a 
+   href="https://maps.app.goo.gl/PWj1eeSYuC1x3NSw7" 
+   target="_blank" 
+   rel="noopener noreferrer" 
+   className="text-white hover:text-green-500 font-bold text-sm block mt-1 leading-relaxed transition-colors"
+ >
+   Kolathur, Tambaram, Valasarawakkam, Chennai, Tamil Nadu
+ </a>
  </div>
  </li>
  </ul>
  </div>
 
  {/* Google Maps Integration Card */}
- <div className="bg-zinc-900/60 border border-zinc-800 rounded-[2.5rem] overflow-hidden shadow-2xl h-[240px] relative">
- <iframe
- title="Babu Catering Location Map"
- src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3885.6669931885994!2d80.1983023!3d13.1209302!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a526466f2284cf7%3A0xe5a3bbcf05051722!2sKolathur%2C%20Chennai%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1717311111111!5m2!1sen!2sin"
- className="w-full h-full border-none grayscale hover:grayscale-0 hover: transition-all duration-700"
- allowFullScreen=""
- loading="lazy"
- ></iframe>
- </div>
+ <a 
+    href="https://maps.app.goo.gl/PWj1eeSYuC1x3NSw7"
+    target="_blank"
+    rel="noopener noreferrer"
+    title="Open location in Google Maps"
+    className="bg-zinc-900 border border-zinc-800 rounded-[2.5rem] overflow-hidden shadow-2xl h-[240px] relative block"
+  >
+    <iframe
+      title="Babu Catering Location Map"
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3885.6669931885994!2d80.1983023!3d13.1209302!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a526466f2284cf7%3A0xe5a3bbcf05051722!2sKolathur%2C%20Chennai%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1717311111111!5m2!1sen!2sin"
+      className="w-full h-full border-none pointer-events-none"
+      allowFullScreen=""
+      loading="lazy"
+    ></iframe>
+    <div className="absolute bottom-4 right-4 z-10">
+      <span className="bg-[#0DCD6A] text-black font-black text-xs uppercase tracking-widest px-5 py-2.5 rounded-full flex items-center gap-2 shadow-lg border border-white/10">
+        Get Directions <MapPin size={14} />
+      </span>
+    </div>
+  </a>
 
  </div>
 
  {/* Right panel: Calculator Inquiry Form */}
- <div className="lg:col-span-7 bg-zinc-900/60 border border-zinc-800 rounded-[2.5rem] p-8 md:p-12 shadow-[0_30px_60px_rgba(0,0,0,0.5)] relative overflow-hidden flex flex-col justify-between">
+ <div className="lg:col-span-7 bg-zinc-900 border border-zinc-800 rounded-[2.5rem] p-8 md:p-12 shadow-[0_30px_60px_rgba(0,0,0,0.5)] relative overflow-hidden flex flex-col justify-between">
  <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-green-500/5 to-transparent rounded-bl-[4rem]"></div>
  
  <AnimatePresence mode="wait">
@@ -209,7 +247,7 @@ const ContactForm = () => {
  exit={{ opacity: 0 }}
  >
  <h3 className="text-white text-2xl font-black font-playfair border-b border-zinc-800 pb-4 tracking-wide flex items-center gap-2">
- <Calculator className="text-[#0DCD6A]" size={24} />
+ <Calculator className={getTierTextColor(formData.plateCategory)} size={24} />
  Live Quote Inquiry
  </h3>
 
@@ -275,7 +313,7 @@ const ContactForm = () => {
  <div className="bg-zinc-950 p-6 rounded-2xl border border-zinc-800 space-y-6">
  <div className="flex justify-between items-center border-b border-zinc-900 pb-4">
  <span className="text-xs font-bold uppercase tracking-wider text-zinc-500">Event Cost Estimation</span>
- <span className="text-[#0DCD6A] font-black text-sm uppercase tracking-widest">Real-time calculator</span>
+ <span className={`font-black text-sm uppercase tracking-widest ${getTierTextColor(formData.plateCategory)}`}>Real-time calculator</span>
  </div>
 
  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -283,20 +321,37 @@ const ContactForm = () => {
  <div>
  <label className="text-xs font-bold uppercase tracking-wider text-zinc-400 block mb-2">Catering Plan Tier</label>
  <div className="flex gap-2">
- {Object.keys(platePrices).map((tier) => (
- <button
- key={tier}
- type="button"
- onClick={() => setFormData(prev => ({ ...prev, plateCategory: tier }))}
- className={`flex-1 py-2 text-center rounded-lg text-xs font-bold uppercase tracking-wider transition-all border ${
- formData.plateCategory === tier
- ? 'bg-[#0DCD6A]/10 border-[#0DCD6A] text-[#0DCD6A]'
- : 'bg-zinc-900 border-zinc-800 text-zinc-400 hover:border-zinc-700 hover:text-white'
- }`}
- >
- {tier}
- </button>
- ))}
+ {Object.keys(platePrices).map((tier) => {
+    const isActive = formData.plateCategory === tier;
+    let activeStyles = '';
+    if (tier === 'Silver') {
+      activeStyles = isActive 
+        ? 'bg-slate-100 border-slate-400 text-slate-700 shadow-sm' 
+        : 'bg-zinc-900 border-zinc-800 text-zinc-400 hover:border-zinc-700 hover:text-white';
+    } else if (tier === 'Gold') {
+      activeStyles = isActive 
+        ? 'bg-amber-100 border-amber-500 text-amber-700 shadow-sm' 
+        : 'bg-zinc-900 border-zinc-800 text-zinc-400 hover:border-zinc-700 hover:text-white';
+    } else if (tier === 'Premium') {
+      activeStyles = isActive 
+        ? 'bg-orange-100 border-orange-500 text-orange-700 shadow-sm' 
+        : 'bg-zinc-900 border-zinc-800 text-zinc-400 hover:border-zinc-700 hover:text-white';
+    } else if (tier === 'Luxury') {
+      activeStyles = isActive 
+        ? 'bg-fuchsia-100 border-fuchsia-500 text-fuchsia-700 shadow-sm' 
+        : 'bg-zinc-900 border-zinc-800 text-zinc-400 hover:border-zinc-700 hover:text-white';
+    }
+    return (
+      <button
+        key={tier}
+        type="button"
+        onClick={() => setFormData(prev => ({ ...prev, plateCategory: tier }))}
+        className={`flex-1 py-2 text-center rounded-lg text-xs font-bold uppercase tracking-wider transition-all border ${activeStyles}`}
+      >
+        {tier}
+      </button>
+    );
+  })}
  </div>
  </div>
  {/* Guests Slider */}
@@ -312,7 +367,7 @@ const ContactForm = () => {
  step="25"
  value={formData.guests} 
  onChange={handleSliderChange}
- className="w-full h-1.5 bg-zinc-900 rounded-lg appearance-none cursor-pointer accent-[#0DCD6A]"
+ className={`w-full h-1.5 bg-zinc-900 rounded-lg appearance-none cursor-pointer ${getTierAccentClass(formData.plateCategory)}`}
  />
  </div>
  </div>
@@ -340,7 +395,7 @@ const ContactForm = () => {
 
  <button 
  type="submit"
- className="w-full btn-luxury-cta flex items-center justify-center gap-2 p-5 rounded-xl font-black text-base uppercase tracking-widest text-[#676767]"
+ className="w-full btn-luxury-cta flex items-center justify-center gap-2 p-5 rounded-xl font-black text-base uppercase tracking-widest text-black"
  >
  Send Luxury Inquiry Proposal <Send size={16} className="relative z-10" />
  </button>
@@ -353,7 +408,7 @@ const ContactForm = () => {
  className="flex flex-col items-center justify-center text-center py-20 h-full flex-1"
  >
  <div className="w-20 h-20 bg-gradient-to-br from-[#0DCD6A] to-[#39E18B] text-black rounded-full flex items-center justify-center mb-8 shadow-[0_10px_30px_rgba(0,177,79,0.3)]">
- <CheckCircle size={36} className="text-[#676767]" />
+ <CheckCircle size={36} className="text-black" />
  </div>
  <h3 className="text-3xl font-black text-white tracking-tighter mb-4">Inquiry Received Successfully!</h3>
  <p className="text-zinc-400 max-w-sm mx-auto text-base mb-8">

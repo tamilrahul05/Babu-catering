@@ -65,7 +65,7 @@ const Showcase = ({ showPreview, setShowPreview, categoryId, selectedItems, hand
  >
  {/* Organic Food Scoop */}
  <div
- className="w-16 h-16 sm:w-20 sm:h-20 md:w-28 md:h-28 overflow-hidden shadow-[4px_8px_15px_rgba(0,20,0,0.6)] transition-all duration-300 relative border border-white/10 group-hover:scale-110 group-hover:shadow-green-500/10"
+ className="w-16 h-16 sm:w-20 sm:h-20 md:w-28 md:h-28 overflow-hidden shadow-[4px_8px_15px_rgba(0,20,0,0.6)] relative border border-white/10"
  style={{
  borderRadius: isEven ? '60% 40% 30% 70% / 60% 30% 70% 40%' : '40% 60% 70% 30% / 50% 60% 30% 60%'
  }}

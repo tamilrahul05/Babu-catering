@@ -72,9 +72,6 @@ const PACKAGES = [
 const PackageList = () => {
  return (
  <section className="py-32 bg-zinc-950 px-6 relative overflow-hidden">
- {/* Background Glow */}
- <div className="absolute top-1/4 -right-40 w-96 h-96 bg-green-500/5 rounded-full ] pointer-events-none"></div>
- <div className="absolute bottom-1/4 -left-40 w-96 h-96 bg-green-500/5 rounded-full ] pointer-events-none"></div>
 
  <div className="max-w-7xl mx-auto relative z-10">
  
@@ -84,7 +81,7 @@ const PackageList = () => {
  initial={{ opacity: 0, y: 10 }} 
  whileInView={{ opacity: 1, y: 0 }} 
  viewport={{ once: true }}
- className="inline-block py-2 px-8 rounded-full bg-green-500/10 text-green-500 font-bold tracking-[0.5em] uppercase text-[10px] md:text-xs mb-6 border border-green-500/20"
+ className="inline-block py-2 px-8 rounded-full bg-green-100 text-green-700 font-bold tracking-[0.5em] uppercase text-[10px] md:text-xs mb-6 border border-green-300"
  >
  Prestigious Plans
  </motion.span>
@@ -120,9 +117,9 @@ const PackageList = () => {
  transition={{ delay: idx * 0.08, duration: 0.6 }}
  viewport={{ once: true }}
  whileHover={{ y: -8 }}
- className={`relative flex flex-col p-8 bg-zinc-900/60 rounded-[2.5rem] border transition-all duration-500 ${
+ className={`relative flex flex-col p-8 bg-zinc-900 rounded-[2.5rem] border transition-all duration-500 ${
  isSpecial 
- ? 'border-[#0DCD6A] shadow-[0_20px_40px_rgba(0,177,79,0.15)] ring-1 ring-[#0DCD6A]/20 z-10' 
+ ? 'border-[#0DCD6A] shadow-[0_20px_40px_rgba(0,177,79,0.15)] ring-1 ring-[#0DCD6A] z-10' 
  : 'border-zinc-800 z-0 hover:border-zinc-700 hover:shadow-[0_20px_40px_rgba(0,0,0,0.5)]'
  } h-full`}
  >
@@ -134,7 +131,7 @@ const PackageList = () => {
  )}
  
  {/* Tier Name */}
- <div className="mb-6 border-b border-white/5 pb-6 text-center">
+ <div className="mb-6 border-b border-zinc-200 pb-6 text-center">
  <span className="text-zinc-500 font-bold uppercase tracking-wider text-[10px] block mb-2">{pkg.badge}</span>
  <h4 className="text-2xl font-black text-white tracking-tight">{pkg.name}</h4>
  <p className="text-zinc-500 text-xs mt-3 leading-relaxed min-h-[40px] px-2">"{pkg.desc}"</p>
@@ -151,7 +148,7 @@ const PackageList = () => {
  <ul className="space-y-4 mb-8 flex-1">
  {pkg.features.map((feature, fIdx) => (
  <li key={fIdx} className="flex items-start gap-3">
- <div className="w-5 h-5 rounded-full bg-green-500/10 border border-green-500/20 flex items-center justify-center shrink-0 text-[#0DCD6A]">
+ <div className="w-5 h-5 rounded-full bg-green-100 border border-green-300 flex items-center justify-center shrink-0 text-[#0DCD6A]">
  <Check size={12} strokeWidth={3} />
  </div>
  <span className="text-zinc-400 text-sm font-medium leading-tight">{feature}</span>
@@ -160,7 +157,7 @@ const PackageList = () => {
  </ul>
 
  {/* CTA trigger */}
- <div className="pt-6 border-t border-white/5 mt-auto">
+ <div className="pt-6 border-t border-zinc-200 mt-auto">
  <Link 
  to="/booking" 
  state={{ 

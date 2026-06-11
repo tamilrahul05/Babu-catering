@@ -14,8 +14,6 @@ const steps = [
 const Process = () => {
  return (
  <section className="py-32 bg-zinc-950 px-6 relative overflow-hidden">
- {/* Background Ornaments */}
- <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-green-500/5 rounded-full ] pointer-events-none"></div>
 
  <div className="max-w-7xl mx-auto relative z-10">
  
@@ -25,7 +23,7 @@ const Process = () => {
  initial={{ opacity: 0, y: 10 }}
  whileInView={{ opacity: 1, y: 0 }}
  viewport={{ once: true }}
- className="inline-block py-2 px-8 rounded-full bg-green-500/10 text-green-500 font-bold tracking-[0.4em] uppercase text-[10px] md:text-xs mb-6 border border-green-500/20"
+ className="inline-block py-2 px-8 rounded-full bg-green-100 text-green-700 font-bold tracking-[0.4em] uppercase text-[10px] md:text-xs mb-6 border border-green-300"
  >
  How It Works
  </motion.span>
@@ -60,15 +58,15 @@ const Process = () => {
  transition={{ delay: i * 0.08, duration: 0.6 }}
  viewport={{ once: true }}
  whileHover={{ y: -6 }}
- className="relative z-10 flex flex-col items-start bg-zinc-900/60 p-8 md:p-10 rounded-[2.5rem] border border-zinc-800 transition-all duration-500 group hover:border-[#0DCD6A]/50 hover:shadow-[0_20px_40px_rgba(0,177,79,0.15)] ring-1 ring-white/5"
+ className="relative z-10 flex flex-col items-start bg-zinc-900 p-8 md:p-10 rounded-[2.5rem] border border-zinc-800 transition-all duration-500 group hover:border-[#0DCD6A] hover:shadow-[0_20px_40px_rgba(0,177,79,0.15)] ring-1 ring-zinc-200"
  >
  {/* Timeline step indicator */}
- <div className="absolute top-6 right-8 text-6xl font-black text-zinc-800/30 group-hover:text-[#0DCD6A]/10 transition-colors duration-500 z-0 select-none">
+ <div className="absolute top-6 right-8 text-6xl font-black text-zinc-300 group-hover:text-green-300 transition-colors duration-500 z-0 select-none">
  {step.number}
  </div>
  
  {/* Icon panel */}
- <div className="relative z-10 w-16 h-16 mb-8 rounded-2xl flex items-center justify-center bg-white/5 border border-white/5 text-green-500 transition-all duration-500 group-hover:bg-[#0DCD6A]/10 group-hover:border-[#0DCD6A]/20 group-hover:scale-105 shrink-0 shadow-lg">
+ <div className="relative z-10 w-16 h-16 mb-8 rounded-2xl flex items-center justify-center bg-zinc-100 border border-zinc-200 text-green-500 transition-all duration-500 group-hover:bg-green-100 group-hover:border-green-300 group-hover:scale-105 shrink-0 shadow-lg">
  {step.icon}
  </div>
  

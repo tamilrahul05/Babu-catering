@@ -7,40 +7,32 @@ const CatCard = ({ cat, idx }) => {
  const [isLoaded, setIsLoaded] = React.useState(false);
 
  return (
- <Link to={`/menu/${cat.id}`} className="w-full sm:w-[320px] md:w-[350px] group/link">
- <div className="relative aspect-[3/4] rounded-[2.5rem] overflow-hidden">
- <motion.div 
- initial={{ opacity: 0, y: 30 }}
- whileInView={{ opacity: 1, y: 0 }}
- transition={{ delay: idx * 0.1 }}
- viewport={{ once: true }}
- whileHover={{ y: -10 }}
- className="w-full h-full relative rounded-[2.5rem] overflow-hidden transition-all ring-1 ring-white/10 group-hover/link:ring-green-500/30 shadow-2xl bg-zinc-900"
- >
- {!isLoaded && (
- <div className="absolute inset-0 bg-zinc-800 animate-pulse flex items-center justify-center">
- <div className="w-12 h-12 border-4 border-green-500/20 border-t-green-500 rounded-full animate-spin"></div>
- </div>
- )}
- <img 
- src={cat.img} 
- alt={cat.title} 
- onLoad={() => setIsLoaded(true)}
- className={`w-full h-full object-cover transition-all duration-1000 ease-out ${
- isLoaded ? ' scale-100' : ' scale-110'
- } group-hover/link:scale-110`} 
- />
- <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent group-hover/link: transition-opacity"></div>
- 
- <div className="absolute inset-x-6 bottom-6 p-6 md:p-8 bg-zinc-950/40 border border-white/10 rounded-[2rem] text-white transition-all duration-500 group-hover/link:bg-zinc-950/60 group-hover/link:border-green-500/30">
- <h2 className="text-xl md:text-3xl font-black mb-3 tracking-tighter leading-none">{cat.title}</h2>
- <div className="flex items-center gap-2 font-black text-[10px] uppercase tracking-[0.2em] text-green-500">
- Explore Menu <ChevronRight size={16} className="group-hover/link:translate-x-2 transition-transform" />
- </div>
- </div>
- </motion.div>
- </div>
- </Link>
+  <Link to={`/menu/${cat.id}`} className="w-full sm:w-[320px] md:w-[350px] group/link block">
+  <div className="w-full h-[400px] rounded-[2.5rem] overflow-hidden border border-zinc-800 bg-zinc-900 shadow-lg flex flex-col">
+  <div className="w-full h-[280px] overflow-hidden relative">
+  {!isLoaded && (
+  <div className="absolute inset-0 bg-zinc-800 animate-pulse flex items-center justify-center">
+  <div className="w-12 h-12 border-4 border-green-500/20 border-t-green-500 rounded-full animate-spin"></div>
+  </div>
+  )}
+  <img 
+  src={cat.img} 
+  alt={cat.title} 
+  onLoad={() => setIsLoaded(true)}
+  className="w-full h-full object-cover" 
+  loading="lazy"
+  />
+  </div>
+  
+  {/* Solid Footer */}
+  <div className="p-6 flex-1 flex flex-col justify-center bg-zinc-900 border-t border-zinc-800">
+  <h3 className="text-zinc-100 text-xl font-black mb-2 tracking-tighter leading-none">{cat.title}</h3>
+  <div className="flex items-center gap-2 font-black text-[10px] uppercase tracking-[0.2em] text-green-500">
+  Explore Menu <ChevronRight size={16} />
+  </div>
+  </div>
+  </div>
+  </Link>
  );
 };
 

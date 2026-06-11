@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 
 const ClientLogo = ({ name, svgPath, viewBox = "0 0 24 24" }) => {
  return (
- <div className="flex items-center justify-center px-8 py-4 bg-white/5 border border-white/5 rounded-2xl transition-all duration-500 hover:border-green-500/30 hover:bg-white/10 group select-none shrink-0 w-[180px]">
+ <div className="flex items-center justify-center px-8 py-4 bg-zinc-100 border border-zinc-200 rounded-2xl transition-all duration-500 hover:border-green-500 hover:bg-zinc-200 group select-none shrink-0 w-[180px]">
  <svg
  viewBox={viewBox}
  className="w-24 h-12 fill-zinc-500 transition-all duration-500 group-hover:fill-[#0DCD6A] group-hover:scale-105"
@@ -50,7 +50,7 @@ const Clients = () => {
  ];
 
  return (
- <section className="py-12 bg-black/60 relative overflow-hidden border-t border-zinc-900 border-b border-zinc-900">
+ <section className="py-12 bg-zinc-900 relative overflow-hidden border-t border-zinc-900 border-b border-zinc-900">
  <div className="max-w-7xl mx-auto px-6 mb-8 text-center">
  <p className="text-[10px] md:text-xs font-bold uppercase tracking-[0.4em] text-zinc-500">
  Trusted by Industry Leaders & Corporate Partners
@@ -60,8 +60,8 @@ const Clients = () => {
  {/* Endless Auto-scrolling Slider Container */}
  <div className="flex w-full overflow-hidden relative">
  {/* Left & Right Faders */}
- <div className="absolute top-0 bottom-0 left-0 w-24 bg-gradient-to-r from-[#676767] to-transparent z-10 pointer-events-none"></div>
- <div className="absolute top-0 bottom-0 right-0 w-24 bg-gradient-to-l from-[#676767] to-transparent z-10 pointer-events-none"></div>
+ <div className="absolute top-0 bottom-0 left-0 w-24 bg-gradient-to-r from-zinc-950 to-transparent z-10 pointer-events-none"></div>
+ <div className="absolute top-0 bottom-0 right-0 w-24 bg-gradient-to-l from-zinc-950 to-transparent z-10 pointer-events-none"></div>
 
  {/* Endless scrolling animation wrapper */}
  <div className="flex gap-8 animate-infinite-slide py-2 w-max">

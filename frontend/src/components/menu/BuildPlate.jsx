@@ -35,9 +35,7 @@ const DishCard = ({ dish, index, isSelected, toggleItem }) => {
  e.target.src = 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60';
  setIsLoaded(true);
  }}
- className={`w-full h-full object-cover transition-all duration-1000 ease-out ${
- isLoaded ? ' scale-100' : ' scale-110'
- } ${isSelected ? 'scale-110' : 'group-hover:scale-110'}`} 
+ className="w-full h-full object-cover" 
  />
  
  {isSelected && (

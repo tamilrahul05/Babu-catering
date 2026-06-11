@@ -3,7 +3,6 @@ import Hero from '../components/home/Hero';
 import Stats from '../components/home/Stats';
 import Events from '../components/home/Events';
 import WhyChooseUs from '../components/home/WhyChooseUs';
-import SignatureMenu from '../components/home/SignatureMenu';
 import Tradition from '../components/home/Tradition';
 import Process from '../components/home/Process';
 import PackageList from '../components/home/PackageList';
@@ -28,9 +27,6 @@ const Home = () => {
  
  {/* 4. Five-Star Advantages */}
  <WhyChooseUs />
- 
- {/* 5. Signature Delicacies Tab Showcase */}
- <SignatureMenu />
  
  {/* 6. Legacy & Heritage */}
  <Tradition />

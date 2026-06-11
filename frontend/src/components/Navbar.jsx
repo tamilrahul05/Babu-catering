@@ -126,7 +126,7 @@ const Navbar = () => {
  {/* Premium CTA Button */}
  <Link 
  to="/booking" 
- className="btn-luxury-cta group flex items-center justify-center gap-2 px-7 py-3 rounded-[14px] font-black text-[13px] uppercase tracking-widest text-[#676767]"
+ className="btn-luxury-cta group flex items-center justify-center gap-2 px-7 py-3 rounded-[14px] font-black text-[13px] uppercase tracking-widest text-black"
  >
  <PhoneCall size={15} className="relative z-10" /> 
  <span className="relative z-10">Book Catering</span>
@@ -135,7 +135,7 @@ const Navbar = () => {
 
  {/* Mobile Menu Toggle */}
  <button 
- className="lg:hidden relative z-50 text-[#0DCD6A] bg-[rgba(255,255,255,0.1)] p-2.5 rounded-[12px] border border-[rgba(0,177,79,0.25)] hover:bg-[rgba(255,255,255,0.2)] transition-colors"
+ className="lg:hidden relative z-50 text-[#0DCD6A] bg-zinc-100 p-2.5 rounded-[12px] border border-green-500 hover:bg-zinc-200 transition-colors"
  onClick={() => setIsOpen(!isOpen)}
  aria-label="Toggle Menu"
  >
@@ -151,7 +151,7 @@ const Navbar = () => {
  initial={{ opacity: 0 }}
  animate={{ opacity: 1 }}
  exit={{ opacity: 0 }}
- className="fixed inset-0 z-40 bg-[#676767]/98 flex flex-col justify-center px-8 pt-20 border border-[rgba(0,177,79,0.15)]"
+ className="fixed inset-0 z-40 bg-zinc-950 flex flex-col justify-center px-8 pt-20 border border-zinc-200"
  >
  <div className="flex flex-col gap-6 w-full max-w-sm mx-auto">
  
@@ -169,7 +169,7 @@ const Navbar = () => {
  <Link 
  to={item.path} 
  className={`text-xl font-bold uppercase tracking-widest transition-colors duration-300 block ${
- active ? 'text-[#0DCD6A]' : 'text-[#FFFFFF] hover:text-[#0DCD6A]'
+ active ? 'text-[#0DCD6A]' : 'text-zinc-100 hover:text-[#0DCD6A]'
  }`}
  onClick={() => setIsOpen(false)}
  >
@@ -184,7 +184,7 @@ const Navbar = () => {
  {user ? (
  <button 
  onClick={handleLogout} 
- className="flex items-center justify-center gap-3 text-red-400 font-bold uppercase tracking-widest text-xs p-3.5 bg-red-500/10 rounded-xl border border-red-500/20"
+ className="flex items-center justify-center gap-3 text-red-700 font-bold uppercase tracking-widest text-xs p-3.5 bg-red-100 rounded-xl border border-red-300"
  >
  <LogOut size={16} /> Logout ({user.name.split(' ')[0]})
  </button>
@@ -192,7 +192,7 @@ const Navbar = () => {
  <Link 
  to="/login" 
  onClick={() => setIsOpen(false)} 
- className="flex items-center justify-center gap-2 border border-zinc-700 text-[#FFFFFF] hover:text-[#0DCD6A] bg-zinc-900 p-3.5 rounded-xl font-bold uppercase tracking-widest text-xs transition-colors"
+ className="flex items-center justify-center gap-2 border border-zinc-800 text-zinc-100 hover:text-[#0DCD6A] hover:border-[#0DCD6A] bg-zinc-900 p-3.5 rounded-xl font-bold uppercase tracking-widest text-xs transition-colors"
  >
  <User size={16} /> Login / Register
  </Link>
@@ -202,7 +202,7 @@ const Navbar = () => {
  href="https://wa.me/919944769090" 
  target="_blank" 
  rel="noreferrer" 
- className="flex items-center justify-center gap-2 border border-green-500/30 text-green-400 bg-green-500/10 p-3.5 rounded-xl font-bold uppercase tracking-widest text-xs"
+ className="flex items-center justify-center gap-2 border border-green-500 text-green-700 bg-green-100 p-3.5 rounded-xl font-bold uppercase tracking-widest text-xs"
  >
  <FaWhatsapp size={16} /> WhatsApp Us
  </a>
@@ -210,7 +210,7 @@ const Navbar = () => {
  <Link 
  to="/booking" 
  onClick={() => setIsOpen(false)} 
- className="btn-luxury-cta flex items-center justify-center gap-2 p-3.5 rounded-xl font-black uppercase tracking-widest text-xs text-[#676767]"
+ className="btn-luxury-cta flex items-center justify-center gap-2 p-3.5 rounded-xl font-black uppercase tracking-widest text-xs text-black"
  >
  <PhoneCall size={16} /> Book Catering
  </Link>

@@ -14,8 +14,6 @@ const WhyChooseUs = () => {
 
  return (
  <section className="py-32 bg-zinc-950 px-6 relative overflow-hidden">
- {/* Background glow */}
- <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-green-500/5 rounded-full ] pointer-events-none"></div>
 
  <div className="max-w-7xl mx-auto relative z-10">
  
@@ -25,7 +23,7 @@ const WhyChooseUs = () => {
  initial={{ opacity: 0, y: 10 }}
  whileInView={{ opacity: 1, y: 0 }}
  viewport={{ once: true }}
- className="inline-block py-2 px-8 rounded-full bg-green-500/10 text-green-500 font-bold tracking-[0.4em] uppercase text-[10px] md:text-xs mb-6 border border-green-500/20"
+ className="inline-block py-2 px-8 rounded-full bg-green-100 text-green-700 font-bold tracking-[0.4em] uppercase text-[10px] md:text-xs mb-6 border border-green-300"
  >
  The Babu Advantage
  </motion.span>
@@ -50,11 +48,11 @@ const WhyChooseUs = () => {
  transition={{ delay: i * 0.08, duration: 0.6 }}
  viewport={{ once: true }}
  whileHover={{ y: -8, scale: 1.02 }}
- className="p-10 rounded-[2.5rem] bg-zinc-900/60 border border-zinc-800 transition-all duration-500 group relative overflow-hidden hover:border-[#0DCD6A]/50 hover:shadow-[0_20px_40px_rgba(0,177,79,0.15)] ring-1 ring-white/5"
+ className="p-10 rounded-[2.5rem] bg-zinc-900 border border-zinc-800 transition-all duration-500 group relative overflow-hidden hover:border-[#0DCD6A] hover:shadow-[0_20px_40px_rgba(0,177,79,0.15)] ring-1 ring-zinc-200"
  >
- <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-green-500/5 to-transparent rounded-bl-[3rem] group-hover: transition-opacity duration-500 pointer-events-none"></div>
+ <div className="absolute top-0 right-0 w-32 h-32 rounded-bl-[3rem] group-hover: transition-opacity duration-500 pointer-events-none"></div>
  
- <div className="w-16 h-16 bg-white/5 border border-white/5 rounded-2xl flex items-center justify-center text-green-500 mb-8 transition-all duration-500 group-hover:bg-[#0DCD6A]/10 group-hover:border-[#0DCD6A]/20 group-hover:scale-105 shrink-0 shadow-lg">
+ <div className="w-16 h-16 bg-zinc-100 border border-zinc-200 rounded-2xl flex items-center justify-center text-green-500 mb-8 transition-all duration-500 group-hover:bg-green-100 group-hover:border-green-300 group-hover:scale-105 shrink-0 shadow-lg">
  {item.icon}
  </div>
  <h3 className="text-2xl font-bold text-white mb-4 transition-colors group-hover:text-[#0DCD6A] tracking-tight">{item.title}</h3>
@@ -69,5 +67,3 @@ const WhyChooseUs = () => {
 };
 
 export default WhyChooseUs;
-
-
