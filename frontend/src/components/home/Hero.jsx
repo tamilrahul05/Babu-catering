@@ -56,6 +56,17 @@ const Hero = () => {
   const [guests, setGuests] = useState(150);
   const [plateCategory, setPlateCategory] = useState('Gold');
 
+  // Autoplay functionality for hero selection background (video/theme rotation)
+  useEffect(() => {
+    const timer = setInterval(() => {
+      const nextTheme = (activeTheme + 1) % themes.length;
+      setActiveTheme(nextTheme);
+      setPlateCategory(themes[nextTheme].plateCategory);
+    }, 6000); // Rotates every 6 seconds
+    
+    return () => clearInterval(timer);
+  }, [activeTheme]);
+
   // Sync plate category choice with active theme on initial switch
   const handleThemeChange = (index) => {
     setActiveTheme(index);
@@ -172,16 +183,23 @@ const Hero = () => {
     <section className="relative min-h-screen w-full flex items-center justify-center overflow-hidden pt-48 pb-24">
       
       {/* Video Background Panel */}
-      <div className="absolute inset-0 z-0 bg-zinc-950 pointer-events-none overflow-hidden">
-        <video 
-          key={activeTheme}
-          src={themes[activeTheme].video} 
-          autoPlay 
-          muted 
-          loop 
-          playsInline 
-          className="absolute inset-0 w-full h-full object-cover"
-        ></video>
+      <div className="absolute inset-0 z-0 bg-pure-black pointer-events-none overflow-hidden">
+        {themes.map((theme, index) => {
+          const isActive = activeTheme === index;
+          return (
+            <video
+              key={theme.id}
+              src={theme.video}
+              autoPlay
+              muted
+              loop
+              playsInline
+              className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out ${
+                isActive ? 'opacity-100' : 'opacity-0'
+              }`}
+            />
+          );
+        })}
       </div>
 
       {/* Left Vertical Dot Navigation (Venus Catering style) */}
