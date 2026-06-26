@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 import Navbar from './components/Navbar';
@@ -9,7 +9,10 @@ import Booking from './pages/Booking';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Admin from './pages/Admin';
+import GalleryPage from './pages/Gallery';
+import Preloader from './components/common/Preloader';
 import { FaWhatsapp } from 'react-icons/fa';
+
 const ScrollToTop = () => {
  const { pathname } = useLocation();
  useEffect(() => {
@@ -49,6 +52,7 @@ const AppContent = () => {
  <Route path="/login" element={<PageTransition><Login /></PageTransition>} />
  <Route path="/signup" element={<PageTransition><Signup /></PageTransition>} />
  <Route path="/admin" element={<PageTransition><Admin /></PageTransition>} />
+ <Route path="/gallery" element={<PageTransition><GalleryPage /></PageTransition>} />
  </Routes>
  </AnimatePresence>
  </main>
@@ -73,13 +77,26 @@ const AppContent = () => {
 };
 
 function App() {
- return (
- <Router>
- <AppContent />
- </Router>
- );
-}
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 3000);
+    return () => clearTimeout(timer);
+  }, []);
+
+  return (
+    <Router>
+      <AnimatePresence mode="wait">
+        {loading ? (
+          <Preloader key="preloader" />
+        ) : (
+          <AppContent key="app-content" />
+        )}
+      </AnimatePresence>
+    </Router>
+  );
+ }
 
 export default App;
-
-

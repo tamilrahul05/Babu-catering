@@ -12,7 +12,13 @@ const PHOTO_GALLERY = [
   { id: 3, category: 'Live Cooking', title: 'Gourmet Saffron Halwa counter', img: 'https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?w=800' },
   { id: 4, category: 'Food', title: 'Interactive Dessert nitrogen station', img: 'https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=800' },
   { id: 5, category: 'Events', title: 'Corporate VIP Buffet layout', img: 'https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=800' },
-  { id: 6, category: 'Live Cooking', title: 'Hot Appam & Dosa Live counter', img: 'https://images.unsplash.com/photo-1668236543090-82eba5ee5976?w=800' }
+  { id: 6, category: 'Live Cooking', title: 'Hot Appam & Dosa Live counter', img: 'https://images.unsplash.com/photo-1668236543090-82eba5ee5976?w=800' },
+  { id: 7, category: 'Food', title: 'Traditional South Indian Feast on Banana Leaf', img: 'https://images.unsplash.com/photo-1601050690597-df0568f70950?w=800' },
+  { id: 8, category: 'Food', title: 'Crispy Ghee Dosa Served with Chutneys', img: 'https://images.unsplash.com/photo-1668236543090-82eba5ee5976?w=800' },
+  { id: 9, category: 'Live Cooking', title: 'Live Medhu Vada & Tiffin Counter', img: 'https://images.unsplash.com/photo-1589301760014-d929f3979dbc?w=800' },
+  { id: 10, category: 'Food', title: 'Traditional Elaneer Payasam Dessert', img: 'https://images.unsplash.com/photo-1596797038530-2c107229654b?w=800' },
+  { id: 11, category: 'Food', title: 'Royal South Indian Tiffin Platings', img: 'https://images.unsplash.com/photo-1626074353765-517a681e40be?w=800' },
+  { id: 12, category: 'Food', title: 'Delhi Dahi Vada & Chaat Platter', img: 'https://images.unsplash.com/photo-1625398407796-82650a8c135f?w=800' }
 ];
 
 const Gallery = () => {

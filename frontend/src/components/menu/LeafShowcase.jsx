@@ -30,7 +30,7 @@ const Showcase = ({ showPreview, setShowPreview, categoryId, selectedItems, hand
  {/* Elegant Floating Title */}
  <div className="text-center mb-2 md:mb-4 relative z-20 flex-shrink-0">
  <h2 className="text-3xl md:text-5xl font-black text-white mb-2 tracking-tight">
- Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-300 via-green-500 to-green-600 italic">{categoryId}</span> Feast
+ Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-300 via-green-500 to-green-600 italic">{categoryId === 'Veg' ? 'Vegetarian' : categoryId === 'Non-Veg' ? 'Non Vegetarian' : categoryId}</span> Feast
  </h2>
  <p className="text-zinc-400 text-sm md:text-lg font-medium tracking-wide">
  A traditional Valai Elai preview of your curated selection.

@@ -2,11 +2,10 @@ import React from 'react';
 import Hero from '../components/home/Hero';
 import Stats from '../components/home/Stats';
 import Events from '../components/home/Events';
-import WhyChooseUs from '../components/home/WhyChooseUs';
 import Tradition from '../components/home/Tradition';
 import Process from '../components/home/Process';
 import PackageList from '../components/home/PackageList';
-import Gallery from '../components/Gallery';
+import GalleryTeaser from '../components/home/GalleryTeaser';
 import HomeFAQ from '../components/home/HomeFAQ';
 import ContactForm from '../components/home/ContactForm';
 
@@ -22,11 +21,8 @@ const Home = () => {
  
  {/* 3. bento Grid Catering Services */}
  <div id="events">
- <Events />
+  <Events />
  </div>
- 
- {/* 4. Five-Star Advantages */}
- <WhyChooseUs />
  
  {/* 6. Legacy & Heritage */}
  <Tradition />
@@ -38,7 +34,7 @@ const Home = () => {
  <PackageList />
  
  {/* 9. Lightboxed Masonry Photos & Videos */}
- <Gallery />
+ <GalleryTeaser />
  
  {/* 11. Accordion Trust FAQs */}
  <HomeFAQ />
