@@ -94,52 +94,56 @@ const Events = () => {
  </motion.div>
  </div>
 
- {/* Bento Grid */}
- <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 auto-rows-[300px] md:auto-rows-[280px] gap-4 md:gap-6">
- {events.map((event, idx) => (
-  <motion.div
-  key={event.name}
-  initial={{ opacity: 0 }}
-  whileInView={{ opacity: 1 }}
-  viewport={{ once: true }}
-  className={`group relative rounded-3xl overflow-hidden border border-zinc-800 bg-zinc-900 shadow-md cursor-pointer flex flex-col ${event.span}`}
-  >
-  {/* Card Image Container */}
-  <div className="w-full flex-1 min-h-0 overflow-hidden relative">
-  <img 
-  src={event.image} 
-  alt={event.name} 
-  loading="lazy"
-  className="w-full h-full object-cover"
-  />
-  </div>
+  {/* Bento Grid */}
+  <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 auto-rows-[300px] md:auto-rows-[280px] gap-4 md:gap-6">
+  {events.map((event, idx) => (
+   <motion.div
+   key={event.name}
+   initial={{ opacity: 0, y: 40 }}
+   whileInView={{ opacity: 1, y: 0 }}
+   viewport={{ once: true, margin: "-50px" }}
+   transition={{ duration: 0.6, delay: idx * 0.05, ease: [0.215, 0.61, 0.355, 1] }}
+   whileHover={{ y: -8 }}
+   className={`group relative rounded-3xl overflow-hidden border border-zinc-800 bg-zinc-900 shadow-md cursor-pointer flex flex-col transition-all duration-300 hover:border-green-500/30 hover:shadow-[0_20px_40px_rgba(34,197,94,0.12)] ${event.span}`}
+   >
+   {/* Card Image Container */}
+   <div className="w-full flex-1 min-h-0 overflow-hidden relative">
+   <img 
+   src={event.image} 
+   alt={event.name} 
+   loading="lazy"
+   className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+   />
+   <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/20 to-transparent group-hover:opacity-0 transition-opacity duration-300"></div>
+   </div>
 
-  {/* Solid Footer Content */}
-  <div className="p-6 bg-zinc-900 border-t border-zinc-800 flex-shrink-0">
-  <div className="flex justify-between items-end gap-4">
-  <div>
-  <h3 className="text-xl font-bold text-white mb-2 tracking-tight">
-  {event.name}
-  </h3>
-  <p className="text-zinc-500 text-xs font-medium leading-relaxed max-w-[90%]">
-  {event.description}
-  </p>
+   {/* Solid Footer Content */}
+   <div className="p-6 bg-zinc-900 border-t border-zinc-800 flex-shrink-0">
+   <div className="flex justify-between items-end gap-4">
+   <div>
+   <h3 className="text-xl font-bold text-white mb-2 tracking-tight transition-colors duration-300 group-hover:text-green-400">
+   {event.name}
+   </h3>
+   <p className="text-zinc-500 text-xs font-medium leading-relaxed max-w-[90%]">
+   {event.description}
+   </p>
+   </div>
+   
+   {/* Arrow Icon */}
+   <div className="w-10 h-10 rounded-full bg-green-500 text-black flex items-center justify-center shrink-0 transition-all duration-300 group-hover:rotate-45 group-hover:scale-110 group-hover:bg-green-400 shadow-lg shadow-green-500/20">
+   <ArrowUpRight size={20} strokeWidth={2.5} />
+   </div>
+   </div>
+   </div>
+   </motion.div>
+  ))}
   </div>
-  
-  {/* Arrow Icon */}
-  <div className="w-10 h-10 rounded-full bg-green-500 text-black flex items-center justify-center shrink-0">
-  <ArrowUpRight size={20} strokeWidth={2.5} />
-  </div>
-  </div>
-  </div>
-  </motion.div>
- ))}
- </div>
  </div>
  </section>
  );
 };
 
 export default Events;
+
 
 

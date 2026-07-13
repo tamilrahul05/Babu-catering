@@ -134,7 +134,7 @@ const Navbar = () => {
  initial={{ opacity: 0 }}
  animate={{ opacity: 1 }}
  exit={{ opacity: 0 }}
- className="fixed inset-0 z-40 bg-zinc-950 flex flex-col justify-center px-8 pt-20 border border-zinc-200"
+ className="fixed inset-0 z-40 bg-zinc-950 flex flex-col justify-center px-8 pt-20 overflow-y-auto"
  >
  <div className="flex flex-col gap-6 w-full max-w-sm mx-auto">
  

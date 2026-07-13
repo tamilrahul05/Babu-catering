@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ChevronRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import featuredMeal from '../../assets/images/featured_meal.jpg';
+import homeImage from '../../assets/home image.png';
 
 const Tradition = () => {
  return (
@@ -64,7 +64,7 @@ const Tradition = () => {
  <div className="absolute inset-0 bg-green-500 rounded-sm transform translate-x-6 translate-y-6 mix-blend-screen"></div>
  <div className="relative rounded-sm p-2 bg-gradient-to-br from-zinc-800 to-zinc-900 ">
  <img 
- src={featuredMeal} 
+ src={homeImage} 
  alt="Traditional South Indian Feast" 
  className="rounded-sm w-full h-[350px] md:h-[500px] lg:h-[600px] object-cover border border-zinc-700/50 " 
  />

@@ -4,6 +4,8 @@ import { Camera, Video, X, Maximize2 } from 'lucide-react';
 import promoVideo from '../assets/video1.mp4';
 import promoVideo2 from '../assets/video2.mp4';
 import promoVideo3 from '../assets/video3.mp4';
+import homeImage from '../assets/home image.png';
+import homeImage2 from '../assets/home image 2.png';
 
 // Rich Photo Gallery Database
 const PHOTO_GALLERY = [
@@ -18,7 +20,9 @@ const PHOTO_GALLERY = [
   { id: 9, category: 'Live Cooking', title: 'Live Medhu Vada & Tiffin Counter', img: 'https://images.unsplash.com/photo-1589301760014-d929f3979dbc?w=800' },
   { id: 10, category: 'Food', title: 'Traditional Elaneer Payasam Dessert', img: 'https://images.unsplash.com/photo-1596797038530-2c107229654b?w=800' },
   { id: 11, category: 'Food', title: 'Royal South Indian Tiffin Platings', img: 'https://images.unsplash.com/photo-1626074353765-517a681e40be?w=800' },
-  { id: 12, category: 'Food', title: 'Delhi Dahi Vada & Chaat Platter', img: 'https://images.unsplash.com/photo-1625398407796-82650a8c135f?w=800' }
+  { id: 12, category: 'Food', title: 'Delhi Dahi Vada & Chaat Platter', img: 'https://images.unsplash.com/photo-1625398407796-82650a8c135f?w=800' },
+  { id: 13, category: 'Events', title: 'Grand Wedding Event Catering', img: homeImage },
+  { id: 14, category: 'Food', title: 'Signature Traditional South Indian Feast', img: homeImage2 }
 ];
 
 const Gallery = () => {

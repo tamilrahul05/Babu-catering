@@ -309,8 +309,8 @@ const ContactForm = () => {
  </div>
  </div>
 
- {/* Calculator Widget Grid (Hidden on Mobile) */}
- <div className="hidden md:block bg-zinc-950 p-6 rounded-2xl border border-zinc-800 space-y-6">
+ {/* Calculator Widget Grid */}
+ <div className="block bg-zinc-950 p-5 md:p-6 rounded-2xl border border-zinc-800 space-y-6">
  <div className="flex justify-between items-center border-b border-zinc-900 pb-4">
  <span className="text-xs font-bold uppercase tracking-wider text-zinc-500">Event Cost Estimation</span>
  <span className={`font-black text-sm uppercase tracking-widest ${getTierTextColor(formData.plateCategory)}`}>Real-time calculator</span>
@@ -318,9 +318,9 @@ const ContactForm = () => {
 
  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
  {/* Plate tier */}
- <div>
+ <div className="md:col-span-2">
  <label className="text-xs font-bold uppercase tracking-wider text-zinc-400 block mb-2">Catering Plan Tier</label>
- <div className="flex gap-2">
+ <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
  {Object.keys(platePrices).map((tier) => {
     const isActive = formData.plateCategory === tier;
     let activeStyles = '';
@@ -355,7 +355,7 @@ const ContactForm = () => {
  </div>
  </div>
  {/* Guests Slider */}
- <div>
+ <div className="md:col-span-2">
  <div className="flex justify-between items-center mb-2">
  <label className="text-xs font-bold uppercase tracking-wider text-zinc-400">Total Guests</label>
  <span className="text-white font-black text-sm bg-zinc-900 px-3 py-1 rounded border border-zinc-800">{formData.guests} people</span>
