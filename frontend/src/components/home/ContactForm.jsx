@@ -193,17 +193,17 @@ const ContactForm = () => {
  <div className="w-12 h-12 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center text-green-500 shrink-0 shadow-lg">
  <MapPin size={20} />
  </div>
- <div>
- <span className="text-[10px] text-zinc-500 font-bold uppercase tracking-widest block">Branch Outlets</span>
- <a 
-   href="https://maps.app.goo.gl/PWj1eeSYuC1x3NSw7" 
-   target="_blank" 
-   rel="noopener noreferrer" 
-   className="text-white hover:text-green-500 font-bold text-sm block mt-1 leading-relaxed transition-colors"
- >
-   Kolathur, Tambaram, Valasarawakkam, Chennai, Tamil Nadu
- </a>
- </div>
+  <div>
+  <span className="text-[10px] text-zinc-500 font-bold uppercase tracking-widest block">Our Location</span>
+  <a 
+    href="https://maps.app.goo.gl/PWj1eeSYuC1x3NSw7" 
+    target="_blank" 
+    rel="noopener noreferrer" 
+    className="text-white hover:text-green-500 font-bold text-sm block mt-1 leading-relaxed transition-colors"
+  >
+    Kolathur, Chennai, Tamil Nadu
+  </a>
+  </div>
  </li>
  </ul>
  </div>

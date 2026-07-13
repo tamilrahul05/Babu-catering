@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Phone, Mail, MapPin, Share2, Globe, Send, Check } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { FaWhatsapp } from 'react-icons/fa';
-import logo from '../assets/logo.png';
+import logo from '../assets/LOGO.png';
 
 const EVENTS_TICKER = [
   'Wedding',

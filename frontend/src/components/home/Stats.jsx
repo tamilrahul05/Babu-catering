@@ -42,9 +42,9 @@ const AnimatedCounter = ({ endValue, duration = 1.6 }) => {
 
 const Stats = () => {
  const stats = [
- { count: '1,000+', label: 'EVENTS' },
+ { count: '1,500+', label: 'EVENTS' },
  { count: '50,000+', label: 'GUESTS' },
- { count: '10+', label: 'YEARS EXP' },
+ { count: '15+', label: 'YEARS EXP' },
  { count: '4.9', label: 'RATING IN' }
  ];
 

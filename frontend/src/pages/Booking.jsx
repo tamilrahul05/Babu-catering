@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { Calendar, Users, MapPin, Clock, ArrowRight, ArrowLeft, CheckCircle, ShieldCheck, Download, Coffee, Sparkles } from 'lucide-react';
-import { bookingAPI, paymentAPI } from '../services/api';
+import { Calendar, Users, MapPin, Clock, ArrowRight, ArrowLeft, CheckCircle, ShieldCheck, Download, Coffee, Sparkles, User, Phone } from 'lucide-react';
 
 const Booking = () => {
  const navigate = useNavigate();
@@ -11,16 +10,17 @@ const Booking = () => {
 
  const [step, setStep] = useState(1);
  const [loading, setLoading] = useState(false);
- const [user, setUser] = useState(JSON.parse(localStorage.getItem('user')));
  
  const [formData, setFormData] = useState({
- date: '',
- timeSlot: 'Lunch',
- guests: 100,
- location: '',
- eventType: preSelectedPlan?.category || 'Wedding',
- selectedMenu: preSelectedPlan?.name || 'Standard Veg Plate',
- basePrice: parseFloat(preSelectedPlan?.price) || 250
+  name: '',
+  phone: '',
+  date: '',
+  timeSlot: 'Lunch',
+  guests: 100,
+  location: '',
+  eventType: preSelectedPlan?.category || 'Wedding',
+  selectedMenu: preSelectedPlan?.name || 'Standard Veg Plate',
+  basePrice: parseFloat(preSelectedPlan?.price) || 250
  });
 
  const [addons, setAddons] = useState({ liveCounter: false, premiumDesserts: false, VIPService: false });
@@ -47,86 +47,44 @@ const Booking = () => {
  setAddons(prev => ({ ...prev, [addon]: !prev[addon] }));
  };
 
- const loadRazorpayScript = () => {
- return new Promise((resolve) => {
- const script = document.createElement('script');
- script.src = 'https://checkout.razorpay.com/v1/checkout.js';
- script.onload = () => resolve(true);
- script.onerror = () => resolve(false);
- document.body.appendChild(script);
- });
- };
-
  const handleInputChange = (e) => {
  const { name, value } = e.target;
  setFormData(prev => ({ ...prev, [name]: value }));
  };
 
  const handleConfirm = async () => {
- if (!user) {
- alert('Please login to confirm your booking.');
- navigate('/login', { state: { from: '/booking', selectedPlan: preSelectedPlan } });
- return;
- }
+    setLoading(true);
+    try {
+      const mockBookingId = Math.floor(Math.random() * 9000) + 1000;
+      const newBooking = {
+        id: mockBookingId,
+        event_date: formData.date,
+        time_slot: formData.timeSlot,
+        guests: formData.guests,
+        location: formData.location,
+        event_type: formData.eventType,
+        total_price: totalCost,
+        status: 'confirmed',
+        payment_status: 'partial',
+        User: {
+          name: formData.name || 'Walk-in Client',
+          phone: formData.phone || 'N/A'
+        }
+      };
 
- setLoading(true);
- try {
- const bookingRes = await bookingAPI.createBooking({
- event_date: formData.date,
- time_slot: formData.timeSlot,
- guests: formData.guests,
- location: formData.location,
- event_type: formData.eventType,
- total_price: totalCost
- });
- const bookingId = bookingRes.data.booking.id;
- 
- const res = await loadRazorpayScript();
- if (!res) {
- alert('Razorpay SDK failed to load. Are you online?');
- return;
- }
+      // Save to localStorage
+      const existing = JSON.parse(localStorage.getItem('local_bookings')) || [];
+      existing.push(newBooking);
+      localStorage.setItem('local_bookings', JSON.stringify(existing));
 
- const advanceAmount = Math.round(totalCost * 0.2);
- const orderRes = await paymentAPI.createOrder({ amount: advanceAmount, bookingId });
-
- const options = {
- key: 'rzp_test_dummyKeyId', 
- amount: orderRes.data.amount,
- currency: 'INR',
- name: 'BABU Catering',
- description: 'Advance Booking Payment',
- order_id: orderRes.data.id,
- handler: async function (response) {
- try {
- await paymentAPI.verifyPayment({
- razorpay_order_id: response.razorpay_order_id,
- razorpay_payment_id: response.razorpay_payment_id,
- razorpay_signature: response.razorpay_signature,
- bookingId: bookingId
- });
- setStep(3); 
- } catch (error) {
- alert('Payment verification failed');
- }
- },
- prefill: {
- name: user.name,
- email: user.email,
- contact: user.phone || ''
- },
- theme: { color: '#0DCD6A' }
- };
-
- const paymentObject = new window.Razorpay(options);
- paymentObject.open();
-
- } catch (err) {
- alert(err.response?.data?.message || 'Failed to create booking.');
- } finally {
- setLoading(false);
- }
- };
+      // Go to success step
+      setStep(3);
+    } catch (err) {
+      alert('Failed to save booking. Please try again.');
+    } finally {
+      setLoading(false);
+    }
+  };
 
  return (
  <div className="min-h-[calc(100vh-80px)] bg-zinc-950 text-white font-inter pb-20">
@@ -157,17 +115,28 @@ const Booking = () => {
  exit={{ opacity: 0, y: -10 }}
  className="bg-zinc-900 border border-zinc-800 rounded-[2rem] p-6 md:p-10 "
  >
- <div className="space-y-6">
- <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
- <div>
- <label className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-zinc-400 mb-3"><Calendar size={16} className="text-green-500" /> Event Date</label>
- <input type="date" name="date" value={formData.date} onChange={handleInputChange} min={new Date().toISOString().split('T')[0]} className="w-full bg-zinc-950 border-2 border-zinc-800 p-4 rounded-xl text-white outline-none focus:border-green-500 focus:bg-zinc-900 transition-all color-scheme-dark" />
- </div>
- <div>
- <label className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-zinc-400 mb-3"><Users size={16} className="text-green-500" /> Number of Guests</label>
- <input type="number" name="guests" value={formData.guests} onChange={handleInputChange} min="50" className="w-full bg-zinc-950 border-2 border-zinc-800 p-4 rounded-xl text-white outline-none focus:border-green-500 focus:bg-zinc-900 transition-all" />
- </div>
- </div>
+  <div className="space-y-6">
+  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+  <div>
+  <label className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-zinc-400 mb-3"><User size={16} className="text-green-500" /> Client Name</label>
+  <input type="text" name="name" value={formData.name} onChange={handleInputChange} placeholder="Your Full Name..." className="w-full bg-zinc-950 border-2 border-zinc-800 p-4 rounded-xl text-white outline-none focus:border-green-500 focus:bg-zinc-900 transition-all" required />
+  </div>
+  <div>
+  <label className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-zinc-400 mb-3"><Phone size={16} className="text-green-500" /> Phone Number</label>
+  <input type="tel" name="phone" value={formData.phone} onChange={handleInputChange} placeholder="Your Contact Number..." className="w-full bg-zinc-950 border-2 border-zinc-800 p-4 rounded-xl text-white outline-none focus:border-green-500 focus:bg-zinc-900 transition-all" required />
+  </div>
+  </div>
+
+  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+  <div>
+  <label className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-zinc-400 mb-3"><Calendar size={16} className="text-green-500" /> Event Date</label>
+  <input type="date" name="date" value={formData.date} onChange={handleInputChange} min={new Date().toISOString().split('T')[0]} className="w-full bg-zinc-950 border-2 border-zinc-800 p-4 rounded-xl text-white outline-none focus:border-green-500 focus:bg-zinc-900 transition-all color-scheme-dark" />
+  </div>
+  <div>
+  <label className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-zinc-400 mb-3"><Users size={16} className="text-green-500" /> Number of Guests</label>
+  <input type="number" name="guests" value={formData.guests} onChange={handleInputChange} min="50" className="w-full bg-zinc-950 border-2 border-zinc-800 p-4 rounded-xl text-white outline-none focus:border-green-500 focus:bg-zinc-900 transition-all" />
+  </div>
+  </div>
 
  <div>
  <label className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-zinc-400 mb-3"><MapPin size={16} className="text-green-500" /> Event Location</label>
@@ -197,8 +166,8 @@ const Booking = () => {
 
  <button 
  className="w-full mt-10 p-5 bg-gradient-to-r from-green-400 to-green-600 text-black font-black text-lg rounded-xl flex items-center justify-center gap-2 transition-all disabled: disabled:hover:translate-y-0 disabled:hover:shadow-none cursor-pointer"
- disabled={!formData.date || !formData.location || formData.guests < 50}
- onClick={() => setStep(2)}
+  disabled={!formData.name || !formData.phone || !formData.date || !formData.location || formData.guests < 50}
+  onClick={() => setStep(2)}
  >
  Select Add-ons & Review <ArrowRight size={18} />
  </button>
@@ -263,7 +232,7 @@ const Booking = () => {
  <div className="flex gap-4 mt-8 flex-col sm:flex-row">
  <button className="flex-1 py-4 bg-zinc-800 text-zinc-300 font-bold rounded-xl flex items-center justify-center gap-2 transition-all cursor-pointer" onClick={() => setStep(1)}><ArrowLeft size={18} /> Back</button>
  <button className="flex-[2] py-4 bg-green-500 text-black font-black rounded-xl transition-all disabled: disabled:hover:translate-y-0 disabled:shadow-none cursor-pointer" onClick={handleConfirm} disabled={loading}>
- {loading ? 'Processing...' : 'Pay Advance (Razorpay)'}
+ {loading ? 'Processing...' : 'Confirm Booking'}
  </button>
  </div>
  </motion.div>
@@ -279,7 +248,7 @@ const Booking = () => {
  <CheckCircle size={48} className="text-black" />
  </div>
  <h2 className="text-4xl font-black text-white mb-4 tracking-tight">Booking Confirmed!</h2>
- <p className="text-zinc-400 mb-10 max-w-md mx-auto text-lg">Your advance payment was successful. Our team will contact you shortly to finalize the menu tasting and arrangements.</p>
+ <p className="text-zinc-400 mb-10 max-w-md mx-auto text-lg">Your reservation is confirmed. Our team will contact you shortly to finalize the menu tasting and arrangements.</p>
  
  <div className="bg-zinc-950 p-8 rounded-sm border border-zinc-800 mb-10 inline-block text-left w-full max-w-sm ">
  <div className="flex justify-between items-center mb-4 pb-4 border-b border-zinc-800/50"><span className="text-zinc-500 uppercase tracking-widest text-xs font-bold">Date</span> <span className="text-white font-bold">{formData.date}</span></div>
@@ -289,7 +258,7 @@ const Booking = () => {
 
  <div className="flex gap-4 justify-center flex-col sm:flex-row">
  <button className="py-4 px-8 bg-zinc-800 text-zinc-300 font-bold rounded-xl flex items-center justify-center gap-2 transition-all cursor-pointer" onClick={() => window.print()}><Download size={18} /> Invoice</button>
- <button className="py-4 px-8 bg-green-500 text-black font-black rounded-xl transition-all cursor-pointer" onClick={() => navigate('/my-bookings')}>View Bookings</button>
+  <button className="py-4 px-8 bg-green-500 text-black font-black rounded-xl transition-all cursor-pointer" onClick={() => navigate('/admin')}>View Bookings</button>
  </div>
  </motion.div>
  )}

@@ -2,33 +2,26 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { CheckCircle, XCircle, Search, Edit2 } from 'lucide-react';
-import api from '../services/api';
 
 const Admin = () => {
  const [bookings, setBookings] = useState([]);
  const [loading, setLoading] = useState(true);
- const [user, setUser] = useState(JSON.parse(localStorage.getItem('user')));
  const navigate = useNavigate();
 
  useEffect(() => {
- if (!user || user.role !== 'admin') {
- navigate('/login');
- return;
- }
+   const fetchBookings = () => {
+     try {
+       const localBookings = JSON.parse(localStorage.getItem('local_bookings')) || [];
+       setBookings(localBookings);
+     } catch (error) {
+       console.error('Failed to fetch local bookings', error);
+     } finally {
+       setLoading(false);
+     }
+   };
 
- const fetchBookings = async () => {
- try {
- const response = await api.get('/bookings/all');
- setBookings(response.data);
- } catch (error) {
- console.error('Failed to fetch bookings', error);
- } finally {
- setLoading(false);
- }
- };
-
- fetchBookings();
- }, [user, navigate]);
+   fetchBookings();
+ }, []);
 
  if (loading) return <div className="min-h-screen bg-zinc-950 flex items-center justify-center text-green-500 font-bold text-2xl">Loading Admin Dashboard...</div>;
 

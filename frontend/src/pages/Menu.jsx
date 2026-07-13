@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { AnimatePresence } from 'framer-motion';
 import { useNavigate, useParams, useLocation } from 'react-router-dom';
-import { menuAPI } from '../services/api';
-
 // Sub-components
 import MenuHero from '../components/menu/MenuHero';
 import CategoryCards from '../components/menu/CategoryCards';

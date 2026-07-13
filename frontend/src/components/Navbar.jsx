@@ -3,7 +3,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, User, LogOut, PhoneCall } from 'lucide-react';
 import { FaWhatsapp } from 'react-icons/fa';
-import logo from '../assets/logo.png';
+import logo from '../assets/LOGO.png';
 
 const Navbar = () => {
  const [isOpen, setIsOpen] = useState(false);
@@ -106,23 +106,6 @@ const Navbar = () => {
  <FaWhatsapp size={20} />
  </a>
 
- {user ? (
- <div className="flex items-center gap-4 h-full border-l border-[rgba(0,177,79,0.25)] pl-6">
- <span className="font-bold text-[#0DCD6A] text-sm tracking-wide">Hi, {user.name.split(' ')[0]}</span>
- <button 
- className="flex items-center justify-center text-[#FFFFFF] hover:text-[#EF4444] transition-colors duration-300"
- onClick={handleLogout}
- title="Logout"
- >
- <LogOut size={18} strokeWidth={2} />
- </button>
- </div>
- ) : (
- <Link to="/login" className="font-bold text-[#FFFFFF] hover:text-[#0DCD6A] text-[13px] uppercase tracking-widest px-2 transition-colors duration-300">
- Login
- </Link>
- )}
-
  {/* Premium CTA Button */}
  <Link 
  to="/booking" 
@@ -181,22 +164,6 @@ const Navbar = () => {
  </div>
  
  <div className="flex flex-col gap-3.5">
- {user ? (
- <button 
- onClick={handleLogout} 
- className="flex items-center justify-center gap-3 text-red-700 font-bold uppercase tracking-widest text-xs p-3.5 bg-red-100 rounded-xl border border-red-300"
- >
- <LogOut size={16} /> Logout ({user.name.split(' ')[0]})
- </button>
- ) : (
- <Link 
- to="/login" 
- onClick={() => setIsOpen(false)} 
- className="flex items-center justify-center gap-2 border border-zinc-800 text-zinc-100 hover:text-[#0DCD6A] hover:border-[#0DCD6A] bg-zinc-900 p-3.5 rounded-xl font-bold uppercase tracking-widest text-xs transition-colors"
- >
- <User size={16} /> Login / Register
- </Link>
- )}
  
  <a 
  href="https://wa.me/919944769090" 
