@@ -239,19 +239,16 @@ const Menu = () => {
   const navigate = useNavigate();
   const { categoryId } = useParams();
   const location = useLocation();
-  const [selectedItems, setSelectedItems] = useState([]);
-  const [showLeafPreview, setShowLeafPreview] = useState(false);
-
-  useEffect(() => {
+  const [selectedItems, setSelectedItems] = useState(() => {
     if (categoryId && location.state?.preSelectedDishId) {
       const preSelectedId = location.state.preSelectedDishId;
       const dishes = dishDatabase[categoryId];
       const dish = dishes?.find(d => d.id === preSelectedId);
-      if (dish && !selectedItems.find(i => i.id === preSelectedId)) {
-        setSelectedItems(prev => [...prev, dish]);
-      }
+      return dish ? [dish] : [];
     }
-  }, [categoryId, location.state]);
+    return [];
+  });
+  const [showLeafPreview, setShowLeafPreview] = useState(false);
 
   const categoriesConfig = [
     { id: 'Veg', title: 'Vegetarian', img: 'https://images.unsplash.com/photo-1610192244261-3f33de3f55e4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=60' },

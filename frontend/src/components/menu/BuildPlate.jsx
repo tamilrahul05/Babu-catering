@@ -108,16 +108,13 @@ const BuildPlate = ({ categoryId, dishDatabase, selectedItems, toggleItem, setSh
 
   const [activeSubcategory, setActiveSubcategory] = React.useState('');
 
-  // Set default active subcategory when subcategories load
-  React.useEffect(() => {
-    if (subcategories.length > 0 && !subcategories.includes(activeSubcategory)) {
-      setActiveSubcategory(subcategories[0]);
-    }
-  }, [subcategories, activeSubcategory]);
+  const currentSubcategory = subcategories.includes(activeSubcategory) 
+    ? activeSubcategory 
+    : (subcategories[0] || '');
 
   const filteredDishes = React.useMemo(() => {
-    return dishes.filter(d => d.subcategory === activeSubcategory);
-  }, [dishes, activeSubcategory]);
+    return dishes.filter(d => d.subcategory === currentSubcategory);
+  }, [dishes, currentSubcategory]);
 
   return (
     <div className="pt-32 pb-40 px-6 max-w-7xl mx-auto min-h-screen">
@@ -145,7 +142,7 @@ const BuildPlate = ({ categoryId, dishDatabase, selectedItems, toggleItem, setSh
           {/* Scrollable list of subcategories */}
           <div className="flex lg:flex-col gap-2 overflow-x-auto lg:overflow-x-visible pb-3 lg:pb-0 scrollbar-hide">
             {subcategories.map((sub) => {
-              const isActive = activeSubcategory === sub;
+              const isActive = currentSubcategory === sub;
               const itemCount = dishes.filter(d => d.subcategory === sub).length;
               return (
                 <button

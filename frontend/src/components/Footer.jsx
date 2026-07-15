@@ -33,15 +33,15 @@ const Footer = () => {
  <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-[#0DCD6A] to-transparent z-30"></div>
  
  {/* Full-Width Moving Events Ticker */}
- <div className="w-full bg-[#0DCD6A] py-4 relative overflow-hidden flex select-none border-b border-zinc-900/50 z-20">
- <div className="flex gap-16 items-center animate-marquee whitespace-nowrap text-[#111111] font-playfair text-sm md:text-base font-bold tracking-wider">
- {[...EVENTS_TICKER, ...EVENTS_TICKER, ...EVENTS_TICKER, ...EVENTS_TICKER].map((event, idx) => (
- <div key={idx} className="flex items-center gap-16">
- <span>{event}</span>
- <span className="text-[#111111]/40 font-light text-xs">•</span>
- </div>
- ))}
- </div>
+ <div className="w-full bg-zinc-950/85 backdrop-blur-md py-4 relative overflow-hidden flex select-none border-y border-zinc-900/80 z-20 shadow-[0_4px_30px_rgba(0,0,0,0.5)]">
+   <div className="flex gap-16 items-center animate-marquee whitespace-nowrap text-[#0DCD6A] font-outfit text-xs md:text-sm font-extrabold uppercase tracking-[0.3em] drop-shadow-[0_0_6px_rgba(13,205,106,0.25)]">
+     {[...EVENTS_TICKER, ...EVENTS_TICKER, ...EVENTS_TICKER, ...EVENTS_TICKER].map((event, idx) => (
+       <div key={idx} className="flex items-center gap-16">
+         <span>{event}</span>
+         <span className="text-amber-500 text-xs drop-shadow-[0_0_4px_rgba(245,158,11,0.4)]">✦</span>
+       </div>
+     ))}
+   </div>
  </div>
 
  <div className="max-w-7xl mx-auto px-6 pt-20 relative z-10">

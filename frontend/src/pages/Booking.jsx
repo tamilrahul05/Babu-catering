@@ -24,24 +24,24 @@ const Booking = () => {
  });
 
  const [addons, setAddons] = useState({ liveCounter: false, premiumDesserts: false, VIPService: false });
- const [totalCost, setTotalCost] = useState(0);
 
  const addOnPrices = {
- liveCounter: 15000, 
- premiumDesserts: 50, 
- VIPService: 8000 
- };
+    liveCounter: 15000, 
+    premiumDesserts: 50, 
+    VIPService: 8000 
+  };
 
- useEffect(() => {
- let perPlateCost = formData.basePrice;
- if (addons.premiumDesserts) perPlateCost += addOnPrices.premiumDesserts;
- 
- let base = formData.guests * perPlateCost;
- if (addons.liveCounter) base += addOnPrices.liveCounter;
- if (addons.VIPService) base += addOnPrices.VIPService;
- 
- setTotalCost(base);
- }, [formData.guests, formData.basePrice, addons]);
+  // Calculate total cost dynamically on-the-fly to avoid useEffect setState lint warning
+  const totalCost = (() => {
+    let perPlateCost = formData.basePrice;
+    if (addons.premiumDesserts) perPlateCost += addOnPrices.premiumDesserts;
+    
+    let base = formData.guests * perPlateCost;
+    if (addons.liveCounter) base += addOnPrices.liveCounter;
+    if (addons.VIPService) base += addOnPrices.VIPService;
+    
+    return base;
+  })();
 
  const toggleAddon = (addon) => {
  setAddons(prev => ({ ...prev, [addon]: !prev[addon] }));
