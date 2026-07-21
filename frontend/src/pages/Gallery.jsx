@@ -91,7 +91,7 @@ const GalleryPage = () => {
               transition={{ type: 'spring', damping: 25, stiffness: 200 }}
               src={lightboxImg} 
               alt="Zoomed View" 
-              className="max-w-full max-h-[85vh] rounded-3xl object-contain border border-white/10 shadow-2xl"
+              className="max-w-full max-h-[85vh] rounded-3xl object-contain border shadow-2xl"
               onClick={(e) => e.stopPropagation()}
             />
           </motion.div>

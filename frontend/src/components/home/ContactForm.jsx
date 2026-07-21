@@ -224,7 +224,7 @@ const ContactForm = () => {
       loading="lazy"
     ></iframe>
     <div className="absolute bottom-4 right-4 z-10">
-      <span className="bg-[#0DCD6A] text-black font-black text-xs uppercase tracking-widest px-5 py-2.5 rounded-full flex items-center gap-2 shadow-lg border border-white/10">
+      <span className="bg-[#0DCD6A] text-black font-black text-xs uppercase tracking-widest px-5 py-2.5 rounded-full flex items-center gap-2 shadow-lg border">
         Get Directions <MapPin size={14} />
       </span>
     </div>

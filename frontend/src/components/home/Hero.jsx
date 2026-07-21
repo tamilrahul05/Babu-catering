@@ -84,7 +84,7 @@ const Hero = () => {
             }`}
           />
         ))}
-        <div className="absolute inset-0"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/20 pointer-events-none"></div>
       </div>
 
       {/* Left Vertical Navigation */}
@@ -116,17 +116,24 @@ const Hero = () => {
               initial={{ opacity: 0, y: 15 }} 
               animate={{ opacity: 1, y: 0 }} 
               exit={{ opacity: 0, y: -15 }}
-              className={`inline-flex items-center gap-2 text-xs md:text-sm font-bold tracking-[0.3em] uppercase ${getThemeTextClass()}`}
+              className="inline-flex items-center gap-4 text-xs md:text-sm font-bold uppercase text-white tracking-[0.4em]"
             >
-              <Sparkles size={12} className="animate-pulse" />
+              <div className="w-8 h-[1px]"></div>
               {themes[activeTheme].badge}
+              <div className="w-8 h-[1px]"></div>
             </motion.span>
           </AnimatePresence>
         </div>
         
         <div className="mb-6">
-          <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-playfair font-black text-white leading-[1.08] drop-shadow-2xl">
-            Kolathur Babu <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 via-green-500 to-green-600 italic font-medium pr-1">Catering</span>
+          <h1 className="text-5xl sm:text-7xl md:text-8xl lg:text-[7.5rem] font-playfair font-bold text-white leading-[1.05] uppercase drop-shadow-[0_10px_20px_rgba(0,0,0,0.6)]">
+            KALATHUR BABU
+            <br />
+            <span 
+              className="text-[#219C45] drop-shadow-[0_5px_15px_rgba(0,0,0,0.8)]"
+            >
+              CATERING
+            </span>
           </h1>
         </div>
         
@@ -145,24 +152,24 @@ const Hero = () => {
           </AnimatePresence>
         </div>
 
-        <div className="flex flex-col sm:flex-row gap-6 justify-center items-center w-full max-w-md mx-auto">
+        <div className="flex flex-col sm:flex-row gap-6 justify-center items-center w-full max-w-md mx-auto mt-4">
           <button 
             onClick={handleBookEstimate}
-            className="group w-full sm:w-auto text-white pl-8 pr-2 py-2 rounded-full flex items-center justify-between sm:justify-start gap-4 transition-all duration-300 cursor-pointer shadow-lg backdrop-blur-sm"
+            className="group w-full sm:w-auto pl-8 pr-2 py-2 rounded-full flex items-center justify-between sm:justify-start gap-5 transition-all duration-300 cursor-pointer shadow-2xl bg-gradient-to-b from-[#082C15] to-[#051A0C] text-white border border-[#D4AF37]"
           >
-            <span className="font-bold text-xs uppercase tracking-[0.2em]">Book Catering</span>
-            <div className="w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 bg-green-500 text-black shadow-[0_0_12px_rgba(13,205,106,0.5)]">
-              <ChevronRight size={18} className="group-hover:translate-x-0.5 transition-transform" />
+            <span className="font-bold text-xs uppercase tracking-[0.15em]">Book Catering</span>
+            <div className="w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 bg-[#E8C766] text-black">
+              <ChevronRight size={18} className="group-hover:translate-x-1 transition-transform" />
             </div>
           </button>
 
           <Link to="/menu" className="w-full sm:w-auto">
             <button 
-              className="group w-full sm:w-auto text-white pl-8 pr-2 py-2 rounded-full flex items-center justify-between sm:justify-start gap-4 transition-all duration-300 cursor-pointer shadow-lg backdrop-blur-sm"
+              className="group w-full sm:w-auto pl-8 pr-2 py-2 rounded-full flex items-center justify-between sm:justify-start gap-5 transition-all duration-300 cursor-pointer shadow-2xl bg-white text-zinc-900 border border-[#D4AF37] hover:bg-[#FFFDF5]"
             >
-              <span className="font-bold text-xs uppercase tracking-[0.2em]">Explore Menus</span>
-              <div className="w-10 h-10 rounded-full text-white flex items-center justify-center transition-all duration-300">
-                <ChevronRight size={18} className="group-hover:translate-x-0.5 transition-transform" />
+              <span className="font-bold text-xs uppercase tracking-[0.15em] text-zinc-900">Explore Menus</span>
+              <div className="w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 bg-[#E8C766] text-black">
+                <ChevronRight size={18} className="group-hover:translate-x-1 transition-transform" />
               </div>
             </button>
           </Link>
@@ -170,7 +177,7 @@ const Hero = () => {
       </div>
 
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center z-10 cursor-pointer pointer-events-none select-none">
-        <span className="text-[9px] font-bold uppercase tracking-[0.3em] text-white/60 mb-2.5 font-outfit">Scroll To Discover</span>
+        <span className="text-[9px] font-bold uppercase tracking-[0.3em] text-white mb-2.5 font-outfit">Scroll To Discover</span>
         <motion.div 
           animate={{ y: [0, 8, 0] }}
           transition={{ repeat: Infinity, duration: 1.5 }}

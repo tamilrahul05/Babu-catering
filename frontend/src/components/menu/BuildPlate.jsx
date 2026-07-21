@@ -191,7 +191,7 @@ const BuildPlate = ({ categoryId, dishDatabase, selectedItems, toggleItem, setSh
             initial={{ y: 100, opacity: 0, x: '-50%' }} 
             animate={{ y: 0, opacity: 1, x: '-50%' }} 
             exit={{ y: 100, opacity: 0, x: '-50%' }} 
-            className="fixed bottom-8 left-1/2 w-[95%] md:w-auto min-w-[320px] max-w-2xl bg-zinc-900/95 border border-white/10 px-6 py-5 rounded-[2.5rem] flex items-center justify-between gap-10 shadow-[0_30px_60px_rgba(0,0,0,0.8)] z-50 ring-1 ring-green-500/30"
+            className="fixed bottom-8 left-1/2 w-[95%] md:w-auto min-w-[320px] max-w-2xl bg-zinc-900/95 border px-6 py-5 rounded-[2.5rem] flex items-center justify-between gap-10 shadow-[0_30px_60px_rgba(0,0,0,0.8)] z-50 ring-1 ring-green-500/30"
           >
             <div className="flex items-center gap-4">
               <div className="w-12 h-12 bg-green-500 text-black rounded-full flex items-center justify-center font-black text-xl shadow-lg shadow-green-500/20">

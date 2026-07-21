@@ -131,7 +131,7 @@ const GalleryGrid = () => {
                       className="w-full h-full object-cover"
                       loading="lazy"
                     />
-                    <div className="absolute top-4 left-4 bg-zinc-950 px-3.5 py-1.5 rounded-full text-[9px] font-black text-green-500 tracking-wider uppercase border border-white/5 shadow-md">
+                    <div className="absolute top-4 left-4 bg-zinc-950 px-3.5 py-1.5 rounded-full text-[9px] font-black text-green-500 tracking-wider uppercase border shadow-md">
                       {item.category}
                     </div>
                   </div>
@@ -169,7 +169,7 @@ const GalleryGrid = () => {
                       playsInline 
                       className="w-full h-full object-cover"
                     ></video>
-                    <div className="absolute top-4 left-4 bg-zinc-950/80 px-4 py-1.5 rounded-full text-[9px] font-black text-green-500 tracking-widest uppercase border border-white/5 shadow-md">
+                    <div className="absolute top-4 left-4 bg-zinc-950/80 px-4 py-1.5 rounded-full text-[9px] font-black text-green-500 tracking-widest uppercase border shadow-md">
                       {card.label}
                     </div>
                   </div>
@@ -215,7 +215,7 @@ const GalleryGrid = () => {
               transition={{ type: 'spring', damping: 25, stiffness: 200 }}
               src={lightboxImg} 
               alt="Lightbox Zoomed View" 
-              className="max-w-full max-h-[85vh] rounded-3xl object-contain border border-white/10 shadow-2xl"
+              className="max-w-full max-h-[85vh] rounded-3xl object-contain border shadow-2xl"
               onClick={(e) => e.stopPropagation()}
             />
           </motion.div>

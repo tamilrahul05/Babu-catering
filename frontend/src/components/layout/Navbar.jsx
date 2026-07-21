@@ -46,24 +46,26 @@ const Navbar = () => {
   return (
     <>
       <nav 
-        className={`fixed left-1/2 -translate-x-1/2 z-[999] w-[95%] max-w-7xl h-[80px] md:h-[90px] rounded-[20px] flex items-center navbar-floating transition-all duration-500 ease-in-out ${
-          scrolled ? 'top-2 md:top-4 navbar-scrolled' : 'top-4 md:top-6'
+        className={`fixed left-1/2 -translate-x-1/2 z-[999] w-[95%] max-w-7xl h-[80px] md:h-[90px] rounded-[24px] flex items-center transition-all duration-500 ease-in-out border border-[#E8C766] bg-[#06200D] shadow-2xl ${
+          scrolled ? 'top-2 md:top-4' : 'top-4 md:top-6'
         }`}
       >
         <div className="w-full h-full flex items-center justify-between px-6 md:px-8 relative">
           
           {/* Logo & Brand */}
           <Link to="/" className="flex items-center gap-3 group h-full relative z-20">
-            <div className="relative flex items-center justify-center">
-              <div className="absolute inset-0 bg-[#0DCD6A] group-hover:transition-opacity rounded-full"></div>
-              <img src={logo} alt="BABU Catering" className="relative w-12 h-12 md:w-14 md:h-14 object-contain rounded-full shadow-lg border-2 border-[rgba(0,177,79,0.25)] group-hover:border-[#0DCD6A] transition-colors bg-transparent p-0.5" />
+            <div className="relative flex items-center justify-center bg-white rounded-full p-1 border-2 border-[#E8C766]">
+              <img src={logo} alt="BABU Catering" className="relative w-10 h-10 md:w-12 md:h-12 object-contain rounded-full bg-transparent" />
             </div>
-            <div className="hidden sm:flex flex-col justify-center">
-              <span className="font-playfair font-black text-xl md:text-2xl tracking-wide text-[#0DCD6A] leading-none drop-shadow-md">
-                BABU <span className="text-[#FFFFFF] italic">Catering</span>
+            <div className="hidden sm:flex flex-col justify-center gap-1">
+              <span className="font-playfair font-black text-[16px] md:text-[20px] tracking-wide text-white leading-none uppercase">
+                KALATHUR <span className="text-[#219C45]">BABU</span>
               </span>
-              <span className="font-outfit text-[9px] md:text-[10px] uppercase tracking-[0.3em] text-[#E5E7EB] font-bold mt-1">
-                Luxury Events
+              <span className="font-playfair text-[11px] md:text-[13px] uppercase tracking-[0.2em] text-white font-bold leading-none">
+                CATERING
+              </span>
+              <span className="font-outfit text-[6px] md:text-[7px] uppercase tracking-[0.4em] text-[#E8C766] font-bold mt-1 pl-1">
+                — HIGH CLASS CATERERS —
               </span>
             </div>
           </Link>
@@ -76,13 +78,13 @@ const Navbar = () => {
                 <Link 
                   key={item.name} 
                   to={item.path} 
-                  className={`relative flex items-center h-full group font-outfit text-[13px] font-bold uppercase tracking-[0.15em] transition-colors duration-300 ${
-                    active ? 'text-[#0DCD6A]' : 'text-[#FFFFFF] hover:text-[#0DCD6A]'
+                  className={`relative flex items-center h-full group font-outfit text-[14px] font-bold uppercase tracking-[0.1em] transition-colors duration-300 ${
+                    active ? 'text-[#E8C766]' : 'text-[#FFFFFF] hover:text-[#E8C766]'
                   }`}
                 >
                   {item.name}
-                  <span className={`absolute bottom-[20%] left-1/2 -translate-x-1/2 h-[3px] bg-[#0DCD6A] rounded-full transition-all duration-300 ${
-                    active ? 'w-[120%]' : 'w-0 group-hover:w-[120%]'
+                  <span className={`absolute bottom-[25%] left-1/2 -translate-x-1/2 h-[2px] bg-[#E8C766] rounded-full transition-all duration-300 ${
+                    active ? 'w-[100%]' : 'w-0 group-hover:w-[100%]'
                   }`}></span>
                 </Link>
               );
@@ -97,16 +99,16 @@ const Navbar = () => {
 
             <Link 
               to="/booking" 
-              className="btn-luxury-cta group flex items-center justify-center gap-2 px-7 py-3 rounded-[14px] font-black text-[13px] uppercase tracking-widest text-black"
+              className="group flex items-center justify-center gap-2 px-6 py-2.5 rounded-full font-bold text-[12px] uppercase tracking-widest text-[#E8C766] border border-[#E8C766] bg-transparent hover:bg-[#E8C766]/10 transition-colors"
             >
-              <PhoneCall size={15} className="relative z-10" /> 
+              <PhoneCall size={14} className="relative z-10" /> 
               <span className="relative z-10">Book Catering</span>
             </Link>
           </div>
 
           {/* Mobile Menu Toggle */}
           <button 
-            className="lg:hidden relative z-50 text-[#0DCD6A] bg-zinc-100 p-2.5 rounded-[12px] border border-green-500 hover:bg-zinc-200 transition-colors"
+            className="lg:hidden relative z-50 text-[#2ECC71] bg-[#111111] p-2.5 rounded-[12px] border border-[#D4AF37] transition-colors"
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle Menu"
           >

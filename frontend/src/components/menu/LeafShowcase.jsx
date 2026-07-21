@@ -38,7 +38,7 @@ const Showcase = ({ showPreview, setShowPreview, categoryId, selectedItems, hand
  </div>
 
  {/* The Banana Serving Area */}
- <div className="relative w-full max-w-[1200px] flex-1 min-h-0 flex items-center justify-center overflow-hidden my-4 md:my-6 rounded-[2.5rem] md:rounded-[3rem] shadow-[0_30px_60px_rgba(0,0,0,0.9)] border border-white/5 bg-zinc-900/50">
+ <div className="relative w-full max-w-[1200px] flex-1 min-h-0 flex items-center justify-center overflow-hidden my-4 md:my-6 rounded-[2.5rem] md:rounded-[3rem] shadow-[0_30px_60px_rgba(0,0,0,0.9)] border bg-zinc-900/50">
 
  {/* Ultra-Realistic Banana Background */}
  <div className="absolute inset-0 z-0">
@@ -65,7 +65,7 @@ const Showcase = ({ showPreview, setShowPreview, categoryId, selectedItems, hand
  >
  {/* Organic Food Scoop */}
  <div
- className="w-16 h-16 sm:w-20 sm:h-20 md:w-28 md:h-28 overflow-hidden shadow-[4px_8px_15px_rgba(0,20,0,0.6)] relative border border-white/10"
+ className="w-16 h-16 sm:w-20 sm:h-20 md:w-28 md:h-28 overflow-hidden shadow-[4px_8px_15px_rgba(0,20,0,0.6)] relative border"
  style={{
  borderRadius: isEven ? '60% 40% 30% 70% / 60% 30% 70% 40%' : '40% 60% 70% 30% / 50% 60% 30% 60%'
  }}
@@ -83,7 +83,7 @@ const Showcase = ({ showPreview, setShowPreview, categoryId, selectedItems, hand
  </div>
 
  {/* Item Label */}
- <span className="text-white text-[9px] md:text-xs font-bold tracking-wider text-center px-2.5 py-1 bg-black/60 rounded-full max-w-[80px] md:max-w-[120px] truncate shadow-lg border border-white/5">
+ <span className="text-white text-[9px] md:text-xs font-bold tracking-wider text-center px-2.5 py-1 bg-black/60 rounded-full max-w-[80px] md:max-w-[120px] truncate shadow-lg border">
  {item.name}
  </span>
  </motion.div>
@@ -94,7 +94,7 @@ const Showcase = ({ showPreview, setShowPreview, categoryId, selectedItems, hand
  </div>
 
  {/* Bottom Action Bar */}
- <div className="mt-4 md:mt-8 bg-zinc-900/90 border border-white/10 rounded-3xl md:rounded-full px-5 py-4 md:px-8 md:py-4 flex flex-col sm:flex-row items-center justify-between gap-5 shadow-2xl relative z-20 w-full max-w-5xl flex-shrink-0 mb-4">
+ <div className="mt-4 md:mt-8 bg-zinc-900/90 border rounded-3xl md:rounded-full px-5 py-4 md:px-8 md:py-4 flex flex-col sm:flex-row items-center justify-between gap-5 shadow-2xl relative z-20 w-full max-w-5xl flex-shrink-0 mb-4">
 
  <div className="flex items-center justify-between w-full sm:w-auto sm:gap-8 sm:border-r sm:border-zinc-800 sm:pr-8">
  <div>
