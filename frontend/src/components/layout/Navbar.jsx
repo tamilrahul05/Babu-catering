@@ -31,8 +31,7 @@ const Navbar = () => {
     { name: 'Home', path: '/' },
     { name: 'Our Menu', path: '/menu' },
     { name: 'Gallery', path: '/gallery' },
-    { name: 'Pre-Booking', path: '/booking' },
-    { name: 'Contact', path: '/#contact' }
+    { name: 'Pre-Booking', path: '/booking' }
   ];
 
   const isActive = (path) => {
@@ -64,9 +63,6 @@ const Navbar = () => {
               <span className="font-playfair text-[11px] md:text-[13px] uppercase tracking-[0.2em] text-white font-bold leading-none">
                 CATERING
               </span>
-              <span className="font-outfit text-[6px] md:text-[7px] uppercase tracking-[0.4em] text-[#E8C766] font-bold mt-1 pl-1">
-                — HIGH CLASS CATERERS —
-              </span>
             </div>
           </Link>
 
@@ -78,7 +74,7 @@ const Navbar = () => {
                 <Link 
                   key={item.name} 
                   to={item.path} 
-                  className={`relative flex items-center h-full group font-outfit text-[14px] font-bold uppercase tracking-[0.1em] transition-colors duration-300 ${
+                  className={`relative flex items-center h-full group font-outfit text-[18px] font-bold uppercase tracking-[0.1em] transition-colors duration-300 ${
                     active ? 'text-[#E8C766]' : 'text-[#FFFFFF] hover:text-[#E8C766]'
                   }`}
                 >
@@ -94,7 +90,7 @@ const Navbar = () => {
           {/* Right Actions */}
           <div className="hidden lg:flex items-center gap-6 h-full relative z-20">
             <a href="https://wa.me/919944769090" target="_blank" rel="noreferrer" className="flex items-center justify-center text-[#FFFFFF] hover:text-[#0DCD6A] transition-colors duration-300" title="WhatsApp Us">
-              <FaWhatsapp size={20} />
+              <FaWhatsapp size={28} />
             </a>
 
             <Link 

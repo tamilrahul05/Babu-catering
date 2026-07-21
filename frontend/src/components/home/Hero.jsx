@@ -125,13 +125,10 @@ const Hero = () => {
           </AnimatePresence>
         </div>
         
-        <div className="mb-6">
-          <h1 className="text-5xl sm:text-7xl md:text-8xl lg:text-[7.5rem] font-playfair font-bold text-white leading-[1.05] uppercase drop-shadow-[0_10px_20px_rgba(0,0,0,0.6)]">
-            KALATHUR BABU
-            <br />
-            <span 
-              className="text-[#219C45] drop-shadow-[0_5px_15px_rgba(0,0,0,0.8)]"
-            >
+        <div className="mb-6 flex flex-col items-center justify-center w-full">
+          <h1 className="flex flex-col items-center justify-center text-5xl sm:text-7xl md:text-8xl lg:text-[7.5rem] font-playfair font-bold text-white leading-[1.1] uppercase drop-shadow-[0_10px_20px_rgba(0,0,0,0.6)] text-center">
+            <span className="block">KALATHUR BABU</span>
+            <span className="block text-[#219C45] drop-shadow-[0_5px_15px_rgba(0,0,0,0.8)] sm:mt-1 lg:mt-2">
               CATERING
             </span>
           </h1>
@@ -155,20 +152,20 @@ const Hero = () => {
         <div className="flex flex-col sm:flex-row gap-6 justify-center items-center w-full max-w-md mx-auto mt-4">
           <button 
             onClick={handleBookEstimate}
-            className="group w-full sm:w-auto pl-8 pr-2 py-2 rounded-full flex items-center justify-between sm:justify-start gap-5 transition-all duration-300 cursor-pointer shadow-2xl bg-gradient-to-b from-[#082C15] to-[#051A0C] text-white border border-[#D4AF37]"
+            className="group w-full sm:w-auto pl-8 pr-2 py-2 rounded-full flex items-center justify-between sm:justify-start gap-5 transition-all duration-300 ease-out cursor-pointer shadow-2xl bg-gradient-to-b from-[#082C15] to-[#051A0C] text-white border border-[#D4AF37] hover:-translate-y-1 hover:shadow-[0_15px_30px_rgba(0,0,0,0.3)]"
           >
             <span className="font-bold text-xs uppercase tracking-[0.15em]">Book Catering</span>
-            <div className="w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 bg-[#E8C766] text-black">
+            <div className="w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 bg-[#D4AF37] text-[#0A3319]">
               <ChevronRight size={18} className="group-hover:translate-x-1 transition-transform" />
             </div>
           </button>
 
           <Link to="/menu" className="w-full sm:w-auto">
             <button 
-              className="group w-full sm:w-auto pl-8 pr-2 py-2 rounded-full flex items-center justify-between sm:justify-start gap-5 transition-all duration-300 cursor-pointer shadow-2xl bg-white text-zinc-900 border border-[#D4AF37] hover:bg-[#FFFDF5]"
+              className="group w-full sm:w-auto pl-8 pr-2 py-2 rounded-full flex items-center justify-between sm:justify-start gap-5 transition-all duration-300 ease-out cursor-pointer shadow-2xl bg-[#F8F4EC] text-[#0A3319] border border-[#D4AF37] hover:bg-[#FFFDF5] hover:-translate-y-1 hover:shadow-[0_15px_30px_rgba(0,0,0,0.3)]"
             >
-              <span className="font-bold text-xs uppercase tracking-[0.15em] text-zinc-900">Explore Menus</span>
-              <div className="w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 bg-[#E8C766] text-black">
+              <span className="font-bold text-xs uppercase tracking-[0.15em] text-[#0A3319]">View Menu</span>
+              <div className="w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 bg-[#D4AF37] text-[#0A3319]">
                 <ChevronRight size={18} className="group-hover:translate-x-1 transition-transform" />
               </div>
             </button>
