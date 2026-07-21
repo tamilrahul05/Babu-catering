@@ -31,7 +31,7 @@ const Footer = () => {
   return (
     <footer className="bg-gradient-to-b from-zinc-950 to-black text-white pt-0 pb-8 relative overflow-hidden border-t border-zinc-900">
       <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-[#0DCD6A] to-transparent z-30"></div>
-      
+
       {/* Full-Width Moving Events Ticker */}
       <div className="w-full bg-zinc-950/85 backdrop-blur-md py-4 relative overflow-hidden flex select-none border-y border-zinc-900/80 z-20 shadow-[0_4px_30px_rgba(0,0,0,0.5)]">
         <div className="flex gap-16 items-center animate-marquee whitespace-nowrap text-[#0DCD6A] font-outfit text-xs md:text-sm font-extrabold uppercase tracking-[0.3em] drop-shadow-[0_0_6px_rgba(13,205,106,0.25)]">
@@ -56,11 +56,11 @@ const Footer = () => {
                 <span className="font-outfit text-[8px] uppercase tracking-[0.2em] text-[#E5E7EB] font-bold mt-1">Luxury Events</span>
               </div>
             </Link>
-            
+
             <p className="text-zinc-500 text-sm leading-relaxed mb-6 font-medium pr-4">
               Making wedding banquets and prestigious corporate events memorable since 2010. High-class, five-star catering services tailored for your grand celebrations.
             </p>
-            
+
             {/* Social channels */}
             <div className="flex gap-3">
               {[
@@ -68,11 +68,11 @@ const Footer = () => {
                 { icon: <Share2 size={18} />, link: 'https://www.instagram.com/babucatering/' },
                 { icon: <Globe size={18} />, link: 'https://www.instagram.com/babucatering/' }
               ].map((item, i) => (
-                <a 
-                  key={i} 
-                  href={item.link} 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
+                <a
+                  key={i}
+                  href={item.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-10 h-10 rounded-xl flex items-center justify-center text-zinc-400 hover:text-[#0DCD6A] hover:border-[#0DCD6A]/35 transition-all duration-300 shadow-md"
                 >
                   {item.icon}
@@ -119,21 +119,21 @@ const Footer = () => {
           {/* Col 4: Newsletter Subscription */}
           <div className="lg:col-span-4 flex flex-col">
             <h3 className="text-white text-base font-bold uppercase tracking-wider mb-6 font-playfair border-b border-zinc-900 pb-2">Newsletter</h3>
-            
+
             <p className="text-zinc-500 text-sm leading-relaxed mb-5 font-medium">
               Subscribe to receive updates on premium seasonal menus, discounts, and exclusive catering consultations.
             </p>
-            
+
             <form onSubmit={handleSubscribe} className="relative w-full">
-              <input 
-                type="email" 
+              <input
+                type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
                 placeholder="Enter your email address..."
                 className="w-full bg-zinc-900/60 border border-zinc-800 rounded-xl py-3.5 pl-4 pr-12 text-[#FFFFFF] text-xs focus:outline-none focus:border-[#0DCD6A] transition-all font-outfit"
               />
-              <button 
+              <button
                 type="submit"
                 className="absolute right-2 top-1/2 -translate-y-1/2 text-zinc-400 hover:text-[#0DCD6A] p-2 rounded-lg transition-colors focus:outline-none"
                 title="Subscribe"
@@ -141,7 +141,7 @@ const Footer = () => {
                 {subscribed ? <Check size={16} className="text-[#0DCD6A]" /> : <Send size={16} />}
               </button>
             </form>
-            
+
             {subscribed && (
               <span className="text-[10px] font-black text-green-500 uppercase tracking-widest mt-3.5 block animate-fade-in">
                 Thank you for subscribing!
