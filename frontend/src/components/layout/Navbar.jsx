@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, PhoneCall } from 'lucide-react';
 import { FaWhatsapp } from 'react-icons/fa';
-import logo from '@/assets/LOGO.png';
+import logo from '@/assets/logo.png';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
