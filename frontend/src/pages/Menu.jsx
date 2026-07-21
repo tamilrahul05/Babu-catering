@@ -239,16 +239,19 @@ const Menu = () => {
   const navigate = useNavigate();
   const { categoryId } = useParams();
   const location = useLocation();
-  const [selectedItems, setSelectedItems] = useState(() => {
+  const [selectedItems, setSelectedItems] = useState([]);
+  const [showLeafPreview, setShowLeafPreview] = useState(false);
+
+  useEffect(() => {
     if (categoryId && location.state?.preSelectedDishId) {
       const preSelectedId = location.state.preSelectedDishId;
       const dishes = dishDatabase[categoryId];
       const dish = dishes?.find(d => d.id === preSelectedId);
-      return dish ? [dish] : [];
+      if (dish && !selectedItems.find(i => i.id === preSelectedId)) {
+        setSelectedItems(prev => [...prev, dish]);
+      }
     }
-    return [];
-  });
-  const [showLeafPreview, setShowLeafPreview] = useState(false);
+  }, [categoryId, location.state]);
 
   const categoriesConfig = [
     { id: 'Veg', title: 'Vegetarian', img: 'https://images.unsplash.com/photo-1610192244261-3f33de3f55e4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=60' },
@@ -272,7 +275,6 @@ const Menu = () => {
     };
     navigate('/booking', { state: { selectedPlan: customPlate } });
   };
-
   return (
     <div className="bg-zinc-950 min-h-screen">
       <AnimatePresence mode="wait">

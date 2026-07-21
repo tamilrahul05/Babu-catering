@@ -101,7 +101,6 @@ const DishCard = ({ dish, index, isSelected, toggleItem }) => {
 const BuildPlate = ({ categoryId, dishDatabase, selectedItems, toggleItem, setShowLeafPreview }) => {
   const dishes = dishDatabase[categoryId] || [];
 
-  // Extract unique subcategories present in this category
   const subcategories = React.useMemo(() => {
     return Array.from(new Set(dishes.map(d => d.subcategory))).filter(Boolean);
   }, [dishes]);
@@ -118,8 +117,6 @@ const BuildPlate = ({ categoryId, dishDatabase, selectedItems, toggleItem, setSh
 
   return (
     <div className="pt-32 pb-40 px-6 max-w-7xl mx-auto min-h-screen">
-      
-      {/* Back link and Title */}
       <div className="mb-16">
         <Link to="/menu" className="inline-flex items-center gap-2 text-zinc-400 font-bold mb-8 hover:text-green-500 transition-colors">
           <ArrowLeft size={20} /> Back to Categories
@@ -132,14 +129,10 @@ const BuildPlate = ({ categoryId, dishDatabase, selectedItems, toggleItem, setSh
         </p>
       </div>
 
-      {/* Main Container */}
       <div className="flex flex-col lg:flex-row gap-10 items-start">
-        
-        {/* Left Subcategory Sidebar for Desktop, Horizontal Tills for Mobile */}
         <div className="w-full lg:w-80 shrink-0 bg-[#FAF8F5] border border-[#E4E7EB] rounded-[2rem] p-5 lg:p-6 shadow-sm">
           <span className="text-[10px] font-bold uppercase tracking-widest text-zinc-400 block mb-4 px-2">Menu Sections</span>
           
-          {/* Scrollable list of subcategories */}
           <div className="flex lg:flex-col gap-2 overflow-x-auto lg:overflow-x-visible pb-3 lg:pb-0 scrollbar-hide">
             {subcategories.map((sub) => {
               const isActive = currentSubcategory === sub;
@@ -151,7 +144,7 @@ const BuildPlate = ({ categoryId, dishDatabase, selectedItems, toggleItem, setSh
                   className={`flex items-center gap-3.5 px-4 py-3 rounded-2xl text-left transition-all duration-300 whitespace-nowrap lg:whitespace-normal shrink-0 lg:shrink w-auto lg:w-full border ${
                     isActive 
                       ? 'bg-[#FADBB4]/60 text-amber-950 font-bold border-[#F5B05D]/20 shadow-sm' 
-                      : 'bg-transparent text-zinc-500 hover:text-[#0DCD6A] hover:bg-[#F3EFE9] border-transparent'
+                      : 'bg-transparent text-[#111111] hover:text-[#0DCD6A] hover:bg-[#F3EFE9] border-transparent'
                   }`}
                 >
                   <span className={isActive ? 'text-amber-800' : 'text-zinc-400'}>
@@ -171,7 +164,6 @@ const BuildPlate = ({ categoryId, dishDatabase, selectedItems, toggleItem, setSh
           </div>
         </div>
 
-        {/* Right Dishes Grid */}
         <div className="flex-1 w-full">
           {filteredDishes.length === 0 ? (
             <div className="text-center py-20 bg-[#FAF8F5] rounded-[2rem] border border-[#E4E7EB]">
@@ -191,10 +183,8 @@ const BuildPlate = ({ categoryId, dishDatabase, selectedItems, toggleItem, setSh
             </div>
           )}
         </div>
-
       </div>
 
-      {/* Floating Selection Bar */}
       <AnimatePresence>
         {selectedItems.length > 0 && (
           <motion.div 
@@ -221,7 +211,6 @@ const BuildPlate = ({ categoryId, dishDatabase, selectedItems, toggleItem, setSh
           </motion.div>
         )}
       </AnimatePresence>
-
     </div>
   );
 };

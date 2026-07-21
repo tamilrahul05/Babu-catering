@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
-import Navbar from './components/Navbar';
-import Footer from './components/Footer';
-import Home from './pages/Home';
-import Menu from './pages/Menu';
-import Booking from './pages/Booking';
-import Admin from './pages/Admin';
-import GalleryPage from './pages/Gallery';
-import Preloader from './components/common/Preloader';
+import Navbar from '@/components/layout/Navbar';
+import Footer from '@/components/layout/Footer';
+import Home from '@/pages/Home';
+import Menu from '@/pages/Menu';
+import Booking from '@/pages/Booking';
+import Admin from '@/pages/Admin';
+import GalleryPage from '@/pages/Gallery';
+import Preloader from '@/components/common/Preloader';
 import { FaWhatsapp } from 'react-icons/fa';
 
 const ScrollToTop = () => {
@@ -54,7 +54,7 @@ const AppContent = () => {
       </main>
       <Footer />
       <a 
-        href="https://wa.me/9025237677" 
+        href="https://wa.me/919944769090" 
         className="fixed bottom-6 right-6 z-50 bg-[#25D366] text-white p-3.5 md:p-4 rounded-full shadow-[0_10px_30px_rgba(37,211,102,0.4)] hover:shadow-[0_15px_40px_rgba(37,211,102,0.6)] hover:scale-110 hover:-translate-y-1 transition-all duration-300 animate-soft-pulse group"
         target="_blank" 
         rel="noopener noreferrer"
@@ -78,7 +78,7 @@ function App() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 3000);
+    }, 2000);
     return () => clearTimeout(timer);
   }, []);
 
