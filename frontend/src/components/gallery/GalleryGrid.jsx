@@ -203,7 +203,7 @@ const GalleryGrid = () => {
           >
             <button 
               onClick={() => setLightboxImg(null)} 
-              className="absolute top-6 right-6 text-zinc-400 hover:text-white p-3 rounded-full bg-white/5 border border-white/10 transition-colors"
+              className="absolute top-6 right-6 text-zinc-400 hover:text-white p-3 rounded-full transition-colors"
               title="Close lightbox"
             >
               <X size={24} />

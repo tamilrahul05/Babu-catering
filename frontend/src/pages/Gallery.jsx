@@ -30,7 +30,7 @@ const GalleryPage = () => {
         className="relative h-[250px] md:h-[350px] bg-cover bg-center flex flex-col items-center justify-center text-center px-4"
         style={{ backgroundImage: `url('https://images.unsplash.com/photo-1601050690597-df0568f70950?w=1600&q=80')` }}
       >
-        <div className="absolute inset-0 bg-black/60 z-10" />
+        <div className="absolute inset-0 z-10" />
         <div className="relative z-20">
           <h1 className="font-playfair font-black text-4xl md:text-6xl text-[#FFFFFF] mb-3 tracking-wide drop-shadow-md">
             Gallery
@@ -79,7 +79,7 @@ const GalleryPage = () => {
           >
             <button 
               onClick={() => setLightboxImg(null)} 
-              className="absolute top-6 right-6 text-zinc-400 hover:text-white p-3 rounded-full bg-white/5 border border-white/10 transition-colors"
+              className="absolute top-6 right-6 text-zinc-400 hover:text-white p-3 rounded-full transition-colors"
               title="Close lightbox"
             >
               <X size={24} />

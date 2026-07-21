@@ -159,7 +159,7 @@ const ContactForm = () => {
  
  <ul className="space-y-6">
  <li className="flex items-start gap-4">
- <div className="w-12 h-12 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center text-green-500 shrink-0 shadow-lg">
+ <div className="w-12 h-12 rounded-xl flex items-center justify-center text-green-500 shrink-0 shadow-lg">
  <Phone size={20} />
  </div>
  <div>
@@ -180,7 +180,7 @@ const ContactForm = () => {
  </li>
 
  <li className="flex items-start gap-4">
- <div className="w-12 h-12 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center text-green-500 shrink-0 shadow-lg">
+ <div className="w-12 h-12 rounded-xl flex items-center justify-center text-green-500 shrink-0 shadow-lg">
  <Mail size={20} />
  </div>
  <div>
@@ -190,7 +190,7 @@ const ContactForm = () => {
  </li>
 
  <li className="flex items-start gap-4">
- <div className="w-12 h-12 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center text-green-500 shrink-0 shadow-lg">
+ <div className="w-12 h-12 rounded-xl flex items-center justify-center text-green-500 shrink-0 shadow-lg">
  <MapPin size={20} />
  </div>
   <div>

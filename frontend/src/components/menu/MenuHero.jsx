@@ -10,7 +10,7 @@ const MenuHero = () => {
  className="absolute inset-0 mix-blend-overlay bg-cover bg-center grayscale"
  style={{ backgroundImage: "url('https://images.unsplash.com/photo-1555244162-833832eb1c18?w=1600')" }}
  ></div>
- <div className="absolute inset-0 bg-gradient-to-b from-zinc-950/80 via-zinc-950/90 to-zinc-950"></div>
+ <div className="absolute inset-0"></div>
  </div>
 
  {/* Content */}

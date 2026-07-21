@@ -84,7 +84,7 @@ const Hero = () => {
             }`}
           />
         ))}
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-black/60"></div>
+        <div className="absolute inset-0"></div>
       </div>
 
       {/* Left Vertical Navigation */}
@@ -98,7 +98,7 @@ const Hero = () => {
               className={`rounded-full transition-all duration-500 focus:outline-none cursor-pointer ${
                 isActive 
                   ? 'w-3 h-8 bg-green-500 shadow-[0_0_12px_rgba(13,205,106,0.8)]'
-                  : 'w-3 h-3 bg-white/30 hover:bg-white/60'
+                  : 'w-3 h-3 bg-transparent hover:bg-transparent'
               }`}
               title={theme.label}
               aria-label={`Go to slide ${theme.label}`}
@@ -148,7 +148,7 @@ const Hero = () => {
         <div className="flex flex-col sm:flex-row gap-6 justify-center items-center w-full max-w-md mx-auto">
           <button 
             onClick={handleBookEstimate}
-            className="group w-full sm:w-auto border border-white/30 text-white hover:bg-white/10 pl-8 pr-2 py-2 rounded-full flex items-center justify-between sm:justify-start gap-4 transition-all duration-300 cursor-pointer shadow-lg backdrop-blur-sm"
+            className="group w-full sm:w-auto text-white pl-8 pr-2 py-2 rounded-full flex items-center justify-between sm:justify-start gap-4 transition-all duration-300 cursor-pointer shadow-lg backdrop-blur-sm"
           >
             <span className="font-bold text-xs uppercase tracking-[0.2em]">Book Catering</span>
             <div className="w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 bg-green-500 text-black shadow-[0_0_12px_rgba(13,205,106,0.5)]">
@@ -158,10 +158,10 @@ const Hero = () => {
 
           <Link to="/menu" className="w-full sm:w-auto">
             <button 
-              className="group w-full sm:w-auto border border-white/20 text-white hover:bg-white/10 pl-8 pr-2 py-2 rounded-full flex items-center justify-between sm:justify-start gap-4 transition-all duration-300 cursor-pointer shadow-lg backdrop-blur-sm"
+              className="group w-full sm:w-auto text-white pl-8 pr-2 py-2 rounded-full flex items-center justify-between sm:justify-start gap-4 transition-all duration-300 cursor-pointer shadow-lg backdrop-blur-sm"
             >
               <span className="font-bold text-xs uppercase tracking-[0.2em]">Explore Menus</span>
-              <div className="w-10 h-10 rounded-full bg-white/10 text-white group-hover:bg-white/20 flex items-center justify-center transition-all duration-300">
+              <div className="w-10 h-10 rounded-full text-white flex items-center justify-center transition-all duration-300">
                 <ChevronRight size={18} className="group-hover:translate-x-0.5 transition-transform" />
               </div>
             </button>
@@ -174,7 +174,7 @@ const Hero = () => {
         <motion.div 
           animate={{ y: [0, 8, 0] }}
           transition={{ repeat: Infinity, duration: 1.5 }}
-          className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center text-white bg-white/5 backdrop-blur-sm"
+          className="w-8 h-8 rounded-full flex items-center justify-center text-white backdrop-blur-sm"
         >
           <ArrowDown size={14} />
         </motion.div>

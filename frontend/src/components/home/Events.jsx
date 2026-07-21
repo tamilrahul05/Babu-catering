@@ -114,7 +114,7 @@ const Events = () => {
    loading="lazy"
    className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
    />
-   <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/20 to-transparent group-hover:opacity-0 transition-opacity duration-300"></div>
+   <div className="absolute inset-0 group-hover:opacity-0 transition-opacity duration-300"></div>
    </div>
 
    {/* Solid Footer Content */}

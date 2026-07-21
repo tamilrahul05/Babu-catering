@@ -4,7 +4,7 @@ import { Camera } from 'lucide-react';
 
 const GalleryTeaser = () => {
   const previewImages = [
-    { id: 1, title: 'Desserts', img: 'https://images.unsplash.com/photo-1579954115545-a95591f28bec?w=800' },
+    { id: 1, title: 'Desserts', img: 'https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=800' },
     { id: 2, title: 'Traditional Thali', img: 'https://images.unsplash.com/photo-1601050690597-df0568f70950?w=800' },
     { id: 3, title: 'Banana Leaf Feast', img: 'https://images.unsplash.com/photo-1610192244261-3f33de3f55e4?w=800' }
   ];
@@ -39,7 +39,7 @@ const GalleryTeaser = () => {
                 alt={item.title} 
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end justify-center p-6">
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end justify-center p-6">
                 <span className="font-playfair text-lg text-white font-bold tracking-wide">{item.title}</span>
               </div>
             </div>

@@ -73,7 +73,7 @@ const Footer = () => {
                   href={item.link} 
                   target="_blank" 
                   rel="noopener noreferrer" 
-                  className="w-10 h-10 rounded-xl bg-white/5 border border-white/5 flex items-center justify-center text-zinc-400 hover:text-[#0DCD6A] hover:border-[#0DCD6A]/35 hover:bg-white/10 transition-all duration-300 shadow-md"
+                  className="w-10 h-10 rounded-xl flex items-center justify-center text-zinc-400 hover:text-[#0DCD6A] hover:border-[#0DCD6A]/35 transition-all duration-300 shadow-md"
                 >
                   {item.icon}
                 </a>

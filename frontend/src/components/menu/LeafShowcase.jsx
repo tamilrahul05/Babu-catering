@@ -16,7 +16,7 @@ const Showcase = ({ showPreview, setShowPreview, categoryId, selectedItems, hand
  {/* Close Button - Top Right Screen */}
  <button
  onClick={() => setShowPreview(false)}
- className="absolute top-6 right-6 w-12 h-12 bg-white/5 hover:bg-white/10 text-zinc-400 rounded-full flex items-center justify-center transition-colors z-50 border border-white/10"
+ className="absolute top-6 right-6 w-12 h-12 text-zinc-400 rounded-full flex items-center justify-center transition-colors z-50"
  >
  <span className="text-3xl leading-none">&times;</span>
  </button>
@@ -47,7 +47,7 @@ const Showcase = ({ showPreview, setShowPreview, categoryId, selectedItems, hand
  alt="Valai Ilai Setup"
  className="w-full h-full object-cover scale-105 md:scale-100"
  />
- <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/20"></div>
+ <div className="absolute inset-0"></div>
  </div>
 
  {/* Food Items Container */}
