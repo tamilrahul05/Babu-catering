@@ -9,7 +9,7 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [user, setUser] = useState(null);
-  
+
   const location = useLocation();
 
   useEffect(() => {
@@ -21,7 +21,7 @@ const Navbar = () => {
     if (storedUser) {
       setUser(JSON.parse(storedUser));
     }
-    
+
     handleScroll();
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
@@ -44,13 +44,12 @@ const Navbar = () => {
 
   return (
     <>
-      <nav 
-        className={`fixed left-1/2 -translate-x-1/2 z-[999] w-[95%] max-w-7xl h-[80px] md:h-[90px] rounded-[24px] flex items-center transition-all duration-500 ease-in-out border border-[#E8C766] bg-[#06200D] shadow-2xl ${
-          scrolled ? 'top-2 md:top-4' : 'top-4 md:top-6'
-        }`}
+      <nav
+        className={`fixed left-1/2 -translate-x-1/2 z-[999] w-[95%] max-w-7xl h-[80px] md:h-[90px] rounded-[24px] flex items-center transition-all duration-500 ease-in-out border border-[#E8C766] bg-[#06200D] shadow-2xl ${scrolled ? 'top-2 md:top-4' : 'top-4 md:top-6'
+          }`}
       >
         <div className="w-full h-full flex items-center justify-between px-6 md:px-8 relative">
-          
+
           {/* Logo & Brand */}
           <Link to="/" className="flex items-center gap-3 group h-full relative z-20">
             <div className="relative flex items-center justify-center bg-white rounded-full p-1 border-2 border-[#E8C766]">
@@ -71,39 +70,37 @@ const Navbar = () => {
             {navLinks.map((item) => {
               const active = isActive(item.path);
               return (
-                <Link 
-                  key={item.name} 
-                  to={item.path} 
-                  className={`relative flex items-center h-full group font-outfit text-[18px] font-bold uppercase tracking-[0.1em] transition-colors duration-300 ${
-                    active ? 'text-[#E8C766]' : 'text-[#FFFFFF] hover:text-[#E8C766]'
-                  }`}
+                <Link
+                  key={item.name}
+                  to={item.path}
+                  className={`relative flex items-center h-full group font-outfit text-[18px] font-bold uppercase tracking-[0.1em] transition-colors duration-300 ${active ? 'text-[#E8C766]' : 'text-[#FFFFFF] hover:text-[#E8C766]'
+                    }`}
                 >
                   {item.name}
-                  <span className={`absolute bottom-[25%] left-1/2 -translate-x-1/2 h-[2px] bg-[#E8C766] rounded-full transition-all duration-300 ${
-                    active ? 'w-[100%]' : 'w-0 group-hover:w-[100%]'
-                  }`}></span>
+                  <span className={`absolute bottom-[25%] left-1/2 -translate-x-1/2 h-[2px] bg-[#E8C766] rounded-full transition-all duration-300 ${active ? 'w-[100%]' : 'w-0 group-hover:w-[100%]'
+                    }`}></span>
                 </Link>
               );
             })}
           </div>
-          
+
           {/* Right Actions */}
           <div className="hidden lg:flex items-center gap-6 h-full relative z-20">
             <a href="https://wa.me/919944769090" target="_blank" rel="noreferrer" className="flex items-center justify-center text-[#FFFFFF] hover:text-[#0DCD6A] transition-colors duration-300" title="WhatsApp Us">
               <FaWhatsapp size={28} />
             </a>
 
-            <Link 
-              to="/booking" 
+            <Link
+              to="/booking"
               className="group flex items-center justify-center gap-2 px-6 py-2.5 rounded-full font-bold text-[12px] uppercase tracking-widest text-[#E8C766] border border-[#E8C766] bg-transparent hover:bg-[#E8C766]/10 transition-colors"
             >
-              <PhoneCall size={14} className="relative z-10" /> 
+              <PhoneCall size={14} className="relative z-10" />
               <span className="relative z-10">Book Catering</span>
             </Link>
           </div>
 
           {/* Mobile Menu Toggle */}
-          <button 
+          <button
             className="lg:hidden relative z-50 text-[#2ECC71] bg-[#111111] p-2.5 rounded-[12px] border border-[#D4AF37] transition-colors"
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle Menu"
@@ -116,7 +113,7 @@ const Navbar = () => {
       {/* Mobile Fullscreen Menu */}
       <AnimatePresence>
         {isOpen && (
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -133,11 +130,10 @@ const Navbar = () => {
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: i * 0.08 }}
                     >
-                      <Link 
-                        to={item.path} 
-                        className={`text-xl font-bold uppercase tracking-widest transition-colors duration-300 block ${
-                          active ? 'text-[#0DCD6A]' : 'text-zinc-100 hover:text-[#0DCD6A]'
-                        }`}
+                      <Link
+                        to={item.path}
+                        className={`text-xl font-bold uppercase tracking-widest transition-colors duration-300 block ${active ? 'text-[#0DCD6A]' : 'text-zinc-100 hover:text-[#0DCD6A]'
+                          }`}
                         onClick={() => setIsOpen(false)}
                       >
                         {item.name}
@@ -146,20 +142,20 @@ const Navbar = () => {
                   );
                 })}
               </div>
-              
+
               <div className="flex flex-col gap-3.5">
-                <a 
-                  href="https://wa.me/919944769090" 
-                  target="_blank" 
-                  rel="noreferrer" 
+                <a
+                  href="https://wa.me/919944769090"
+                  target="_blank"
+                  rel="noreferrer"
                   className="flex items-center justify-center gap-2 border border-green-500 text-green-700 bg-green-100 p-3.5 rounded-xl font-bold uppercase tracking-widest text-xs"
                 >
                   <FaWhatsapp size={16} /> WhatsApp Us
                 </a>
 
-                <Link 
-                  to="/booking" 
-                  onClick={() => setIsOpen(false)} 
+                <Link
+                  to="/booking"
+                  onClick={() => setIsOpen(false)}
                   className="btn-luxury-cta flex items-center justify-center gap-2 p-3.5 rounded-xl font-black uppercase tracking-widest text-xs text-black"
                 >
                   <PhoneCall size={16} /> Book Catering
