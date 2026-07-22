@@ -749,3 +749,67 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, .display-1, .display-2, .d
 .faq-wrapper, .faq-page-bg {
     background-color: #FAF8F2 !important;
 }
+
+/* ==============================================================
+   PERFECT MATCH - SECTION HEADERS & GALLERY CARDS
+   ============================================================== */
+
+/* Subtitle / Small Pill (Like VISUAL FEAST) */
+small.rounded-pill {
+    background-color: #E8F8F0 !important;
+    color: #0DCD6A !important;
+    border: 1px solid rgba(13, 205, 106, 0.3) !important;
+    font-family: var(--bs-font-sans-serif) !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.25em !important;
+    font-size: 11px !important;
+    padding: 6px 24px !important;
+    text-transform: uppercase !important;
+}
+
+/* Section Main Headings */
+h1.display-1, h1.display-2, h1.display-3, h1.display-4, h1.display-5, h1.display-6, .section-title h1 {
+    font-family: var(--heading-font) !important;
+    font-weight: 700 !important;
+}
+
+/* Replicating the italicized green accent in headings */
+h1 span, h1.display-5 span, h1.display-4 span {
+    color: #0DCD6A !important; /* Bright green */
+    font-style: italic !important;
+}
+
+/* Sub-heading / description text */
+p.text-dark, p.lead, p.fs-5, .section-title p {
+    color: #64748B !important;
+    font-size: 16px !important;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Heavily Rounded Gallery/Event Image Cards */
+.event-item, .blog-item, .menu-item, .gallery-item {
+    border-radius: 28px !important; /* Huge radius from screenshot */
+    border: none !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05) !important;
+    overflow: hidden !important;
+}
+
+.event-item img, .blog-item img, .menu-item img, .gallery-item img {
+    border-radius: 28px !important;
+}
+
+/* Optional: WhatsApp Floating button match */
+.floating-whatsapp {
+    background-color: #25D366 !important;
+    color: white !important;
+    width: 60px !important;
+    height: 60px !important;
+    border-radius: 50% !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4) !important;
+    font-size: 30px !important;
+}
